@@ -1,4 +1,4 @@
--- BADC5, IFSP-PRC, 2022 (1s)
+-- BADC5, IFSP-PRC, 2022
 -- Davi Trost Gouveia 		PC3010741
 -- Mateus Augusto Viotto	PC3008967
 -- Filipe Gomes Cruvinel 	PC3008797

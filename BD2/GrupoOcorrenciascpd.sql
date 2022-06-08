@@ -2,8 +2,9 @@
 -- Davi Trost Gouveia 		PC3010741
 -- Mateus Augusto Viotto	PC3008967
 -- Filipe Gomes Cruvinel 	PC3008797
--- Pedro Barriviera		PC3010155
 -- Júlio César Schendroski 	PC3010597
+-- Pedro Barriviera		PC3010155
+
 
 
 -- Instrucoes basicas:
@@ -147,7 +148,7 @@ INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_m
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('13/11/2019','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',23,2);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('03/02/2020','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',19,2);
 
--- 20 INSERTs - Pedro Barriviera
+-- 20 INSERTs - Júlio César Schendroski
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (45,'Ruben Cesário Colares',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (46,'Felipe Moreira Lopes',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (47,'Samuel Vasques Brião',3,'funcionário');
@@ -174,7 +175,7 @@ INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_m
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('20/06/2021','DD/MM/YYYY'),'Relatório de vendas',39,4);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('12/08/2021','DD/MM/YYYY'),'Relatório de vendas',40,4);
 
--- 20 INSERTs - Júlio César Schendroski
+-- 20 INSERTs - Pedro Barriviera
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (60,'Karina Medina Caparica',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (61,'Leonor Brites Reis',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (62,'Daiana Ferro Sabala',4,'funcionário');

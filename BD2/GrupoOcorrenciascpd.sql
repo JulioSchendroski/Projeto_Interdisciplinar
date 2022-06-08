@@ -66,9 +66,7 @@ create table tb.pessoa(
 -- [3] CARGA DE DADOS
 -- 100 tuplas no total e identificar quem fez as insercoes
 
--- 20 INSERTs - NomeSobrenome1
-
-
+-- 20 INSERTs - Davi Trost Gouveia
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (1,'Sienna Grande Corte-Real','diretor');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (2,'Kimberly Valério Barrocas','inativo','diretor');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (3,'Kamila Aleixo Alcântara','inativo','diretor');
@@ -84,6 +82,18 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (12,'T
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (13,'Yi Caparica Oleiro',1,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (14,'Lana Hipólito Estrada',1,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (15,'Eliza Boeira Rego',1,'funcionário');
+INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (74,'Raul Figueiroa Sintra','inativo',4,'funcionário');
+INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (2, 'Departamento Financeiro', 'O departamento financeiro é responsável por administrar todos os recursos de uma empresa. Sua função é exercer controle no fluxo de caixa, arantindo uma boa gestão sobre as despesas, receitas, repasse de recursos e demais movimentações financeiras.');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/05/2017','DD/MM/YYYY'),'Backup setor de informática',69,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/07/2017','DD/MM/YYYY'),'Averiguar falta de internet no setor financeiro',76,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/08/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/09/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('09/10/2017','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',18,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/10/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('06/11/2017','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',19,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/11/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
+
+-- 20 INSERTs - Mateus Augusto Viotto
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (16,'Natacha Sacadura Gravato',2,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (17,'Amélia Veríssimo Sodré',2,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (18,'Isís Tomé Robalo',2,'funcionário');
@@ -99,6 +109,18 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (27,'B
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (28,'Quessia Malho Valente',2,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (29,'Nilo Baldaia Malafaia',2,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (30,'Damien Belchiorinho Lustosa',2,'funcionário');
+INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (75,'Dominique Carreiro Canela','inativo',4,'funcionário');
+INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (3, 'Departamento Comercial', 'Rsponsável pelas atividades de venda da empresa, desde as estratégias de divulgação dos produtos ou serviços até a prospecção e fidelização de clientes.');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/11/2017','DD/MM/YYYY'),'Resolver problemas de rede no setor financeiro',59,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/12/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('10/01/2018','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',21,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/03/2018','DD/MM/YYYY'),'Gerar relatório das finanças no ano',29,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/06/2018','DD/MM/YYYY'),'Backup setor administrativo',70,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('05/06/2018','DD/MM/YYYY'),'Backup setor financeiro',71,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('08/06/2018','DD/MM/YYYY'),'Backup setor comercial',72,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/06/2018','DD/MM/YYYY'),'Backup setor de informática',73,4);
+
+-- 20 INSERTs - Filipe Gomes Cruvinel
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (31,'Azael Letras Reis',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (32,'Dânia Cardoso Toste',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (33,'Éder Bandeira Mesquita',3,'funcionário');
@@ -113,6 +135,19 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (41,'V
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (42,'Melânia Teixeira Cantanhede',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (43,'Rahyssa Taveira Gouveia',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (44,'Jeremias Olaio Barroqueiro',3,'funcionário');
+INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (76,'Santiago Castro Ventura','inativo',4,'funcionário');
+INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (4, 'Departamento de Informatica','Responsável pela criação de redes e manutenção dos computadores.');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('08/05/2017','DD/MM/YYYY'),'Backup setor comercial',67,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('13/11/2018','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',28,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('28/11/2018','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',21,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/04/2019','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',18,3);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/05/2019','DD/MM/YYYY'),'Resolver problemas de rede no setor administrativo',60,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/06/2019','DD/MM/YYYY'),'Resolver problemas de rede no setor administrativo',60,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('01/11/2019','DD/MM/YYYY'),'Gerar relatório das finanças no ano',18,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('13/11/2019','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',23,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('03/02/2020','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',19,2);
+
+-- 20 INSERTs - Pedro Barriviera
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (45,'Ruben Cesário Colares',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (46,'Felipe Moreira Lopes',3,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (47,'Samuel Vasques Brião',3,'funcionário');
@@ -128,6 +163,18 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (56,'J
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (57,'Amanda Tinoco Pereira',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (58,'Oceana Goulão Tabosa',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (59,'Anselmo Rijo Morão',4,'funcionário');
+INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (77,'Helena Chainho Leão','inativo',4,'funcionário');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/05/2017','DD/MM/YYYY'),'Backup setor administrativo',65,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('09/07/2020','DD/MM/YYYY'),'Gerar relatórios de compras ssd',21,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('07/11/2020','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',17,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('28/11/2020','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',21,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('31/01/2021','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',22,1);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('13/04/2021','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',16,3);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('17/05/2021','DD/MM/YYYY'),'Gerar relatório das finanças no ano',29,2);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('20/06/2021','DD/MM/YYYY'),'Relatório de vendas',39,4);
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('12/08/2021','DD/MM/YYYY'),'Relatório de vendas',40,4);
+
+-- 20 INSERTs - Júlio César Schendroski
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (60,'Karina Medina Caparica',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (61,'Leonor Brites Reis',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (62,'Daiana Ferro Sabala',4,'funcionário');
@@ -142,50 +189,9 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (70,'E
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (71,'Lívia Martinho Varanda',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (72,'Amina Atilano Guerreiro',4,'funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_depto_cod, p_cargo) VALUES (73,'Evelina Barroso Alves',4,'funcionário');
-INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (74,'Raul Figueiroa Sintra','inativo',4,'funcionário');
-INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (75,'Dominique Carreiro Canela','inativo',4,'funcionário');
-INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (76,'Santiago Castro Ventura','inativo',4,'funcionário');
-INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (77,'Helena Chainho Leão','inativo',4,'funcionário');
 INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (1, 'Departamento Administrativo', 'Lidera os demais setores e coordená-los para que haja alinhamento entre eles a fim de alcançar os resultados desejados pela empresa.');
-INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (2, 'Departamento Financeiro', 'O departamento financeiro é responsável por administrar todos os recursos de uma empresa. Sua função é exercer controle no fluxo de caixa, arantindo uma boa gestão sobre as despesas, receitas, repasse de recursos e demais movimentações financeiras.');
-INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (3, 'Departamento Comercial', 'Rsponsável pelas atividades de venda da empresa, desde as estratégias de divulgação dos produtos ou serviços até a prospecção e fidelização de clientes.');					   
-INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (4, 'Departamento de Informatica','Responsável pela criação de redes e manutenção dos computadores.');
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/05/2017','DD/MM/YYYY'),'Backup setor administrativo',65,4);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('05/05/2017','DD/MM/YYYY'),'Backup setor financeiro',66,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('08/05/2017','DD/MM/YYYY'),'Backup setor comercial',67,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/05/2017','DD/MM/YYYY'),'Backup setor de informática',69,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/07/2017','DD/MM/YYYY'),'Averiguar falta de internet no setor financeiro',76,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/08/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/09/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('09/10/2017','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',18,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/10/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('06/11/2017','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',19,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/11/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/11/2017','DD/MM/YYYY'),'Resolver problemas de rede no setor financeiro',59,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('11/12/2017','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',32,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('10/01/2018','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',21,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/03/2018','DD/MM/YYYY'),'Gerar relatório das finanças no ano',29,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('02/06/2018','DD/MM/YYYY'),'Backup setor administrativo',70,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('05/06/2018','DD/MM/YYYY'),'Backup setor financeiro',71,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('08/06/2018','DD/MM/YYYY'),'Backup setor comercial',72,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/06/2018','DD/MM/YYYY'),'Backup setor de informática',73,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('25/06/2018','DD/MM/YYYY'),'Averiguar falta de internet no setor administrativo',77,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('13/11/2018','DD/MM/YYYY'),'Gerar folha de pagamento para todos os setores',28,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('28/11/2018','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',21,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('15/04/2019','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',18,3);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/05/2019','DD/MM/YYYY'),'Resolver problemas de rede no setor administrativo',60,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('29/06/2019','DD/MM/YYYY'),'Resolver problemas de rede no setor administrativo',60,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('01/11/2019','DD/MM/YYYY'),'Gerar relatório das finanças no ano',18,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('13/11/2019','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',23,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('03/02/2020','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',19,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('09/07/2020','DD/MM/YYYY'),'Gerar relatórios de compras ssd',21,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('07/11/2020','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',17,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('28/11/2020','DD/MM/YYYY'),'Gerar relatório de salários pagos no semestre',21,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('31/01/2021','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',22,1);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('13/04/2021','DD/MM/YYYY'),'Gerar relatório de lucro no semestre',16,3);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('17/05/2021','DD/MM/YYYY'),'Gerar relatório das finanças no ano',29,2);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('20/06/2021','DD/MM/YYYY'),'Relatório de vendas',39,4);
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('12/08/2021','DD/MM/YYYY'),'Relatório de vendas',40,4);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('01/12/2021','DD/MM/YYYY'),'Gerar relatório das finanças no ano',17,2);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('22/12/2021','DD/MM/YYYY'),'Gerar relatório das finanças no setor comercial',20,2);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('encerrada','encerrada' ,to_date('08/02/2022','DD/MM/YYYY'),'Relatório de vendas',37,3);
@@ -195,23 +201,7 @@ INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_m
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('05/06/2022','DD/MM/YYYY'),'Colocar ssd em todas a maquinas do setor adiministrativo',57,4);
 INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','aberta' ,to_date('07/06/2022','DD/MM/YYYY'),'Configurar sub-rede do departamento financairo',73,4);
 
-
-
--- 20 INSERTs - NomeSobrenome2
-
-
--- 20 INSERTs - NomeSobrenome3
-
-
--- 20 INSERTs - NomeSobrenome4
-
-
--- 20 INSERTs - NomeSobrenome5
-
-
-
 -- UPDATEs possivelmente necessarios nas linhas abaixo:
-
 
 
 -- -----------------------
@@ -232,8 +222,6 @@ INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_m
 -- Importancia na aplicacao: 
 -- Usuario(s) atendido(s): 
 -- Apague esta linha e redija a consulta SQL aqui
-
-
 
 
 

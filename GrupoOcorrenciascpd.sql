@@ -12,7 +12,7 @@
 -- Este script precisa ser escrito de modo que possa ser executado completamente sem apresentar erros
 
 -- ----------------------------
--- [1] ESQUEMAS
+-- ✔[1] ESQUEMAS
 -- Criacao de pelo menos 1 esquema
 -- Nesse(s) esquema(s) serao criados: tabelas, visoes, funcoes, procedimentos, gatilhos, sequencias etc (vide secoes seguintes)
 create schema tb;
@@ -58,7 +58,7 @@ create table tb.pessoa(
  	constraint o_data_ck check(o_data <= current_date)
  );
 
--- NOTA== ALTER TABLE esquema.nometabela1 ADD CONSTRAINT...
+-- NOTA == ALTER TABLE esquema.nometabela1 ADD CONSTRAINT...
 
 
 

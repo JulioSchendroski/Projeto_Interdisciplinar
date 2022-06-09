@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using Npgsql;
+using NpgsqlTypes;
+using System.Windows.Forms;
+using System.IO;
 using System.Data;
 
 namespace Ocorrências_CPD
 {
     internal class csDiretor
     {
-        private conexaoMySQL conexao = new conexaoMySQL();
+        private conexaoPostgres conexao = new conexaoPostgres();
 
 
         private Int32 idFunc;
@@ -45,28 +48,28 @@ namespace Ocorrências_CPD
 
         public DataTable select()
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            //  MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "Select * from funcionarios;";
-            adapter = conexao.executaRetornaDados(sql);
-            adapter.Fill(tabela);
+            //   string sql = "Select * from funcionarios;";
+            //   adapter = conexao.executaRetornaDados(sql);
+            //  adapter.Fill(tabela);
             return tabela;
         }
 
         public void selectFunc()
         {
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataSet dataset = new DataSet();
-            string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
-            adapter = conexao.executaRetornaDados(sql);
-            adapter.Fill(dataset);
-            Console.WriteLine();
+            // MySqlDataAdapter adapter = new MySqlDataAdapter();
+            // DataSet dataset = new DataSet();
+            //string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
+            // adapter = conexao.executaRetornaDados(sql);
+            // adapter.Fill(dataset);
+            //Console.WriteLine();
 
-            nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
-            cpfFunc = Convert.ToInt64((dataset.Tables[0].Rows[0][1]).ToString());
-            cidadeFunc = dataset.Tables[0].Rows[0][2].ToString();
-            estadoFunc = dataset.Tables[0].Rows[0][3].ToString();
+            // nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
+            // cpfFunc = Convert.ToInt64((dataset.Tables[0].Rows[0][1]).ToString());
+            // cidadeFunc = dataset.Tables[0].Rows[0][2].ToString();
+            // estadoFunc = dataset.Tables[0].Rows[0][3].ToString();
         }
     }
-}
+    }

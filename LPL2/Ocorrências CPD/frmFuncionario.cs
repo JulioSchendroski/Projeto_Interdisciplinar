@@ -15,7 +15,7 @@ namespace Ocorrências_CPD
         public frmFuncionario()
         {
             InitializeComponent();
-            atualizarTabelas();
+            //atualizarTabelas();
         }
 
         csFuncionario func = new csFuncionario();

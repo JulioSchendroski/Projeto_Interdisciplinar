@@ -1,0 +1,38 @@
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe.config
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Ocorrências CPD.pdb
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.AssemblyReference.cache
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.SuggestedBindingRedirects.cache
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.ocorrenciasCPD.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.Properties.Resources.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.GenerateResource.cache
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CoreCompileInputs.cache
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.exe
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.pdb
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmFuncionario.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmDiretor.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmGerente.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Google.Protobuf.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\MySql.Data.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Buffers.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Memory.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\ZstdNet.dll
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Google.Protobuf.pdb
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\Google.Protobuf.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\MySql.Data.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Buffers.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Memory.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CopyComplete
+C:\Users\mateu\source\repos\Ocorrências CPD\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarFuncionario.resources

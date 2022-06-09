@@ -48,23 +48,23 @@ namespace Ocorrências_CPD
 
          public DataTable select()
         {
-        //  MySqlDataAdapter adapter = new MySqlDataAdapter();
+        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
           DataTable tabela = new DataTable();
-        //   string sql = "Select * from funcionarios;";
-        //   adapter = conexao.executaRetornaDados(sql);
-        //  adapter.Fill(tabela);
+             string sql = "select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' ORDER BY p_status DESC, d_nome ASC; ";
+         adapter = conexao.executaRetornaDados(sql);
+        adapter.Fill(tabela);
            return tabela;
         }
 
         public void selectFunc()
         {
 
-            // MySqlDataAdapter adapter = new MySqlDataAdapter();
-            // DataSet dataset = new DataSet();
-            //string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
-            // adapter = conexao.executaRetornaDados(sql);
-            // adapter.Fill(dataset);
-            //Console.WriteLine();
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataSet dataset = new DataSet();
+            string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(dataset);
+            Console.WriteLine();
 
             // nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
             // cpfFunc = Convert.ToInt64((dataset.Tables[0].Rows[0][1]).ToString());

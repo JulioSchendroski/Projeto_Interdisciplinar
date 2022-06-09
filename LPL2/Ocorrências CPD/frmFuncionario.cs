@@ -15,7 +15,7 @@ namespace Ocorrências_CPD
         public frmFuncionario()
         {
             InitializeComponent();
-            //atualizarTabelas();
+            atualizarTabelas();
         }
 
         csFuncionario func = new csFuncionario();
@@ -28,14 +28,9 @@ namespace Ocorrências_CPD
             grdFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
-            grdFuncionarios.Columns[0].HeaderText = "Produto";
-            grdFuncionarios.Columns[1].HeaderText = "Quantidade";
-            grdFuncionarios.Columns[2].HeaderText = "Produto";
-            grdFuncionarios.Columns[3].HeaderText = "Quantidade";
+            
 
 
-            grdFuncionarios.Columns[0].Width = 250;
-            grdFuncionarios.Columns[1].Width = 80;
             
         }
 
@@ -45,14 +40,7 @@ namespace Ocorrências_CPD
             grdOcorrencias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
-            grdOcorrencias.Columns[0].HeaderText = "Produto";
-            grdOcorrencias.Columns[1].HeaderText = "Quantidade";
-            grdOcorrencias.Columns[2].HeaderText = "Produto";
-            grdOcorrencias.Columns[3].HeaderText = "Quantidade";
-
-
-            grdOcorrencias.Columns[0].Width = 250;
-            grdOcorrencias.Columns[1].Width = 80;
+           
 
         }
 

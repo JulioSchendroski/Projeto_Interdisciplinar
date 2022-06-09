@@ -15,7 +15,7 @@ namespace Ocorrências_CPD
         public frmDiretor()
         {
             InitializeComponent();
-            //atualizarTabelas();
+            atualizarTabelas();
         }
 
         csFuncionario func = new csFuncionario();
@@ -23,24 +23,17 @@ namespace Ocorrências_CPD
 
 
         //FORMATAR TABELAS
-        private void formataGridFuncionarios()
+        private void formataGridDiretor()
         {
             grdGerentes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
-            grdGerentes.Columns[0].HeaderText = "Produto";
-            grdGerentes.Columns[1].HeaderText = "Quantidade";
-            grdGerentes.Columns[2].HeaderText = "Produto";
-            grdGerentes.Columns[3].HeaderText = "Quantidade";
-
-
-            grdGerentes.Columns[0].Width = 250;
-            grdGerentes.Columns[1].Width = 80;
+            
 
         }
 
 
-        private void formataGridOcorrencias()
+        private void formataGridDepartamento()
         {
             grdDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -60,8 +53,8 @@ namespace Ocorrências_CPD
         {
             grdDepartamentos.DataSource = func.select();
             grdGerentes.DataSource = ocorr.select();
-            formataGridFuncionarios();
-            formataGridOcorrencias();
+            formataGridDiretor();
+            formataGridDepartamento();
         }
 
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)

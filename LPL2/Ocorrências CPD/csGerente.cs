@@ -48,11 +48,12 @@ namespace Ocorrências_CPD
 
         public DataTable select()
         {
-            //  MySqlDataAdapter adapter = new MySqlDataAdapter();
+            
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            //   string sql = "Select * from funcionarios;";
-            //   adapter = conexao.executaRetornaDados(sql);
-            //  adapter.Fill(tabela);
+            string sql = "Select * from funcionarios;";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(tabela);
             return tabela;
         }
 

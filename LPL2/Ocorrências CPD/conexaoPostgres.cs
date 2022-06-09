@@ -19,7 +19,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                string connString = "Server=localhost;Port=5432;Database=ocorrenciaaascpd;UserId=postgres;Password=ifsp;sslmode=Prefer;";
+                string connString = "Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=postgres;Password=ifsp;sslmode=Prefer;";
                 conn = new NpgsqlConnection(connString);
                 conn.Open();
             }

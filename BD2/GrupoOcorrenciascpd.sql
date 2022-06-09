@@ -209,6 +209,143 @@ INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_m
 -- [4] CONSULTAS
 -- Alem do comando SELECT correspondente, fornecer o que se pede
 
+-- Seleciona todos os funcionários ordenando pelo status e departamento
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_cargo =
+'funcionário' ORDER BY
+p_status DESC, d_nome ASC;
+
+-- Seleciona todos as pessoas inativas por departamento
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'inativo' ORDER BY
+ p_cargo DESC;
+
+-- Seleciona todos as pessoas ativas por departamento
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'ativo' ORDER BY
+ p_cargo DESC, d_nome;
+
+-- Seleciona todos os gerentes ordenando pelo status e departamento
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_cargo = 'gerente' ORDER BY
+p_status DESC, d_nome ASC;
+
+-- Seleciona todos os diretores
+select p_nome as Nome, p_status as Status, p_cargo as Cargo from tb.pessoa 
+where p_cargo = 'diretor' ORDER BY
+p_status DESC;
+
+-- Seleciona todos os diretores ativos
+select p_nome as Nome, p_status as Status, p_cargo as Cargo from tb.pessoa 
+where p_cargo = 'diretor' and p_status = 'ativo' ORDER BY
+p_status DESC;
+
+-- Seleciona todos os diretores inativos
+select p_nome as Nome, p_status as Status, p_cargo as Cargo from tb.pessoa 
+where p_cargo = 'diretor' and p_status = 'inativo' ORDER BY p_status DESC;
+
+-- Seleciona todos as pessoas ativas no departamento Administrativo
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'ativo' and d_codigo = 1 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas ativas no departamento Financeiro
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'ativo' and d_codigo = 2 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas ativas no departamento Comercial
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'ativo' and d_codigo = 3 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas ativas no departamento de informática
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'ativo' and d_codigo = 4 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas inativas no departamento Administrativo
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'inativo' and d_codigo = 1 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas inativas no departamento Financeiro
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'inativo' and d_codigo = 2 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas inativas no departamento Comercial
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'inativo' and d_codigo = 3 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos as pessoas inativas no departamento de informática
+select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa 
+inner join tb.departamento on (p_depto_cod = d_codigo) where p_status = 'inativo' and d_codigo = 4 ORDER BY
+ p_cargo DESC, d_nome;
+ 
+ -- Seleciona todos os departamentos
+select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento order by d_codigo ASC;
+ 
+--Seleciona todas as ocorrencias
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
+order by o_status_def DESC, o_status_temp DESC, o_data ASC, d_nome ASC;
+
+--Seleciona todas as ocorrencias definitivamente encerradas
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_status_def = 'encerrada'
+order by o_data ASC, d_nome ASC;
+
+--Seleciona todas as ocorrencias temporariamente encerradas para encerrar definitivamente
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo 
+inner join tb.pessoa on p_matricula = o_matricula_func where o_status_def = 'aberta' and o_status_temp = 'encerrada'
+order by o_data ASC, d_nome ASC;
+
+--Seleciona todas as ocorrencias abertas
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo 
+inner join tb.pessoa on p_matricula = o_matricula_func where o_status_def = 'aberta' 
+order by o_data ASC, d_nome ASC;
+
+--Seleciona todas as ocorrencias do departamento Administrativo
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_depto_cod = 1
+order by o_status_def DESC, o_status_temp DESC, o_data ASC;
+
+--Seleciona todas as ocorrencias do departamento Financeiro
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_depto_cod = 2
+order by o_status_def DESC, o_status_temp DESC, o_data ASC;
+
+--Seleciona todas as ocorrencias do departamento Comercial
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_depto_cod = 3
+order by o_status_def DESC, o_status_temp DESC, o_data ASC;
+
+--Seleciona todas as ocorrencias do departamento de informática
+select o_numero as ID, o_data as data, o_status_temp 
+as status_temporário, o_status_def as status_definitivo, o_descricao 
+as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia 
+inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_depto_cod = 4
+order by o_status_def DESC, o_status_temp DESC, o_data ASC;
+
+
 -- [4.1] Listagem
 -- Usar jun''o('es) (JOINs), filtro(s) (WHERE), ordena''o (ORDER BY)
 -- Enunciado: 

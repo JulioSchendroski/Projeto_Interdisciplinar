@@ -538,30 +538,28 @@ order by o_status_def DESC, o_status_temp DESC, o_data ASC;
 -- Nessa criacao, considerar tanto papeis da equipe (administracao/desenvolvimento) quanto papeis de usuarios da aplicacao
 -- Para cada papel criado adicionar um comentario antes explicando qual e' a utilidade dele na aplicacao
 
-CREATE ROLE superadm;
-CREATE ROLE adm;
-CREATE ROLE funcionario;
-CREATE ROLE gerente;
-CREATE ROLE diretor;
+CREATE ROLE superadm WITH SUPERUSER;
+CREATE ROLE adm WITH LOGIN PASSWORD 'ifspadm';
+CREATE ROLE funcionario WITH LOGIN PASSWORD 'ifspfuncionario';
+CREATE ROLE gerente WITH LOGIN PASSWORD 'ifspgerente';
+CREATE ROLE diretor WITH LOGIN PASSWORD 'ifspdiretor';
 
 
 -- [11.3] PRIVILEGIOS DE ACESSO (Grant)
 
-GRANT CONNECT ON DATABASE tb.ocorrencia TO funcionario, gerente, diretor;
-GRANT CONNECT ON DATABASE tb.pessoa TO gerente;
-GRANT CONNECT ON DATABASE tb.departamento TO diretor;
+GRANT CONNECT ON DATABASE ocorrenciascpd TO funcionario, gerente, diretor;
 
 -- [11.3.1]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) criar o(s) esquema(s) da Secao 1
 -- Usuario(s) podem conceder esse acesso alem do superusuario:adm
 
-ALTER ROLE adm WITH CREATEDATABASE, CREATESCHEMA, CREATETABLESPACE
+GRANT CREATE ON DATABASE ocorrenciascpd TO adm;
 
 -- [11.3.2]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) criar a(s) tabela(s), as sequencias e as restricoes da Secao 2 e as visoes da Secao 5
 -- Usuario(s) podem conceder esse acesso alem do superusuario: adm
 GRANT USAGE ON SCHEMA tb, vw TO adm;
-GRANT SELECT, INSERT, UPDATE, VIEW ON tb.pessoa, tb.ocorrencia, tb.departamento TO adm;
+GRANT SELECT, INSERT, UPDATE ON TABLE tb.pessoa, tb.ocorrencia, tb.departamento TO adm;
 
 -- [11.3.3]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) inserir e atualizar tuplas, conforme a Secao 3
@@ -569,8 +567,8 @@ GRANT SELECT, INSERT, UPDATE, VIEW ON tb.pessoa, tb.ocorrencia, tb.departamento 
 
 GRANT USAGE ON SCHEMA tb TO gerente,diretor,funcionario;
 
-GRANT SELECT, INSERT, UPDATE, VIEW ON tb.pessoa, tb.ocorrencia TO gerente;
-GRANT SELECT, INSERT, UPDATE, VIEW ON tb.departamento TO diretor;
+GRANT SELECT, INSERT, UPDATE ON TABLE tb.pessoa, tb.ocorrencia TO gerente;
+GRANT SELECT, INSERT, UPDATE ON TABLE tb.departamento TO diretor;
 
 
 
@@ -580,7 +578,7 @@ GRANT SELECT, INSERT, UPDATE, VIEW ON tb.departamento TO diretor;
 -- Apagar essa linha e adicionar os comandos necessarios
 
 
-GRANT SELECT, UPDATE, VIEW ON tb.ocorrencias TO funcionario;
+GRANT SELECT, UPDATE ON TABLE tb.ocorrencia TO funcionario;
 
 
 -- [11.3.5]

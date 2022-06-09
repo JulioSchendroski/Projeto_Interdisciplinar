@@ -74,3 +74,6 @@ C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorr
 C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CopyComplete
 C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.exe
 C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.pdb
+C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarGerente.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDepartamento.resources
+C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarOcorrencias.resources

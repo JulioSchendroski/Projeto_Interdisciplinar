@@ -94,11 +94,29 @@
     <Compile Include="csFuncionario.cs" />
     <Compile Include="csGerente.cs" />
     <Compile Include="csOcorrencias.cs" />
+    <Compile Include="frmCadastrarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarDepartamento.Designer.cs">
+      <DependentUpon>frmCadastrarDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastrarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadastrarFuncionario.Designer.cs">
       <DependentUpon>frmCadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastrarGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarGerente.Designer.cs">
+      <DependentUpon>frmCadastrarGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastrarOcorrencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarOcorrencias.Designer.cs">
+      <DependentUpon>frmCadastrarOcorrencias.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiretor.cs">
       <SubType>Form</SubType>
@@ -126,8 +144,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadastrarDepartamento.resx">
+      <DependentUpon>frmCadastrarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastrarFuncionario.resx">
       <DependentUpon>frmCadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastrarGerente.resx">
+      <DependentUpon>frmCadastrarGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastrarOcorrencias.resx">
+      <DependentUpon>frmCadastrarOcorrencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiretor.resx">
       <DependentUpon>frmDiretor.cs</DependentUpon>

@@ -63,5 +63,17 @@ namespace Ocorrências_CPD
             formataGridFuncionarios();
             formataGridOcorrencias();
         }
+
+        private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastrarFuncionario fCadastrarFuncionario = new frmCadastrarFuncionario();
+            fCadastrarFuncionario.ShowDialog();
+        }
+
+        private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastrarOcorrencias fCadastrarOcorrencias = new frmCadastrarOcorrencias();
+            fCadastrarOcorrencias.ShowDialog();
+        }
     }
 }

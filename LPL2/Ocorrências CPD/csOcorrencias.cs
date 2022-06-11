@@ -12,20 +12,23 @@ using System.Data;
 namespace Ocorrências_CPD
 {
     internal class csOcorrencias
-    {
+    {   
+        //INSTANCIAMENTO DE CLASSES
         private conexaoPostgres conexao = new conexaoPostgres();
 
-
+        //DECLARAÇÃO DE VARIÁVEIS
         private Int64 idOcorrencia;
         private string nomeFunc;
         private string cidadeFunc;
         private string estadoFunc;
         private Int64 cpfFunc;
 
-
+        //GETS AND SETS
         public void setIdOcorrencia(Int64 idOcorrencia) {
             this.idOcorrencia = idOcorrencia;
         }
+
+        //INSERTS
         public void inserir()
         {
             //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
@@ -35,19 +38,21 @@ namespace Ocorrências_CPD
             conexao.executarSql(sql);
         }
 
+        //UPDATES
         public void updateFinalizarStatusDef() //Usuário altera o status temporário da ocorrência
         {
             string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+idOcorrencia+";";
             conexao.executarSql(sql);
         }
 
+        //DROPS
         public void delete()
         {
 
             string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =;";
             conexao.executarSql(sql);
         }
-
+        //SELECTS 
         public DataTable selectOcorrencias(int funcionario)
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();

@@ -20,12 +20,15 @@ namespace Ocorrências_CPD
             popularComboX();
         }
 
+        //INSTANCIAMENTO DE CLASSES
+
         private conexaoPostgres conexao = new conexaoPostgres();
         private csFuncionario func = new csFuncionario();
         private csOcorrencias ocorr = new csOcorrencias();
         private csDepartamento departamento = new csDepartamento();
         private csGerente gerente = new csGerente();
        
+        //DECLARAÇÃO DE VARIÁVEIS
 
         private string statusFunc;
         private int numeroDepartamento;
@@ -33,7 +36,7 @@ namespace Ocorrências_CPD
         private string situacaoOcorrencia;
 
 
-        //FORMATAR TABELAS e POPULAR COMBOBOX
+        //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
 
         private void popularComboX() {
 
@@ -85,7 +88,7 @@ namespace Ocorrências_CPD
 
 
         }
-
+        //PREENCHIMENTO DAS TABELAS
         private void preencheDadosControles() //Preenche grid ocorrencias 
         {
             numOcorrencia = func.getIdFuncionario();
@@ -100,7 +103,7 @@ namespace Ocorrências_CPD
             formataGridFuncionarios();
             formataGridOcorrencias();
         }
-        private void checkarSelectOcorrencias()
+        private void checkarSelectOcorrencias()//Checka qual filtro deve ser aplicado para mostrar as ocorrências
         {
             if (cbxSituacao.Text == "Todas")
             {
@@ -113,7 +116,7 @@ namespace Ocorrências_CPD
 
             }
         }
-        private void checkarSelectFuncionario() {
+        private void checkarSelectFuncionario() { //Checka qual filtro deve ser aplicado para mostrar os funcionários
             if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
             { grdFuncionarios.DataSource = func.selectTodosFuncionarios(); }
             else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text == "")
@@ -161,6 +164,8 @@ namespace Ocorrências_CPD
             }
 
         }
+
+        //AÇÃO AO CLICAR NO MENUSTRIP
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCadastrarFuncionario fCadastrarFuncionario = new frmCadastrarFuncionario();
@@ -173,6 +178,7 @@ namespace Ocorrências_CPD
             fCadastrarOcorrencias.ShowDialog();
         }
 
+        //AÇÃO AO CLICAR NOS BOTÕES
         private void btnResetar_Click_1(object sender, EventArgs e) //Reseta o combobox do departamento
         {
             cbxDepartamento.SelectedIndex = -1;
@@ -196,7 +202,7 @@ namespace Ocorrências_CPD
             
         }
 
-        //FILTROS DE COMBOBOX
+        //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             preencheDadosControles();

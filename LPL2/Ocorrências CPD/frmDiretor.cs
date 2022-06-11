@@ -51,8 +51,8 @@ namespace Ocorrências_CPD
 
         private void atualizarTabelas()
         {
-            grdDepartamentos.DataSource = func.select();
-            grdGerentes.DataSource = ocorr.select();
+            grdDepartamentos.DataSource = func.selectFuncionariosStatus("ativo");
+            
             formataGridDiretor();
             formataGridDepartamento();
         }
@@ -67,6 +67,11 @@ namespace Ocorrências_CPD
         {
             frmCadastrarDepartamento fCadastrarDepartamento = new frmCadastrarDepartamento();
             fCadastrarDepartamento.ShowDialog();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -163,6 +163,7 @@
             this.btnAtualizar.TabIndex = 17;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // grdGerentes
             // 

@@ -46,13 +46,13 @@ namespace Ocorrências_CPD
             conexao.executarSql(sql);
         }
 
-        public DataTable select()
+        public DataTable selectOcorrencias(int funcionario)
         {
-            //  MySqlDataAdapter adapter = new MySqlDataAdapter();
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            //   string sql = "Select * from funcionarios;";
-            //   adapter = conexao.executaRetornaDados(sql);
-            //  adapter.Fill(tabela);
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = "+funcionario+" order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(tabela);
             return tabela;
         }
 

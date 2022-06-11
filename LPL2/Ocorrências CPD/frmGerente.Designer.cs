@@ -29,46 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerente));
-            this.grdFuncionarios = new System.Windows.Forms.DataGridView();
             this.grdOcorrencias = new System.Windows.Forms.DataGridView();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbxOrdenarFuncionarios = new System.Windows.Forms.ComboBox();
-            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
-            this.cbxOrdenarOcorrencias = new System.Windows.Forms.ComboBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.painelGerente = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
+            this.grdFuncionarios = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             this.painelGerente.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grdFuncionarios
-            // 
-            this.grdFuncionarios.AllowUserToAddRows = false;
-            this.grdFuncionarios.AllowUserToDeleteRows = false;
-            this.grdFuncionarios.AllowUserToResizeColumns = false;
-            this.grdFuncionarios.AllowUserToResizeRows = false;
-            this.grdFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.grdFuncionarios.BackgroundColor = System.Drawing.Color.White;
-            this.grdFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.grdFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdFuncionarios.GridColor = System.Drawing.Color.DarkGray;
-            this.grdFuncionarios.Location = new System.Drawing.Point(4, 151);
-            this.grdFuncionarios.Margin = new System.Windows.Forms.Padding(4);
-            this.grdFuncionarios.Name = "grdFuncionarios";
-            this.grdFuncionarios.ReadOnly = true;
-            this.grdFuncionarios.Size = new System.Drawing.Size(398, 286);
-            this.grdFuncionarios.TabIndex = 6;
             // 
             // grdOcorrencias
             // 
@@ -88,15 +68,17 @@
             this.grdOcorrencias.ReadOnly = true;
             this.grdOcorrencias.Size = new System.Drawing.Size(398, 225);
             this.grdOcorrencias.TabIndex = 7;
+            this.grdOcorrencias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOcorrencias_CellClick);
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(691, 25);
+            this.btnAtualizar.Location = new System.Drawing.Point(333, 119);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(143, 34);
+            this.btnAtualizar.Size = new System.Drawing.Size(69, 21);
             this.btnAtualizar.TabIndex = 17;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // label1
             // 
@@ -118,37 +100,14 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Ocorrências";
             // 
-            // cbxOrdenarFuncionarios
-            // 
-            this.cbxOrdenarFuncionarios.FormattingEnabled = true;
-            this.cbxOrdenarFuncionarios.Items.AddRange(new object[] {
-            "Ordenar",
-            "Funcionário",
-            "Departamento",
-            "Status"});
-            this.cbxOrdenarFuncionarios.Location = new System.Drawing.Point(281, 119);
-            this.cbxOrdenarFuncionarios.Name = "cbxOrdenarFuncionarios";
-            this.cbxOrdenarFuncionarios.Size = new System.Drawing.Size(121, 21);
-            this.cbxOrdenarFuncionarios.TabIndex = 20;
-            this.cbxOrdenarFuncionarios.Text = "Ordenar";
-            // 
-            // cbxDepartamento
-            // 
-            this.cbxDepartamento.FormattingEnabled = true;
-            this.cbxDepartamento.Location = new System.Drawing.Point(7, 119);
-            this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(121, 21);
-            this.cbxDepartamento.TabIndex = 21;
-            this.cbxDepartamento.Text = "Departamento";
-            // 
             // cbxStatus
             // 
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Items.AddRange(new object[] {
             "Status",
-            "Ativo",
-            "Inativo"});
-            this.cbxStatus.Location = new System.Drawing.Point(145, 119);
+            "ativo",
+            "inativo"});
+            this.cbxStatus.Location = new System.Drawing.Point(192, 119);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(121, 21);
             this.cbxStatus.TabIndex = 22;
@@ -161,26 +120,11 @@
             "Situação",
             "Pendente",
             "Concluída"});
-            this.cbxSituacao.Location = new System.Drawing.Point(582, 119);
+            this.cbxSituacao.Location = new System.Drawing.Point(713, 119);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
             this.cbxSituacao.TabIndex = 23;
             this.cbxSituacao.Text = "Situação";
-            // 
-            // cbxOrdenarOcorrencias
-            // 
-            this.cbxOrdenarOcorrencias.FormattingEnabled = true;
-            this.cbxOrdenarOcorrencias.Items.AddRange(new object[] {
-            "Ordenar",
-            "Data",
-            "Status",
-            "Funcionário",
-            "Departamento"});
-            this.cbxOrdenarOcorrencias.Location = new System.Drawing.Point(713, 119);
-            this.cbxOrdenarOcorrencias.Name = "cbxOrdenarOcorrencias";
-            this.cbxOrdenarOcorrencias.Size = new System.Drawing.Size(121, 21);
-            this.cbxOrdenarOcorrencias.TabIndex = 24;
-            this.cbxOrdenarOcorrencias.Text = "Ordenar";
             // 
             // btnFinalizar
             // 
@@ -193,21 +137,43 @@
             // 
             // painelGerente
             // 
+            this.painelGerente.Controls.Add(this.grdFuncionarios);
+            this.painelGerente.Controls.Add(this.label3);
+            this.painelGerente.Controls.Add(this.cbxDepartamento);
             this.painelGerente.Controls.Add(this.btnFinalizar);
-            this.painelGerente.Controls.Add(this.cbxOrdenarOcorrencias);
             this.painelGerente.Controls.Add(this.cbxSituacao);
             this.painelGerente.Controls.Add(this.cbxStatus);
-            this.painelGerente.Controls.Add(this.cbxDepartamento);
-            this.painelGerente.Controls.Add(this.cbxOrdenarFuncionarios);
             this.painelGerente.Controls.Add(this.label2);
             this.painelGerente.Controls.Add(this.label1);
             this.painelGerente.Controls.Add(this.btnAtualizar);
             this.painelGerente.Controls.Add(this.grdOcorrencias);
-            this.painelGerente.Controls.Add(this.grdFuncionarios);
             this.painelGerente.Location = new System.Drawing.Point(13, 32);
             this.painelGerente.Name = "painelGerente";
             this.painelGerente.Size = new System.Drawing.Size(841, 441);
             this.painelGerente.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 15);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Departamentos";
+            // 
+            // cbxDepartamento
+            // 
+            this.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDepartamento.FormattingEnabled = true;
+            this.cbxDepartamento.Items.AddRange(new object[] {
+            "Status",
+            "ativo",
+            "inativo"});
+            this.cbxDepartamento.Location = new System.Drawing.Point(4, 119);
+            this.cbxDepartamento.Name = "cbxDepartamento";
+            this.cbxDepartamento.Size = new System.Drawing.Size(159, 21);
+            this.cbxDepartamento.TabIndex = 27;
             // 
             // menuStrip1
             // 
@@ -232,16 +198,32 @@
             // gerenteToolStripMenuItem
             // 
             this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
-            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.gerenteToolStripMenuItem.Text = "Funcionário";
             this.gerenteToolStripMenuItem.Click += new System.EventHandler(this.gerenteToolStripMenuItem_Click);
             // 
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.departamentoToolStripMenuItem.Text = "Ocorrência";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
+            // 
+            // grdFuncionarios
+            // 
+            this.grdFuncionarios.AllowUserToAddRows = false;
+            this.grdFuncionarios.AllowUserToDeleteRows = false;
+            this.grdFuncionarios.AllowUserToResizeColumns = false;
+            this.grdFuncionarios.AllowUserToResizeRows = false;
+            this.grdFuncionarios.BackgroundColor = System.Drawing.Color.White;
+            this.grdFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grdFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdFuncionarios.Location = new System.Drawing.Point(3, 151);
+            this.grdFuncionarios.Name = "grdFuncionarios";
+            this.grdFuncionarios.ReadOnly = true;
+            this.grdFuncionarios.Size = new System.Drawing.Size(399, 284);
+            this.grdFuncionarios.TabIndex = 29;
+            this.grdFuncionarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdFuncionarios_CellClick);
             // 
             // frmGerente
             // 
@@ -255,34 +237,32 @@
             this.MaximizeBox = false;
             this.Name = "frmGerente";
             this.Text = "Ocorrências CPD - Gerente";
-            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).EndInit();
             this.painelGerente.ResumeLayout(false);
             this.painelGerente.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView grdFuncionarios;
         private System.Windows.Forms.DataGridView grdOcorrencias;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbxOrdenarFuncionarios;
-        private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.ComboBox cbxSituacao;
-        private System.Windows.Forms.ComboBox cbxOrdenarOcorrencias;
         private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Panel painelGerente;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbxDepartamento;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView grdFuncionarios;
     }
 }

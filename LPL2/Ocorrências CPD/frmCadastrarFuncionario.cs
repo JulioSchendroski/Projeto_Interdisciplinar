@@ -22,7 +22,7 @@ namespace Ocorrências_CPD
 
         private void atualizarTabelas()
         {
-            grdFuncionarios.DataSource = func.select();
+            grdFuncionarios.DataSource = func.selectFuncionariosStatus("ativo");
             formataGridFuncionarios();
 
         }

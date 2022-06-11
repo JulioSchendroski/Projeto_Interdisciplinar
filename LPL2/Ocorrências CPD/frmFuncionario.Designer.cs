@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionario));
             this.panelFuncionario = new System.Windows.Forms.Panel();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.cbxOrdenarOcorrencias = new System.Windows.Forms.ComboBox();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.grdFuncionarios = new System.Windows.Forms.DataGridView();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.panelFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
@@ -66,6 +66,15 @@
             this.panelFuncionario.Name = "panelFuncionario";
             this.panelFuncionario.Size = new System.Drawing.Size(838, 457);
             this.panelFuncionario.TabIndex = 0;
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Location = new System.Drawing.Point(691, 407);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(143, 32);
+            this.btnFinalizar.TabIndex = 16;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
             // 
             // cbxOrdenarOcorrencias
             // 
@@ -100,8 +109,8 @@
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Items.AddRange(new object[] {
             "Status",
-            "Ativo",
-            "Inativo"});
+            "ativo",
+            "inativo"});
             this.cbxStatus.Location = new System.Drawing.Point(145, 123);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(121, 21);
@@ -178,6 +187,7 @@
             this.btnAtualizar.TabIndex = 6;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // grdFuncionarios
             // 
@@ -197,15 +207,6 @@
             this.grdFuncionarios.ReadOnly = true;
             this.grdFuncionarios.Size = new System.Drawing.Size(398, 306);
             this.grdFuncionarios.TabIndex = 5;
-            // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.Location = new System.Drawing.Point(691, 407);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(143, 32);
-            this.btnFinalizar.TabIndex = 16;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
             // 
             // frmFuncionario
             // 

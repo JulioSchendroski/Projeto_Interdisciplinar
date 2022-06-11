@@ -14,24 +14,23 @@ namespace Ocorrências_CPD
     {
         public frmFuncionario()
         {
+            
             InitializeComponent();
             atualizarTabelas();
         }
 
         csFuncionario func = new csFuncionario();
         csOcorrencias ocorr = new csOcorrencias();
-        
+
+        public string ordenarFunc;
+
+        public string getOrdenarFunc(){ return ordenarFunc; } //get
        
         //FORMATAR TABELAS
         private void formataGridFuncionarios()
         {
             grdFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-
-            
-
-
-            
+  
         }
 
 
@@ -46,10 +45,17 @@ namespace Ocorrências_CPD
 
         private void atualizarTabelas()
         {
-            grdFuncionarios.DataSource = func.select();
-            grdOcorrencias.DataSource = ocorr.select();
+            ordenarFunc = cbxOrdenarFuncionarios.Text;
+            if (ordenarFunc == "Ordenar") {ordenarFunc = "p_status"; }
+            grdFuncionarios.DataSource = func.selectFuncionariosStatus("ativo");
+            
             formataGridFuncionarios();
             formataGridOcorrencias();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

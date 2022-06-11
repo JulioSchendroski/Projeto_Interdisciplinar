@@ -11,19 +11,19 @@ using System.Data;
 
 namespace Ocorrências_CPD
 {
-    internal class csGerente
+    internal class csDepartamento
     {
         private conexaoPostgres conexao = new conexaoPostgres();
 
 
-        private Int64 idFunc;
+        private Int32 idFunc;
         private string nomeFunc;
         private string cidadeFunc;
         private string estadoFunc;
         private Int64 cpfFunc;
 
 
-        
+
         public void inserir()
         {
             //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
@@ -46,12 +46,11 @@ namespace Ocorrências_CPD
             conexao.executarSql(sql);
         }
 
-        public DataTable select()
+        public DataTable selectDepartamento()
         {
-            
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "Select * from funcionarios;";
+            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento order by d_codigo ASC;";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -73,4 +72,5 @@ namespace Ocorrências_CPD
             // estadoFunc = dataset.Tables[0].Rows[0][3].ToString();
         }
     }
-    }
+}
+

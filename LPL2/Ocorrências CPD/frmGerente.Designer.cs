@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerente));
             this.grdOcorrencias = new System.Windows.Forms.DataGridView();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.painelGerente = new System.Windows.Forms.Panel();
+            this.btnResetar = new System.Windows.Forms.Button();
+            this.grdFuncionarios = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grdFuncionarios = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             this.painelGerente.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdOcorrencias
@@ -69,16 +69,6 @@
             this.grdOcorrencias.Size = new System.Drawing.Size(398, 225);
             this.grdOcorrencias.TabIndex = 7;
             this.grdOcorrencias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOcorrencias_CellClick);
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(333, 119);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(69, 21);
-            this.btnAtualizar.TabIndex = 17;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // label1
             // 
@@ -104,27 +94,29 @@
             // 
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Items.AddRange(new object[] {
-            "Status",
+            "Todos",
             "ativo",
             "inativo"});
             this.cbxStatus.Location = new System.Drawing.Point(192, 119);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(121, 21);
             this.cbxStatus.TabIndex = 22;
-            this.cbxStatus.Text = "Status";
+            this.cbxStatus.Text = "Todos";
+            this.cbxStatus.SelectedIndexChanged += new System.EventHandler(this.cbxStatus_SelectedIndexChanged);
             // 
             // cbxSituacao
             // 
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
-            "Situação",
-            "Pendente",
-            "Concluída"});
+            "Todas",
+            "aberta",
+            "encerrada"});
             this.cbxSituacao.Location = new System.Drawing.Point(713, 119);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
             this.cbxSituacao.TabIndex = 23;
-            this.cbxSituacao.Text = "Situação";
+            this.cbxSituacao.Text = "Todas";
+            this.cbxSituacao.SelectedIndexChanged += new System.EventHandler(this.cbxSituacao_SelectedIndexChanged);
             // 
             // btnFinalizar
             // 
@@ -134,9 +126,11 @@
             this.btnFinalizar.TabIndex = 25;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // painelGerente
             // 
+            this.painelGerente.Controls.Add(this.btnResetar);
             this.painelGerente.Controls.Add(this.grdFuncionarios);
             this.painelGerente.Controls.Add(this.label3);
             this.painelGerente.Controls.Add(this.cbxDepartamento);
@@ -145,12 +139,38 @@
             this.painelGerente.Controls.Add(this.cbxStatus);
             this.painelGerente.Controls.Add(this.label2);
             this.painelGerente.Controls.Add(this.label1);
-            this.painelGerente.Controls.Add(this.btnAtualizar);
             this.painelGerente.Controls.Add(this.grdOcorrencias);
             this.painelGerente.Location = new System.Drawing.Point(13, 32);
             this.painelGerente.Name = "painelGerente";
             this.painelGerente.Size = new System.Drawing.Size(841, 441);
             this.painelGerente.TabIndex = 0;
+            // 
+            // btnResetar
+            // 
+            this.btnResetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetar.Location = new System.Drawing.Point(94, 92);
+            this.btnResetar.Name = "btnResetar";
+            this.btnResetar.Size = new System.Drawing.Size(50, 24);
+            this.btnResetar.TabIndex = 30;
+            this.btnResetar.Text = "Resetar";
+            this.btnResetar.UseVisualStyleBackColor = true;
+            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click_1);
+            // 
+            // grdFuncionarios
+            // 
+            this.grdFuncionarios.AllowUserToAddRows = false;
+            this.grdFuncionarios.AllowUserToDeleteRows = false;
+            this.grdFuncionarios.AllowUserToResizeColumns = false;
+            this.grdFuncionarios.AllowUserToResizeRows = false;
+            this.grdFuncionarios.BackgroundColor = System.Drawing.Color.White;
+            this.grdFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grdFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdFuncionarios.Location = new System.Drawing.Point(3, 151);
+            this.grdFuncionarios.Name = "grdFuncionarios";
+            this.grdFuncionarios.ReadOnly = true;
+            this.grdFuncionarios.Size = new System.Drawing.Size(399, 284);
+            this.grdFuncionarios.TabIndex = 29;
+            this.grdFuncionarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdFuncionarios_CellClick);
             // 
             // label3
             // 
@@ -174,6 +194,7 @@
             this.cbxDepartamento.Name = "cbxDepartamento";
             this.cbxDepartamento.Size = new System.Drawing.Size(159, 21);
             this.cbxDepartamento.TabIndex = 27;
+            this.cbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxDepartamento_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -209,22 +230,6 @@
             this.departamentoToolStripMenuItem.Text = "Ocorrência";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
-            // grdFuncionarios
-            // 
-            this.grdFuncionarios.AllowUserToAddRows = false;
-            this.grdFuncionarios.AllowUserToDeleteRows = false;
-            this.grdFuncionarios.AllowUserToResizeColumns = false;
-            this.grdFuncionarios.AllowUserToResizeRows = false;
-            this.grdFuncionarios.BackgroundColor = System.Drawing.Color.White;
-            this.grdFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.grdFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdFuncionarios.Location = new System.Drawing.Point(3, 151);
-            this.grdFuncionarios.Name = "grdFuncionarios";
-            this.grdFuncionarios.ReadOnly = true;
-            this.grdFuncionarios.Size = new System.Drawing.Size(399, 284);
-            this.grdFuncionarios.TabIndex = 29;
-            this.grdFuncionarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdFuncionarios_CellClick);
-            // 
             // frmGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,9 +245,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).EndInit();
             this.painelGerente.ResumeLayout(false);
             this.painelGerente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +255,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView grdOcorrencias;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxStatus;
@@ -264,5 +268,6 @@
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView grdFuncionarios;
+        private System.Windows.Forms.Button btnResetar;
     }
 }

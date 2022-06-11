@@ -30,6 +30,7 @@ namespace Ocorrências_CPD
         private string statusFunc;
         private int numeroDepartamento;
         private Int64 numOcorrencia;
+        private string situacaoOcorrencia;
 
 
         //FORMATAR TABELAS e POPULAR COMBOBOX
@@ -44,23 +45,52 @@ namespace Ocorrências_CPD
             cbxDepartamento.SelectedIndex = -1;
 
         }
-        private void formataGridFuncionarios()
+        private void formataGridFuncionarios() //formata as colunas da tabela Funcionario
         {
+            grdFuncionarios.Columns[0].HeaderText = "ID"; //matricula
+            grdFuncionarios.Columns[1].HeaderText = "Nome"; //nome
+            grdFuncionarios.Columns[2].HeaderText = "Status"; //status
+            grdFuncionarios.Columns[3].HeaderText = "Cargo"; //cargo
+            grdFuncionarios.Columns[4].HeaderText = "Departamento"; //departamento
+
+            grdFuncionarios.Columns[0].Width = 30; //matricula
+            grdFuncionarios.Columns[1].Width = 150; //nome
+            grdFuncionarios.Columns[2].Width = 70; //status
+            grdFuncionarios.Columns[3].Width = 70; //cargo
+            grdFuncionarios.Columns[4].Width = 150; //departamento
+
             grdFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
 
-        private void formataGridOcorrencias()
+        private void formataGridOcorrencias() //formata as colunas da tabela Ocorrências
         {
+            grdOcorrencias.Columns[0].HeaderText = "ID"; //id
+            grdOcorrencias.Columns[1].HeaderText = "Data"; //data
+            grdOcorrencias.Columns[2].HeaderText = "STemporário"; //status temporario
+            grdOcorrencias.Columns[3].HeaderText = "SDefinitivo"; //status definitivo
+            grdOcorrencias.Columns[4].HeaderText = "Descrição"; //descrição
+            grdOcorrencias.Columns[5].HeaderText = "Funcionário"; //funcionario
+            grdOcorrencias.Columns[6].HeaderText = "Departamento"; //departamento
+
+            grdOcorrencias.Columns[0].Width = 30; //id
+            grdOcorrencias.Columns[1].Width = 70; //data
+            grdOcorrencias.Columns[2].Width = 70; //status temporario
+            grdOcorrencias.Columns[3].Width = 70; //status definitivo
+            grdOcorrencias.Columns[4].Width = 260; //descrição
+            grdOcorrencias.Columns[5].Width = 150; //funcionario
+            grdOcorrencias.Columns[6].Width = 150; //departamento
+
             grdOcorrencias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
         }
 
-        private void preencheDadosControles() //Preenche ocorrencias ao clicar na célula do grd
+        private void preencheDadosControles() //Preenche grid ocorrencias 
         {
             numOcorrencia = func.getIdFuncionario();
-            grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia));
+
+            checkarSelectOcorrencias();
         }
 
         private void atualizarTabelas()
@@ -70,21 +100,33 @@ namespace Ocorrências_CPD
             formataGridFuncionarios();
             formataGridOcorrencias();
         }
+        private void checkarSelectOcorrencias()
+        {
+            if (cbxSituacao.Text == "Todas")
+            {
+                grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia));
+            }
+            else 
+            {
+                situacaoOcorrencia = cbxSituacao.Text;
+                grdOcorrencias.DataSource = ocorr.selectOcorrenciasSituacao(Convert.ToInt32(numOcorrencia), situacaoOcorrencia);
 
+            }
+        }
         private void checkarSelectFuncionario() {
-            if (cbxStatus.Text == "Status" && cbxDepartamento.Text == "")
+            if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
             { grdFuncionarios.DataSource = func.selectTodosFuncionarios(); }
-            else if (cbxStatus.Text != "Status" && cbxDepartamento.Text == "")
+            else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text == "")
             {
                 statusFunc = cbxStatus.Text;
                 grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc);
             }
-            else if (cbxStatus.Text == "Status" && cbxDepartamento.Text != "")
+            else if (cbxStatus.Text == "Todos" && cbxDepartamento.Text != "")
             {
                 numeroDepartamento = cbxDepartamento.SelectedIndex;
                 grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(numeroDepartamento);
             }
-            else if (cbxStatus.Text != "Status" && cbxDepartamento.Text != "")
+            else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text != "")
             {
                 statusFunc = cbxStatus.Text;
                 numeroDepartamento = cbxDepartamento.SelectedIndex;
@@ -107,7 +149,16 @@ namespace Ocorrências_CPD
         }
         private void grdOcorrencias_CellClick(object sender, DataGridViewCellEventArgs e) //Quando clica em uma celula
         {
-            
+            try
+            {
+                ocorr.setIdOcorrencia(Convert.ToInt64(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
 
         }
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,18 +173,43 @@ namespace Ocorrências_CPD
             fCadastrarOcorrencias.ShowDialog();
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private void btnResetar_Click_1(object sender, EventArgs e) //Reseta o combobox do departamento
         {
-            atualizarTabelas();
-        }
-
-        private void btnResetar_Click(object sender, EventArgs e)
-        {
-            cbxStatus.Text = "Status";
-            atualizarTabelas();
             cbxDepartamento.SelectedIndex = -1;
+            atualizarTabelas();
+            
         }
 
-       
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Tem certeza que deseja finalizar a ocorrência?", "Finalizar ocorrência",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Exclamation);
+
+            
+            if (result == DialogResult.Yes)
+            {
+                ocorr.updateFinalizarStatusDef();
+                preencheDadosControles();
+
+            }
+            
+        }
+
+        //FILTROS DE COMBOBOX
+        private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preencheDadosControles();
+        }
+
+        private void cbxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atualizarTabelas();
+        }
+
+        private void cbxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atualizarTabelas();
+        }
     }
 }

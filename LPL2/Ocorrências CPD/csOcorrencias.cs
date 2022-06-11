@@ -16,14 +16,16 @@ namespace Ocorrências_CPD
         private conexaoPostgres conexao = new conexaoPostgres();
 
 
-        private Int32 idFunc;
+        private Int64 idOcorrencia;
         private string nomeFunc;
         private string cidadeFunc;
         private string estadoFunc;
         private Int64 cpfFunc;
 
 
-
+        public void setIdOcorrencia(Int64 idOcorrencia) {
+            this.idOcorrencia = idOcorrencia;
+        }
         public void inserir()
         {
             //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
@@ -33,16 +35,16 @@ namespace Ocorrências_CPD
             conexao.executarSql(sql);
         }
 
-        public void update()
+        public void updateFinalizarStatusDef() //Usuário altera o status temporário da ocorrência
         {
-            string sql = "UPDATE funcionarios SET nomeFunc='" + nomeFunc + "',cpfFunc= " + cpfFunc + ",cidadeFunc='" + cidadeFunc + "',estadoFunc='" + estadoFunc + "' WHERE idFunc=" + idFunc + ";";
+            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+idOcorrencia+";";
             conexao.executarSql(sql);
         }
 
         public void delete()
         {
 
-            string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =" + idFunc.ToString() + ";";
+            string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =;";
             conexao.executarSql(sql);
         }
 
@@ -51,6 +53,15 @@ namespace Ocorrências_CPD
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
             string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = "+funcionario+" order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(tabela);
+            return tabela;
+        }
+        public DataTable selectOcorrenciasSituacao(int funcionario, string situacao)
+        {
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataTable tabela = new DataTable();
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = " + funcionario + " and o_status_def = '" + situacao+"' order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;

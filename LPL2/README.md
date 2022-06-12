@@ -12,13 +12,13 @@ Entrega de projeto final:
 - Apresentar a modelagem do banco de dados;
 
 - Apresentar a codificação, como foi organizado:
- -- Como foi feito a separação entre Front-End e back-End?
- -- Como está organizado as classes POJO e DAO?
- -- Como fez a conexão com o Banco de Dados?
- -- Onde implementou as funções solicitadas no enunciado:
- -- Existe algum conceito de POO implementado:
-     ---  Heranças;
-     ---  Conceito Todo-Parte;
-     ---  Polimorfismo;
-     ---  Sobre-Carga de métodos;
-     ---  Design-Pattern;
+-- Como foi feito a separação entre Front-End e back-End?
+-- Como está organizado as classes POJO e DAO?
+-- Como fez a conexão com o Banco de Dados?
+-- Onde implementou as funções solicitadas no enunciado:
+-- Existe algum conceito de POO implementado:
+---  Heranças;
+---  Conceito Todo-Parte;
+---  Polimorfismo;
+---  Sobre-Carga de métodos;
+---  Design-Pattern;

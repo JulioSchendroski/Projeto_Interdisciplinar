@@ -16,23 +16,34 @@ namespace Ocorrências_CPD
         {
             InitializeComponent();
         }
+
+        private Int32 idPessoa;
+        private string cargo;
+
+        csFuncionario func = new csFuncionario();
         
-        private void btnFuncionario_Click(object sender, EventArgs e)
-        {
-            frmFuncionario fFuncionario = new frmFuncionario();
-            fFuncionario.ShowDialog();
-        }
 
-        private void btnDiretor_Click(object sender, EventArgs e)
+        //CONFERE OS DADOS DO LOGIN
+        private void btnEntrar_Click(object sender, EventArgs e)
         {
-            frmDiretor fDiretor = new frmDiretor();
-            fDiretor.ShowDialog();
-        }
-
-        private void btnGerente_Click(object sender, EventArgs e)
-        {
-           frmGerente fGerente = new frmGerente();
-           fGerente.ShowDialog();
+            if (txtCargo.Text == "diretor" || txtCargo.Text == "gerente" || txtCargo.Text == "funcionário") {
+                try
+                {
+                    cargo = txtCargo.Text;
+                    idPessoa = Convert.ToInt32(Convert.ToDouble(txtMatricula.Text));
+                    func.selectEntrar(idPessoa, cargo);
+                }
+                catch (Exception) {
+                  MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Error);
+                }
+            }
+            else {
+                MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
         }
     }
 }

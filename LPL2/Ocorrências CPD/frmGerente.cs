@@ -141,7 +141,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                func.setIdFuncionario(Convert.ToInt64(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
+                func.setIdFuncionario(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
                 preencheDadosControles();
             }
             catch (Exception)

@@ -28,6 +28,8 @@ namespace Ocorrências_CPD
             this.idOcorrencia = idOcorrencia;
         }
 
+        public Int64 getIdOcorrencia() { return idOcorrencia;}
+
         //INSERTS
         public void inserir()
         {
@@ -39,7 +41,13 @@ namespace Ocorrências_CPD
         }
 
         //UPDATES
-        public void updateFinalizarStatusDef() //Usuário altera o status temporário da ocorrência
+        
+        public void updateFinalizarStatusTemp() //Funcionário altera o status temporário da ocorrência
+        {
+            string sql = "UPDATE tb.ocorrencia SET o_status_temp = 'encerrada' WHERE o_numero=" + idOcorrencia + ";";
+            conexao.executarSql(sql);
+        }
+        public void updateFinalizarStatusDef() //Gerente altera o status definitivo da ocorrência
         {
             string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+idOcorrencia+";";
             conexao.executarSql(sql);

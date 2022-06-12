@@ -29,53 +29,81 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ocorrenciasCPD));
-            this.btnFuncionario = new System.Windows.Forms.Button();
-            this.btnDiretor = new System.Windows.Forms.Button();
-            this.btnGerente = new System.Windows.Forms.Button();
+            this.txtCargo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnFuncionario
+            // txtCargo
             // 
-            this.btnFuncionario.Location = new System.Drawing.Point(103, 184);
-            this.btnFuncionario.Name = "btnFuncionario";
-            this.btnFuncionario.Size = new System.Drawing.Size(163, 103);
-            this.btnFuncionario.TabIndex = 0;
-            this.btnFuncionario.Text = "Funcionário";
-            this.btnFuncionario.UseVisualStyleBackColor = true;
-            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
+            this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.FormattingEnabled = true;
+            this.txtCargo.Items.AddRange(new object[] {
+            "funcionário",
+            "gerente",
+            "diretor"});
+            this.txtCargo.Location = new System.Drawing.Point(330, 179);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(197, 28);
+            this.txtCargo.TabIndex = 3;
             // 
-            // btnDiretor
+            // label1
             // 
-            this.btnDiretor.Location = new System.Drawing.Point(342, 184);
-            this.btnDiretor.Name = "btnDiretor";
-            this.btnDiretor.Size = new System.Drawing.Size(163, 103);
-            this.btnDiretor.TabIndex = 1;
-            this.btnDiretor.Text = "Diretor";
-            this.btnDiretor.UseVisualStyleBackColor = true;
-            this.btnDiretor.Click += new System.EventHandler(this.btnDiretor_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(326, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Cargo";
             // 
-            // btnGerente
+            // txtMatricula
             // 
-            this.btnGerente.Location = new System.Drawing.Point(590, 184);
-            this.btnGerente.Name = "btnGerente";
-            this.btnGerente.Size = new System.Drawing.Size(163, 103);
-            this.btnGerente.TabIndex = 2;
-            this.btnGerente.Text = "Gerente";
-            this.btnGerente.UseVisualStyleBackColor = true;
-            this.btnGerente.Click += new System.EventHandler(this.btnGerente_Click);
+            this.txtMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatricula.Location = new System.Drawing.Point(330, 241);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(197, 26);
+            this.txtMatricula.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(326, 218);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Matrícula";
+            // 
+            // btnEntrar
+            // 
+            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Location = new System.Drawing.Point(372, 273);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(107, 27);
+            this.btnEntrar.TabIndex = 7;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // ocorrenciasCPD
             // 
             this.ClientSize = new System.Drawing.Size(862, 481);
-            this.Controls.Add(this.btnGerente);
-            this.Controls.Add(this.btnDiretor);
-            this.Controls.Add(this.btnFuncionario);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtMatricula);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCargo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ocorrenciasCPD";
             this.Text = "Ocorrências CPD";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,9 +112,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel painelLogin;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnFuncionario;
-        private System.Windows.Forms.Button btnDiretor;
-        private System.Windows.Forms.Button btnGerente;
+        private System.Windows.Forms.ComboBox txtCargo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMatricula;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEntrar;
     }
 }
 

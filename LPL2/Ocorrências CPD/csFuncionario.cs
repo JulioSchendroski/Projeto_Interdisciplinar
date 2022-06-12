@@ -14,23 +14,25 @@ namespace Ocorrências_CPD
     internal class csFuncionario
     {
         private conexaoPostgres conexao = new conexaoPostgres();
-        
-
-        private Int64 idFunc;
+       
+        private Int32 idFunc;
         private string nomeFunc;
         private string status;
-        private string cargo;
-        private Int64 matricula;
+        private string cargo; 
         private string departamento;
         private string ordenarFunc;
 
 
-        public void setIdFuncionario(Int64 id)
+        public void setIdFuncionario(Int32 id)
         {
             idFunc = id;
         }
 
-        public Int64 getIdFuncionario() {return idFunc;}
+        public Int32 getIdFuncionario() {return idFunc;}
+        public string getNomeFuncionario() { return nomeFunc;}
+        public string getStatusFuncionario() { return status; }
+        public string getCargoFuncionario() { return cargo; }
+        public string getDepartamentoFuncionario() { return departamento; }
         public void inserir()
         {
             //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
@@ -81,7 +83,7 @@ namespace Ocorrências_CPD
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
             departamento += 1;
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status +"' and d_codigo = '" + departamento + "' ORDER BY p_cargo DESC, d_nome; ";
+            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status +"' and d_codigo = '" + departamento + "' and p_cargo = 'funcionário' ORDER BY p_cargo DESC, d_nome; ";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -91,7 +93,7 @@ namespace Ocorrências_CPD
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status + "' ORDER BY p_cargo DESC;";
+            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status + "' and p_cargo = 'funcionário' ORDER BY p_cargo DESC;";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -99,18 +101,61 @@ namespace Ocorrências_CPD
 
         public void selectFunc()
         {
-
+            
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and p_matricula = " +idFunc+ " ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select p_matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and p_matricula = "+idFunc+";";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();
 
-            nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
-            status = dataset.Tables[0].Rows[0][1].ToString();
-            cargo = dataset.Tables[0].Rows[0][2].ToString();
-            departamento = dataset.Tables[0].Rows[0][3].ToString();
+            idFunc = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            nomeFunc = dataset.Tables[0].Rows[0][1].ToString();
+            status = dataset.Tables[0].Rows[0][2].ToString();
+            cargo = dataset.Tables[0].Rows[0][3].ToString();
+            departamento = dataset.Tables[0].Rows[0][4].ToString();
+        }
+
+        //SELECT PARA CONFERIR SE OS DADOS DO LOGIN CONFEREM
+        public void selectEntrar(Int32 id, string cargo) {
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataSet dataset = new DataSet(); 
+            string sql = "select p_cargo, p_matricula from tb.pessoa where p_matricula = '"+id+"';";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(dataset);
+            Console.WriteLine();
+ 
+            this.cargo = dataset.Tables[0].Rows[0][0].ToString();
+            idFunc = id;
+            if (this.cargo == cargo)
+            {
+
+                if (this.cargo == "diretor")
+                {
+                    frmDiretor fDiretor = new frmDiretor();
+                    fDiretor.ShowDialog();
+                }
+                else if (this.cargo == "gerente")
+                {
+                    frmGerente fGerente = new frmGerente();
+                    fGerente.ShowDialog();
+                }
+                else if (this.cargo == "funcionário")
+                {
+                    frmFuncionario fFuncionario = new frmFuncionario(idFunc);
+                    fFuncionario.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+            }
+
+            
+
+            
         }
     }
 }

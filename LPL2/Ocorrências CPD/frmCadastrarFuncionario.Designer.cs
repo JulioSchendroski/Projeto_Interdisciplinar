@@ -40,7 +40,15 @@
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAlterar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSalvar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdFuncionarios
@@ -55,11 +63,11 @@
             this.grdFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grdFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFuncionarios.GridColor = System.Drawing.Color.DarkGray;
-            this.grdFuncionarios.Location = new System.Drawing.Point(459, 13);
+            this.grdFuncionarios.Location = new System.Drawing.Point(459, 59);
             this.grdFuncionarios.Margin = new System.Windows.Forms.Padding(4);
             this.grdFuncionarios.Name = "grdFuncionarios";
             this.grdFuncionarios.ReadOnly = true;
-            this.grdFuncionarios.Size = new System.Drawing.Size(398, 463);
+            this.grdFuncionarios.Size = new System.Drawing.Size(398, 417);
             this.grdFuncionarios.TabIndex = 8;
             // 
             // txtMatricula
@@ -164,6 +172,64 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Departamento";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNovo,
+            this.btnAlterar,
+            this.btnSalvar,
+            this.btnExcluir,
+            this.btnCancelar,
+            this.sairToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(870, 29);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(60, 25);
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(69, 25);
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(65, 25);
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(67, 25);
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(82, 25);
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(49, 25);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // frmCadastrarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,12 +246,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.grdFuncionarios);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmCadastrarFuncionario";
             this.Text = "Ocorrências CPD - Cadastrar Funcionário";
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +274,12 @@
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnNovo;
+        private System.Windows.Forms.ToolStripMenuItem btnAlterar;
+        private System.Windows.Forms.ToolStripMenuItem btnSalvar;
+        private System.Windows.Forms.ToolStripMenuItem btnExcluir;
+        private System.Windows.Forms.ToolStripMenuItem btnCancelar;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

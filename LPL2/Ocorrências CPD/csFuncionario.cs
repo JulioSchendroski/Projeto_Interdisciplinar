@@ -168,14 +168,15 @@ namespace Ocorrências_CPD
         public Boolean selectEntrar(Int32 id, string cargo) {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet(); 
-            string sql = "select p_cargo, p_matricula from tb.pessoa where p_matricula = '"+id+"';";
+            string sql = "select p_cargo, p_matricula, p_status from tb.pessoa where p_matricula = '"+id+"';";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();
  
             this.cargo = dataset.Tables[0].Rows[0][0].ToString();
+            this.status = dataset.Tables[0].Rows[0][2].ToString();
             idFunc = id;
-            if (this.cargo == cargo)
+            if (this.cargo == cargo && this.status == "ativo")
             {
 
                 if (this.cargo == "diretor")
@@ -197,15 +198,20 @@ namespace Ocorrências_CPD
             }
             else
             {
-                MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
+                if (this.cargo == cargo && this.status != "ativo")
+                {
+                    MessageBox.Show("Não é possível acessar uma conta de usuário inativo", "Erro!",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Error);
+                }
+                else if (this.cargo != cargo)
+                {
+                    MessageBox.Show("A matricula não confere com o cargo", "Erro!",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                }
                 return false;
-            }
-
-            
-
-            
+            }   
         }
     }
 }

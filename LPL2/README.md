@@ -10,6 +10,7 @@ Entrega de projeto final:
 - Apresentar a questão que foi resolvida (enunciado do problema);
 - Apresentar o diagrama de classe planejado;
 - Apresentar a modelagem do banco de dados;
+
 - Apresentar a codificação, como foi organizado:
  -- Como foi feito a separação entre Front-End e back-End?
  -- Como está organizado as classes POJO e DAO?

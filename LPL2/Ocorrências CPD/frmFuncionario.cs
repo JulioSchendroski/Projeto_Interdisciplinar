@@ -12,16 +12,18 @@ namespace Ocorrências_CPD
 {
     public partial class frmFuncionario : Form
     {
-
+        
         private Int32 id;
+        
         //CONSTRUTORES
         public frmFuncionario(Int32 id)
+
         {
             this.id = id;
             InitializeComponent();
             atualizarTabelas();
             preencheDadosFuncionario();
-            
+
         }
 
        

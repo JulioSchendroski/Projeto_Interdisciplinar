@@ -169,6 +169,12 @@
     <Compile Include="frmGerente.Designer.cs">
       <DependentUpon>frmGerente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisarFuncionario.Designer.cs">
+      <DependentUpon>frmPesquisarFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerente.resx">
       <DependentUpon>frmGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisarFuncionario.resx">
+      <DependentUpon>frmPesquisarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

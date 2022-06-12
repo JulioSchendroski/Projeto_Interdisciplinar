@@ -23,8 +23,7 @@ namespace Ocorrências_CPD
         private string descricao;
         private Int32 matriculaFuncionario;
         private Int32 depto_cod;
-        private string matriculaFuncionarioString;
-        private string depto_codString;
+        private string nomeFuncionario;
 
 
         //GETS E SETS
@@ -37,14 +36,14 @@ namespace Ocorrências_CPD
         public void setDeptoCod(Int32 depto_cod) { this.depto_cod = depto_cod; }
 
         public Int32 getONumero() { return o_numero; }
+        public string getNomeFuncionario(){return nomeFuncionario;}
         public string getStatusTemp() { return status_temp; }
         public string getStatusDef() { return status_def; }
         public string getData() { return data; }
         public string getDescricao() { return descricao; }
         public Int32 getMatriculaFuncionario() { return matriculaFuncionario; }
         public Int32 getDeptoCod() { return depto_cod; }
-        public string getMatriculaFuncionarioString() { return matriculaFuncionarioString; }
-        public string getDeptoCodString() { return depto_codString; }
+        
 
 
         //INSERTS
@@ -53,7 +52,7 @@ namespace Ocorrências_CPD
 
             try
             {
-                string sql = "INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('" + status_temp + "',to_date('" + data + "','DD/MM/YYYY'), '" + descricao + "'," + matriculaFuncionario + "," + depto_cod + ");";
+                string sql = "INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('aberta','" + status_temp + "',to_date('" + data + "','DD/MM/YYYY'), '" + descricao + "'," + matriculaFuncionario + "," + depto_cod + ");";
 
                 conexao.executarSql(sql);
             }
@@ -78,7 +77,7 @@ namespace Ocorrências_CPD
 
         public void update() 
         {
-            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero=" + o_numero + ";";
+            string sql = "UPDATE tb.ocorrencia SET o_data = to_date('" + data + "','DD/MM/YYYY'), o_matricula_func = "+matriculaFuncionario+", o_depto_cod = "+depto_cod+", o_descricao = '"+descricao+"' WHERE o_numero=" + o_numero + ";";
             conexao.executarSql(sql);
         }
 
@@ -136,4 +135,17 @@ namespace Ocorrências_CPD
             matriculaFuncionario = Convert.ToInt32(dataset.Tables[0].Rows[0][5]);
             depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][6]);
         }
+        public void selectNomeFuncionario() {
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataSet dataset = new DataSet();
+            string sql = "select p_nome from tb.pessoa  where p_matricula = "+matriculaFuncionario+";";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(dataset);
+            Console.WriteLine();
+
+            
+            nomeFuncionario = dataset.Tables[0].Rows[0][0].ToString();
+            
+        }
+
     } }

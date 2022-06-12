@@ -40,14 +40,6 @@ namespace Ocorrências_CPD
 
             cbxDepartamento.SelectedIndex = -1;
 
-            //populando combobox do departamento
-            cbxFuncionario.DataSource = func.selectTodosFuncionarios();
-            cbxFuncionario.ValueMember = "matricula";
-            cbxFuncionario.DisplayMember = "nome";
-
-            cbxFuncionario.SelectedIndex = -1;
-
-
         }
 
         //FORMATAÇÃO DA TABELA
@@ -150,11 +142,16 @@ namespace Ocorrências_CPD
         private void preencheDadosControles() //Altera os txtBox e cbx ao selecionario uma ocorrência
         {
             ocorrencias.selectOcorrenciaSingular();
-
+            
             txtData.Text = ocorrencias.getData();
             txtDescricao.Text = ocorrencias.getDescricao();
             cbxDepartamento.SelectedIndex = ocorrencias.getDeptoCod() - 1;
-            cbxFuncionario.SelectedIndex = ocorrencias.getMatriculaFuncionario() - 1;
+            txtID.Text = ocorrencias.getMatriculaFuncionario().ToString();
+
+            ocorrencias.selectNomeFuncionario();
+            txtNome.Text = ocorrencias.getNomeFuncionario();
+
+
         }
         private void limparControles()
         {
@@ -162,7 +159,8 @@ namespace Ocorrências_CPD
             txtData.Text = "";
             txtDescricao.Text = "";
             cbxDepartamento.SelectedIndex = -1;
-            cbxFuncionario.SelectedIndex = -1;
+            txtID.Text = "";
+            txtNome.Text = "";
             
         }
 
@@ -171,7 +169,7 @@ namespace Ocorrências_CPD
             txtData.Enabled = status;
             txtDescricao.Enabled = status;
             cbxDepartamento.Enabled = status;
-            cbxFuncionario.Enabled = status;
+            txtID.Enabled = status;
 
         }
 
@@ -210,11 +208,11 @@ namespace Ocorrências_CPD
                 cbxDepartamento.Focus();
                 return false;
             }
-            if (cbxFuncionario.Text.Trim().Length < 1)
+            if (txtID.Text.Trim().Length < 1)
             {
                 MessageBox.Show("O funcionário da Ocorrência é obrigatório.",
                     "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbxFuncionario.Focus();
+                txtID.Focus();
                 return false;
             }
 
@@ -227,7 +225,7 @@ namespace Ocorrências_CPD
             //Sets da ocorrência
             ocorrencias.setData(txtData.Text);
             ocorrencias.setDeptoCod(Convert.ToInt32(cbxDepartamento.SelectedIndex) + 1);
-            ocorrencias.setMatriculaFuncionario(Convert.ToInt32(cbxFuncionario.SelectedIndex));
+            ocorrencias.setMatriculaFuncionario(Convert.ToInt32(txtID.Text));
             ocorrencias.setDescricao(txtDescricao.Text);
             ocorrencias.setStatusDef("aberta");
             ocorrencias.setStatusTemp("aberta");
@@ -270,6 +268,28 @@ namespace Ocorrências_CPD
                 }
 
             }
+        }
+
+       
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ocorrencias.setMatriculaFuncionario(Convert.ToInt32(txtID.Text));
+                ocorrencias.selectNomeFuncionario();
+                txtNome.Text = ocorrencias.getNomeFuncionario();
+            }
+            catch {
+                txtNome.Text = "";
+            }
+            
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisarFuncionario pesquisar = new frmPesquisarFuncionario();
+            pesquisar.Show();
+            
         }
     }
 }

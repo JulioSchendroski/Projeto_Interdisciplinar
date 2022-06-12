@@ -31,10 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarOcorrencias));
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbxFuncionario = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.labelData = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.grdOcorrencias = new System.Windows.Forms.DataGridView();
@@ -45,6 +43,10 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtData = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,32 +58,20 @@
             this.cbxDepartamento.FormattingEnabled = true;
             this.cbxDepartamento.Items.AddRange(new object[] {
             "Departamentos"});
-            this.cbxDepartamento.Location = new System.Drawing.Point(286, 175);
+            this.cbxDepartamento.Location = new System.Drawing.Point(19, 239);
             this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(159, 28);
+            this.cbxDepartamento.Size = new System.Drawing.Size(247, 28);
             this.cbxDepartamento.TabIndex = 31;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(282, 154);
+            this.label5.Location = new System.Drawing.Point(15, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 20);
             this.label5.TabIndex = 30;
             this.label5.Text = "Departamento";
-            // 
-            // cbxFuncionario
-            // 
-            this.cbxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxFuncionario.FormattingEnabled = true;
-            this.cbxFuncionario.Items.AddRange(new object[] {
-            "Funcionários"});
-            this.cbxFuncionario.Location = new System.Drawing.Point(19, 175);
-            this.cbxFuncionario.Name = "cbxFuncionario";
-            this.cbxFuncionario.Size = new System.Drawing.Size(159, 28);
-            this.cbxFuncionario.TabIndex = 27;
             // 
             // label3
             // 
@@ -103,18 +93,10 @@
             this.labelData.TabIndex = 33;
             this.labelData.Text = "Data";
             // 
-            // txtData
-            // 
-            this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtData.Location = new System.Drawing.Point(19, 120);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(159, 26);
-            this.txtData.TabIndex = 32;
-            // 
             // txtDescricao
             // 
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(19, 234);
+            this.txtDescricao.Location = new System.Drawing.Point(19, 311);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(426, 108);
             this.txtDescricao.TabIndex = 34;
@@ -124,7 +106,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 211);
+            this.label4.Location = new System.Drawing.Point(15, 288);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 20);
             this.label4.TabIndex = 35;
@@ -207,20 +189,59 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(19, 175);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(58, 26);
+            this.txtID.TabIndex = 51;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(83, 175);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
+            this.txtNome.Size = new System.Drawing.Size(295, 26);
+            this.txtNome.TabIndex = 52;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(385, 175);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(60, 26);
+            this.btnPesquisar.TabIndex = 53;
+            this.btnPesquisar.Text = "pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtData
+            // 
+            this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtData.Location = new System.Drawing.Point(19, 120);
+            this.txtData.Mask = "00/00/0000";
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(88, 26);
+            this.txtData.TabIndex = 54;
+            // 
             // frmCadastrarOcorrencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 493);
+            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.grdOcorrencias);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.labelData);
-            this.Controls.Add(this.txtData);
             this.Controls.Add(this.cbxDepartamento);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cbxFuncionario);
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastrarOcorrencias";
@@ -237,10 +258,8 @@
 
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbxFuncionario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelData;
-        private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.RichTextBox txtDescricao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView grdOcorrencias;
@@ -251,5 +270,9 @@
         private System.Windows.Forms.ToolStripMenuItem btnExcluir;
         private System.Windows.Forms.ToolStripMenuItem btnCancelar;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.MaskedTextBox txtData;
     }
 }

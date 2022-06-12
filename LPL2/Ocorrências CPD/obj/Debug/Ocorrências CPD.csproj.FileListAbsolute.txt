@@ -157,3 +157,4 @@ C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\o
 C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CopyComplete
 C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.exe
 C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.pdb
+C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmPesquisarFuncionario.resources

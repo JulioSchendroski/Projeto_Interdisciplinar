@@ -150,6 +150,7 @@ namespace Ocorrências_CPD
             departamento = dataset.Tables[0].Rows[0][4].ToString();
         }
 
+        
         //SELECT PARA CONFERIR SE OS DADOS DO LOGIN CONFEREM
         public void selectEntrar(Int32 id, string cargo) {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();

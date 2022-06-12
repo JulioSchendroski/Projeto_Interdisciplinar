@@ -27,6 +27,7 @@ namespace Ocorrências_CPD
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             if (txtCargo.Text == "diretor" || txtCargo.Text == "gerente" || txtCargo.Text == "funcionário") {
+                
                 try
                 {
                     cargo = txtCargo.Text;
@@ -38,12 +39,14 @@ namespace Ocorrências_CPD
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Error);
                 }
+                
             }
             else {
                 MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Error);
             }
+            
         }
     }
 }

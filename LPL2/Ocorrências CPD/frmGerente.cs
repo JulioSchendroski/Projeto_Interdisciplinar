@@ -41,7 +41,7 @@ namespace Ocorrências_CPD
         private void popularComboX() {
 
             //populando combobox do departamento
-            cbxDepartamento.DataSource = departamento.selectDepartamento();
+            cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
             cbxDepartamento.ValueMember = "codigo";
             cbxDepartamento.DisplayMember = "nome";
             
@@ -154,7 +154,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                ocorr.setIdOcorrencia(Convert.ToInt64(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
+                ocorr.setONumero(Convert.ToInt32(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
                 
             }
             catch (Exception)
@@ -216,6 +216,11 @@ namespace Ocorrências_CPD
         private void cbxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             atualizarTabelas();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

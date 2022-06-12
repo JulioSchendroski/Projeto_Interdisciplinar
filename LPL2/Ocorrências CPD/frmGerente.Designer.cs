@@ -181,6 +181,7 @@
             this.label3.Size = new System.Drawing.Size(92, 15);
             this.label3.TabIndex = 28;
             this.label3.Text = "Departamentos";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cbxDepartamento
             // 

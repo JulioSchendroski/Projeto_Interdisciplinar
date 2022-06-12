@@ -20,41 +20,75 @@ namespace Ocorrências_CPD
         private string status;
         private string cargo; 
         private string departamento;
-        private string ordenarFunc;
+        private Int32 depto_cod;
+        
 
-
-        public void setIdFuncionario(Int32 id)
-        {
-            idFunc = id;
-        }
-
+        //GETS E SETS
+        public void setIdFuncionario(Int32 id){idFunc = id;}
+        public void setNomeFuncionario(string nomeFunc) { this.nomeFunc = nomeFunc;}
+        public void setStatusFuncionario(string status) { this.status = status;}
+        public void setCargoFuncionario(string cargo) { this.cargo = cargo;}
+        public void setDepartamentoFuncionario(Int32 depto_cod) { this.depto_cod = depto_cod + 1; }
+        
         public Int32 getIdFuncionario() {return idFunc;}
         public string getNomeFuncionario() { return nomeFunc;}
         public string getStatusFuncionario() { return status; }
         public string getCargoFuncionario() { return cargo; }
         public string getDepartamentoFuncionario() { return departamento; }
+
+        //INSERTS
         public void inserir()
         {
             //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
+            try
+            {
+                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + idFunc + ",'" + nomeFunc + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
 
-            string sql = "INSERT INTO funcionarios(nomeFunc, cpfFunc, cidadeFunc, ')";
-
-            conexao.executarSql(sql);
+                conexao.executarSql(sql);
+            }
+            catch (Exception) {
+                MessageBox.Show("Não foi possível adicionar o funcionário.", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
+        //UPDATES
         public void update()
         {
-            string sql = "UPDATE funcionarios SET nomeFunc='" + nomeFunc + "',cpfFunc= ,cidadeFunc='";
-            conexao.executarSql(sql);
+            try
+            {
+                string sql = "UPDATE tb.pessoa SET ";
+                sql += "p_nome ='" + nomeFunc + "', ";
+                sql += "p_depto_cod = " + depto_cod + ",";
+                sql += "p_status  ='" + status + "' ";
+                sql += " WHERE p_matricula =" + idFunc + ";";
+                
+
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível alterar o funcionário. Verifique a matrícula" , "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
-        public void delete()
+        //DROPS
+        public void delete() //Nenhum funcionário é excluido do banco quando se torna inativo
         {
+            try
+            {
+                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = "+idFunc+";";
 
-            string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =" + idFunc.ToString() + ";";
-            conexao.executarSql(sql);
+
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível alterar o funcionário. ", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            
         }
 
+        //SELECTS
          public DataTable selectTodosFuncionarios()
         {
             

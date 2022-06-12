@@ -109,7 +109,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                ocorr.setIdOcorrencia(Convert.ToInt64(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
+                ocorr.setONumero(Convert.ToInt32(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
                 
             }
             catch (Exception)

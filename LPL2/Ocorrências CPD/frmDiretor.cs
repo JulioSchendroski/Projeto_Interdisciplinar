@@ -38,7 +38,7 @@ namespace Ocorrências_CPD
         {
 
             //populando combobox do departamento
-            cbxDepartamento.DataSource = departamento.selectDepartamento();
+            cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
             cbxDepartamento.ValueMember = "codigo";
             cbxDepartamento.DisplayMember = "nome";
 
@@ -83,7 +83,7 @@ namespace Ocorrências_CPD
        
         private void atualizarTabelas()
         {
-            grdDepartamento.DataSource = departamento.selectDepartamento();
+            grdDepartamento.DataSource = departamento.selectTodosDepartamentos();
             checkarSelectGerentes();
             formataGridGerentes();
             formataGridDepartamento();
@@ -125,16 +125,7 @@ namespace Ocorrências_CPD
             fCadastrarDepartamento.ShowDialog();
         }
 
-        //AÇÃO AO CLICAR NOS BOTÕES
-        private void btnResetar_Click_1(object sender, EventArgs e) //Reseta o combobox do departamento
-        {
-            cbxDepartamento.SelectedIndex = -1;
-            atualizarTabelas();
-
-        }
-
-       
-
+        
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         
 
@@ -148,6 +139,10 @@ namespace Ocorrências_CPD
             atualizarTabelas();
         }
 
-        
+        private void btnResetar_Click(object sender, EventArgs e)
+        {
+            cbxDepartamento.SelectedIndex = -1;
+            atualizarTabelas();
+        }
     }
 }

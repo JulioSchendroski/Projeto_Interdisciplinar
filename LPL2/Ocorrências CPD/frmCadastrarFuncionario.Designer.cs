@@ -47,6 +47,10 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnResetar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbxFiltroDepartamento = new System.Windows.Forms.ComboBox();
+            this.cbxFiltroStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +73,7 @@
             this.grdFuncionarios.ReadOnly = true;
             this.grdFuncionarios.Size = new System.Drawing.Size(398, 417);
             this.grdFuncionarios.TabIndex = 8;
+            this.grdFuncionarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdFuncionarios_CellContentClick);
             // 
             // txtMatricula
             // 
@@ -122,8 +127,8 @@
             this.cbxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Items.AddRange(new object[] {
-            "Ativo",
-            "Inativo"});
+            "ativo",
+            "inativo"});
             this.cbxStatus.Location = new System.Drawing.Point(283, 107);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(159, 28);
@@ -157,16 +162,16 @@
             this.cbxDepartamento.Items.AddRange(new object[] {
             "Ativo",
             "Inativo"});
-            this.cbxDepartamento.Location = new System.Drawing.Point(283, 230);
+            this.cbxDepartamento.Location = new System.Drawing.Point(229, 230);
             this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(159, 28);
+            this.cbxDepartamento.Size = new System.Drawing.Size(213, 28);
             this.cbxDepartamento.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(279, 209);
+            this.label5.Location = new System.Drawing.Point(225, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 20);
             this.label5.TabIndex = 19;
@@ -230,11 +235,64 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
+            // btnResetar
+            // 
+            this.btnResetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetar.Location = new System.Drawing.Point(549, 5);
+            this.btnResetar.Name = "btnResetar";
+            this.btnResetar.Size = new System.Drawing.Size(50, 24);
+            this.btnResetar.TabIndex = 34;
+            this.btnResetar.Text = "Resetar";
+            this.btnResetar.UseVisualStyleBackColor = true;
+            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(458, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 15);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Departamentos";
+            // 
+            // cbxFiltroDepartamento
+            // 
+            this.cbxFiltroDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltroDepartamento.FormattingEnabled = true;
+            this.cbxFiltroDepartamento.Items.AddRange(new object[] {
+            "Status",
+            "ativo",
+            "inativo"});
+            this.cbxFiltroDepartamento.Location = new System.Drawing.Point(459, 32);
+            this.cbxFiltroDepartamento.Name = "cbxFiltroDepartamento";
+            this.cbxFiltroDepartamento.Size = new System.Drawing.Size(159, 21);
+            this.cbxFiltroDepartamento.TabIndex = 32;
+            this.cbxFiltroDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroDepartamento_SelectedIndexChanged);
+            // 
+            // cbxFiltroStatus
+            // 
+            this.cbxFiltroStatus.FormattingEnabled = true;
+            this.cbxFiltroStatus.Items.AddRange(new object[] {
+            "Todos",
+            "ativo",
+            "inativo"});
+            this.cbxFiltroStatus.Location = new System.Drawing.Point(736, 32);
+            this.cbxFiltroStatus.Name = "cbxFiltroStatus";
+            this.cbxFiltroStatus.Size = new System.Drawing.Size(121, 21);
+            this.cbxFiltroStatus.TabIndex = 31;
+            this.cbxFiltroStatus.Text = "Todos";
+            this.cbxFiltroStatus.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroStatus_SelectedIndexChanged);
+            // 
             // frmCadastrarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 489);
+            this.Controls.Add(this.btnResetar);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbxFiltroDepartamento);
+            this.Controls.Add(this.cbxFiltroStatus);
             this.Controls.Add(this.cbxDepartamento);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCargo);
@@ -281,5 +339,9 @@
         private System.Windows.Forms.ToolStripMenuItem btnExcluir;
         private System.Windows.Forms.ToolStripMenuItem btnCancelar;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.Button btnResetar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbxFiltroDepartamento;
+        private System.Windows.Forms.ComboBox cbxFiltroStatus;
     }
 }

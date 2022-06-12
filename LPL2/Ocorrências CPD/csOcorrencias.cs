@@ -12,46 +12,76 @@ using System.Data;
 namespace Ocorrências_CPD
 {
     internal class csOcorrencias
-    {   
-        //INSTANCIAMENTO DE CLASSES
+    {
         private conexaoPostgres conexao = new conexaoPostgres();
 
-        //DECLARAÇÃO DE VARIÁVEIS
-        private Int64 idOcorrencia;
-        private string nomeFunc;
-        private string cidadeFunc;
-        private string estadoFunc;
-        private Int64 cpfFunc;
 
-        //GETS AND SETS
-        public void setIdOcorrencia(Int64 idOcorrencia) {
-            this.idOcorrencia = idOcorrencia;
-        }
+        private Int32 o_numero;
+        private string status_temp;
+        private string status_def;
+        private string data;
+        private string descricao;
+        private Int32 matriculaFuncionario;
+        private Int32 depto_cod;
+        private string matriculaFuncionarioString;
+        private string depto_codString;
 
-        public Int64 getIdOcorrencia() { return idOcorrencia;}
+
+        //GETS E SETS
+        public void setONumero(Int32 o_numero) { this.o_numero = o_numero;}
+        public void setStatusTemp(string status_temp) { this.status_temp = status_temp; }
+        public void setStatusDef(string status_def) { this.status_def = status_def; }
+        public void setData(string data) { this.data = data; }
+        public void setDescricao(string descricao) { this.descricao = descricao; }
+        public void setMatriculaFuncionario(Int32 matriculaFuncionario) { this.matriculaFuncionario = matriculaFuncionario; }
+        public void setDeptoCod(Int32 depto_cod) { this.depto_cod = depto_cod; }
+
+        public Int32 getONumero() { return o_numero; }
+        public string getStatusTemp() { return status_temp; }
+        public string getStatusDef() { return status_def; }
+        public string getData() { return data; }
+        public string getDescricao() { return descricao; }
+        public Int32 getMatriculaFuncionario() { return matriculaFuncionario; }
+        public Int32 getDeptoCod() { return depto_cod; }
+        public string getMatriculaFuncionarioString() { return matriculaFuncionarioString; }
+        public string getDeptoCodString() { return depto_codString; }
+
 
         //INSERTS
         public void inserir()
         {
-            //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
 
-            string sql = "INSERT INTO funcionarios(nomeFunc, cpfFunc, cidadeFunc, estadoFunc) VALUES('" + nomeFunc + "'," + cpfFunc + ",'" + cidadeFunc + "','" + estadoFunc + "')";
+            try
+            {
+                string sql = "INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES ('" + status_temp + "',to_date('" + data + "','DD/MM/YYYY'), '" + descricao + "'," + matriculaFuncionario + "," + depto_cod + ");";
 
-            conexao.executarSql(sql);
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível adicionar a ocorrência.", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
         //UPDATES
-        
+
         public void updateFinalizarStatusTemp() //Funcionário altera o status temporário da ocorrência
         {
-            string sql = "UPDATE tb.ocorrencia SET o_status_temp = 'encerrada' WHERE o_numero=" + idOcorrencia + ";";
+            string sql = "UPDATE tb.ocorrencia SET o_status_temp = 'encerrada' WHERE o_numero=" + o_numero + ";";
             conexao.executarSql(sql);
         }
         public void updateFinalizarStatusDef() //Gerente altera o status definitivo da ocorrência
         {
-            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+idOcorrencia+";";
+            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+ o_numero + ";";
             conexao.executarSql(sql);
         }
+
+        public void update() 
+        {
+            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero=" + o_numero + ";";
+            conexao.executarSql(sql);
+        }
+
 
         //DROPS
         public void delete()
@@ -79,20 +109,31 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-
-        public void selectFunc()
+        public DataTable selectTodasOcorrencias()
+        {
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataTable tabela = new DataTable();
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func order by o_numero;";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(tabela);
+            return tabela;
+        }
+            public void selectOcorrenciaSingular()
         {
 
-            // MySqlDataAdapter adapter = new MySqlDataAdapter();
-            // DataSet dataset = new DataSet();
-            //string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
-            // adapter = conexao.executaRetornaDados(sql);
-            // adapter.Fill(dataset);
-            //Console.WriteLine();
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataSet dataset = new DataSet();
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,o_matricula_func as funcionário,o_depto_cod as departamento from tb.ocorrencia where o_numero = "+o_numero+"; ";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(dataset);
+            Console.WriteLine();
 
-            // nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
-            // cpfFunc = Convert.ToInt64((dataset.Tables[0].Rows[0][1]).ToString());
-            // cidadeFunc = dataset.Tables[0].Rows[0][2].ToString();
-            // estadoFunc = dataset.Tables[0].Rows[0][3].ToString();
+            o_numero = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            status_temp = dataset.Tables[0].Rows[0][2].ToString();
+            status_def = dataset.Tables[0].Rows[0][3].ToString();
+            data = dataset.Tables[0].Rows[0][1].ToString();
+            descricao = dataset.Tables[0].Rows[0][4].ToString();
+            matriculaFuncionario = Convert.ToInt32(dataset.Tables[0].Rows[0][5]);
+            depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][6]);
         }
     } }

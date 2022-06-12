@@ -106,6 +106,7 @@
             this.btnResetar.TabIndex = 30;
             this.btnResetar.Text = "Resetar";
             this.btnResetar.UseVisualStyleBackColor = true;
+            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
             // 
             // grdGerentes
             // 

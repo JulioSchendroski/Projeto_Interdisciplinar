@@ -16,61 +16,99 @@ namespace Ocorrências_CPD
         private conexaoPostgres conexao = new conexaoPostgres();
 
 
-        private Int32 idFunc;
-        private string nomeFunc;
-        private string cidadeFunc;
-        private string estadoFunc;
-        private Int64 cpfFunc;
+        private Int32 d_codigo;
+        private string d_nome;
+        private string d_descricao;
 
 
-
+        //GETS E SETS
+        public void setIdDepartamento(Int32 id) { d_codigo = id; }
+        public void setNomeDepartamento(string d_nome) { this.d_nome = d_nome; }
+        public void setDescricaoDepartamento(string d_descricao) { this.d_descricao = d_descricao;}
+     
+        public Int32 getIdDepartamento() { return d_codigo; }
+        public string getNomeDepartamento() { return d_nome; }
+        public string getDescricaoDepartamento() { return d_descricao;}
+    
+        //INSERTS
         public void inserir()
         {
-            //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
 
-            string sql = "INSERT INTO funcionarios(nomeFunc, cpfFunc, cidadeFunc, estadoFunc) VALUES('" + nomeFunc + "'," + cpfFunc + ",'" + cidadeFunc + "','" + estadoFunc + "')";
+            try
+            {
+                string sql = "INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (" + d_codigo + ",'" + d_nome + "', '" + d_descricao + "');";
 
-            conexao.executarSql(sql);
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível adicionar o departamento.", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
+        //UPDATES
         public void update()
         {
-            string sql = "UPDATE funcionarios SET nomeFunc='" + nomeFunc + "',cpfFunc= " + cpfFunc + ",cidadeFunc='" + cidadeFunc + "',estadoFunc='" + estadoFunc + "' WHERE idFunc=" + idFunc + ";";
-            conexao.executarSql(sql);
+            try
+            {
+                string sql = "UPDATE tb.departamento SET ";
+                sql += "d_nome ='" + d_nome + "', ";
+                sql += "d_descricao  ='" + d_descricao + "' ";
+                sql += " WHERE d_codigo =" + d_codigo + ";";
+
+
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível alterar o Departamento. Verifique o código", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
-        public void delete()
+        //DROPS
+        /*public void delete() //Nenhum gerente é excluido do banco quando se torna inativo
         {
+            try
+            {
+                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + idGeren + ";";
 
-            string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =" + idFunc.ToString() + ";";
-            conexao.executarSql(sql);
+
+                conexao.executarSql(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível alterar o gerente. ", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+
         }
-
-        public DataTable selectDepartamento()
+        */
+        //SELECTS
+        public DataTable selectTodosDepartamentos()
         {
+
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento order by d_codigo ASC;";
+            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento order by d_codigo ASC";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
         }
 
-        public void selectFunc()
+ 
+        public void selectDepartamento()
         {
 
-            // MySqlDataAdapter adapter = new MySqlDataAdapter();
-            // DataSet dataset = new DataSet();
-            //string sql = "SELECT nomeFunc, cpfFunc, cidadeFunc, estadoFunc FROM funcionarios WHERE idFunc = " + idFunc.ToString() + ";";
-            // adapter = conexao.executaRetornaDados(sql);
-            // adapter.Fill(dataset);
-            //Console.WriteLine();
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+            DataSet dataset = new DataSet();
+            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento where d_codigo = "+d_codigo+ ";";
+            adapter = conexao.executaRetornaDados(sql);
+            adapter.Fill(dataset);
+            Console.WriteLine();
 
-            // nomeFunc = dataset.Tables[0].Rows[0][0].ToString();
-            // cpfFunc = Convert.ToInt64((dataset.Tables[0].Rows[0][1]).ToString());
-            // cidadeFunc = dataset.Tables[0].Rows[0][2].ToString();
-            // estadoFunc = dataset.Tables[0].Rows[0][3].ToString();
+            d_codigo = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            d_nome = dataset.Tables[0].Rows[0][1].ToString();
+            d_descricao = dataset.Tables[0].Rows[0][2].ToString();
+            
         }
     }
 }
-

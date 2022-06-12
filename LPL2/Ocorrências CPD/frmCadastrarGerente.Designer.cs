@@ -308,6 +308,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastrarGerente";
             this.Text = "Ocorrências CPD - Cadastrar Gerente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastrarGerente_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.grdGerentes)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

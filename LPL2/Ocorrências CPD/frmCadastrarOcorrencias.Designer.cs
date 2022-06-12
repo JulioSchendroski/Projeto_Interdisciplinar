@@ -47,6 +47,10 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtData = new System.Windows.Forms.MaskedTextBox();
+            this.cbxSituacao = new System.Windows.Forms.ComboBox();
+            this.btnResetar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxFiltroDepartamento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -226,11 +230,64 @@
             this.txtData.Size = new System.Drawing.Size(88, 26);
             this.txtData.TabIndex = 54;
             // 
+            // cbxSituacao
+            // 
+            this.cbxSituacao.FormattingEnabled = true;
+            this.cbxSituacao.Items.AddRange(new object[] {
+            "Todas",
+            "aberta",
+            "encerrada"});
+            this.cbxSituacao.Location = new System.Drawing.Point(736, 45);
+            this.cbxSituacao.Name = "cbxSituacao";
+            this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cbxSituacao.TabIndex = 55;
+            this.cbxSituacao.Text = "Todas";
+            this.cbxSituacao.SelectedIndexChanged += new System.EventHandler(this.cbxSituacao_SelectedIndexChanged);
+            // 
+            // btnResetar
+            // 
+            this.btnResetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetar.Location = new System.Drawing.Point(549, 18);
+            this.btnResetar.Name = "btnResetar";
+            this.btnResetar.Size = new System.Drawing.Size(50, 24);
+            this.btnResetar.TabIndex = 58;
+            this.btnResetar.Text = "Resetar";
+            this.btnResetar.UseVisualStyleBackColor = true;
+            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(458, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 15);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Departamentos";
+            // 
+            // cbxFiltroDepartamento
+            // 
+            this.cbxFiltroDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltroDepartamento.FormattingEnabled = true;
+            this.cbxFiltroDepartamento.Items.AddRange(new object[] {
+            "Status",
+            "ativo",
+            "inativo"});
+            this.cbxFiltroDepartamento.Location = new System.Drawing.Point(459, 45);
+            this.cbxFiltroDepartamento.Name = "cbxFiltroDepartamento";
+            this.cbxFiltroDepartamento.Size = new System.Drawing.Size(159, 21);
+            this.cbxFiltroDepartamento.TabIndex = 56;
+            this.cbxFiltroDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroDepartamento_SelectedIndexChanged);
+            // 
             // frmCadastrarOcorrencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 493);
+            this.Controls.Add(this.btnResetar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbxFiltroDepartamento);
+            this.Controls.Add(this.cbxSituacao);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtNome);
@@ -246,6 +303,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastrarOcorrencias";
             this.Text = "Ocorrências CPD - Cadastrar Ocorrências";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastrarOcorrencias_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -274,5 +332,9 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.MaskedTextBox txtData;
+        private System.Windows.Forms.ComboBox cbxSituacao;
+        private System.Windows.Forms.Button btnResetar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxFiltroDepartamento;
     }
 }

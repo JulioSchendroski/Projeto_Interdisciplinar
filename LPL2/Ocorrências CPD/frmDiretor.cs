@@ -110,19 +110,27 @@ namespace Ocorrências_CPD
                 grdGerentes.DataSource = gerente.selectGerentesStatusDepartamentos(statusGeren, numeroDepartamento);
             }
         }
-        
+
 
         //AÇÃO AO CLICAR NO MENUSTRIP
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaLogin();
+        }
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarGerente fCadastrarGerente = new frmCadastrarGerente();
-            fCadastrarGerente.ShowDialog();
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaCadastrarGerente();
         }
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarDepartamento fCadastrarDepartamento = new frmCadastrarDepartamento();
-            fCadastrarDepartamento.ShowDialog();
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaCadastrarDepartamento();
         }
 
         
@@ -144,5 +152,7 @@ namespace Ocorrências_CPD
             cbxDepartamento.SelectedIndex = -1;
             atualizarTabelas();
         }
+
+        
     }
 }

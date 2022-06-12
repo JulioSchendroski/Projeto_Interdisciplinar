@@ -311,6 +311,7 @@
             this.MaximizeBox = false;
             this.Name = "frmCadastrarFuncionario";
             this.Text = "Ocorrências CPD - Cadastrar Funcionário";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastrarFuncionario_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

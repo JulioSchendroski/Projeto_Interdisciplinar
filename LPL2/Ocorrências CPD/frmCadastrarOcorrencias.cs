@@ -22,6 +22,10 @@ namespace Ocorrências_CPD
 
 
         }
+        //DECLARAÇÃO DE VARIÁVEIS
+        private Int64 numOcorrencia;
+        private string situacaoOcorrencia;
+        private Int32 numeroDepartamento;
 
         //INSTANCIAMENTO DE CLASSES
 
@@ -40,13 +44,20 @@ namespace Ocorrências_CPD
 
             cbxDepartamento.SelectedIndex = -1;
 
+            //populando combobox do departamento
+            cbxFiltroDepartamento.DataSource = departamento.selectTodosDepartamentos();
+            cbxFiltroDepartamento.ValueMember = "codigo";
+            cbxFiltroDepartamento.DisplayMember = "nome";
+
+            cbxFiltroDepartamento.SelectedIndex = -1;
+
         }
 
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas()
 
         {
-            grdOcorrencias.DataSource = ocorrencias.selectTodasOcorrencias();
+            checkarSelectOcorrencias();
             formataGridOcorrencias();
 
         }
@@ -138,6 +149,22 @@ namespace Ocorrências_CPD
             gerenciaBotoesBarra(false);
         }
 
+        //AÇÃO AO CLICAR NO FILTRO DAS OCORRÊNCIAS
+        private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atualizarTabelas();
+        }
+        private void cbxFiltroDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atualizarTabelas();
+        }
+
+        private void btnResetar_Click(object sender, EventArgs e)
+        {
+            cbxFiltroDepartamento.SelectedIndex = -1;
+            atualizarTabelas();
+        }
+
         //CONTROLE DA GRID
         private void preencheDadosControles() //Altera os txtBox e cbx ao selecionario uma ocorrência
         {
@@ -184,6 +211,28 @@ namespace Ocorrências_CPD
         }
 
         //VALIDAÇÃO DOS DADOS
+        private void checkarSelectOcorrencias()
+        { //Checka qual filtro deve ser aplicado para mostrar as ocorrencias
+            if (cbxSituacao.Text == "Todas" && cbxFiltroDepartamento.Text == "")
+            { grdOcorrencias.DataSource = ocorrencias.selectTodasOcorrencias(); }
+            else if (cbxSituacao.Text != "Todas" && cbxFiltroDepartamento.Text == "")
+            {
+                situacaoOcorrencia = cbxSituacao.Text;
+                grdOcorrencias.DataSource = ocorrencias.selectTodasOcorrenciasSituacao(situacaoOcorrencia);
+            }
+            else if (cbxSituacao.Text == "Todas" && cbxFiltroDepartamento.Text != "")
+            {
+                numeroDepartamento = cbxFiltroDepartamento.SelectedIndex + 1;
+                grdOcorrencias.DataSource = ocorrencias.selectTodasOcorrenciasDepartamento(numeroDepartamento);
+            }
+            else if (cbxSituacao.Text != "Todas" && cbxFiltroDepartamento.Text != "")
+            {
+                situacaoOcorrencia = cbxSituacao.Text;
+                numeroDepartamento = cbxFiltroDepartamento.SelectedIndex + 1;
+                grdOcorrencias.DataSource = ocorrencias.selectTodasOcorrenciasStatusDepartamentos(situacaoOcorrencia, numeroDepartamento);
+            }
+        }
+       
         private bool validaDados()
         {
             if (txtData.Text.Trim().Length <= 1)
@@ -291,5 +340,13 @@ namespace Ocorrências_CPD
             pesquisar.Show();
             
         }
+
+        private void frmCadastrarOcorrencias_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaGerente();
+        }
+
+        
     }
 }

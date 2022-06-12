@@ -141,7 +141,13 @@ namespace Ocorrências_CPD
             }
 
         }
-        
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaLogin();
+        }
+
 
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
 

@@ -9,12 +9,25 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data;
 
+
 namespace Ocorrências_CPD
 {
-    internal class csFuncionario
+    public class csFuncionario
     {
+
+
+
+        //INSTANCIAMENTO DE CLASSES
+
         private conexaoPostgres conexao = new conexaoPostgres();
+        public csFuncionario()
+        {
+            
+        }
+
+        
        
+        //DECLARAÇÃO DE VARIAVEIS
         private Int32 idFunc;
         private string nomeFunc;
         private string status;
@@ -152,7 +165,7 @@ namespace Ocorrências_CPD
 
         
         //SELECT PARA CONFERIR SE OS DADOS DO LOGIN CONFEREM
-        public void selectEntrar(Int32 id, string cargo) {
+        public Boolean selectEntrar(Int32 id, string cargo) {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet(); 
             string sql = "select p_cargo, p_matricula from tb.pessoa where p_matricula = '"+id+"';";
@@ -167,25 +180,27 @@ namespace Ocorrências_CPD
 
                 if (this.cargo == "diretor")
                 {
-                    frmDiretor fDiretor = new frmDiretor();
-                    fDiretor.ShowDialog();
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+                    abrirJanelas.abrirJanelaDiretor();
                 }
                 else if (this.cargo == "gerente")
                 {
-                    frmGerente fGerente = new frmGerente();
-                    fGerente.ShowDialog();
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+                    abrirJanelas.abrirJanelaGerente();
                 }
                 else if (this.cargo == "funcionário")
                 {
-                    frmFuncionario fFuncionario = new frmFuncionario(idFunc);
-                    fFuncionario.ShowDialog();
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
+                    abrirJanelas.abrirJanelaFuncionario();
                 }
+                return true;
             }
             else
             {
                 MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Error);
+                return false;
             }
 
             

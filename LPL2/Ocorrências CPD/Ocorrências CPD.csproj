@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conexaoPostgres.cs" />
+    <Compile Include="csAbrirJanelas.cs" />
     <Compile Include="csDepartamento.cs" />
     <Compile Include="csDiretor.cs" />
     <Compile Include="csFuncionario.cs" />

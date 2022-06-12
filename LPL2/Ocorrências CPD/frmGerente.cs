@@ -166,16 +166,24 @@ namespace Ocorrências_CPD
         }
 
         //AÇÃO AO CLICAR NO MENUSTRIP
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaLogin();
+        }
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarFuncionario fCadastrarFuncionario = new frmCadastrarFuncionario();
-            fCadastrarFuncionario.ShowDialog();
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaCadastrarFuncionario();
         }
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarOcorrencias fCadastrarOcorrencias = new frmCadastrarOcorrencias();
-            fCadastrarOcorrencias.ShowDialog();
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaCadastrarOcorrencias();
         }
 
         //AÇÃO AO CLICAR NOS BOTÕES
@@ -222,5 +230,7 @@ namespace Ocorrências_CPD
         {
 
         }
+
+        
     }
 }

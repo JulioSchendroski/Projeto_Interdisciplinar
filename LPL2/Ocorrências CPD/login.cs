@@ -32,7 +32,12 @@ namespace Ocorrências_CPD
                 {
                     cargo = txtCargo.Text;
                     idPessoa = Convert.ToInt32(Convert.ToDouble(txtMatricula.Text));
-                    func.selectEntrar(idPessoa, cargo);
+
+                    if (func.selectEntrar(idPessoa, cargo) == false) { }//Verifica se a janela tem que ser fechada
+                    else { this.Close(); }
+
+                    
+                    
                 }
                 catch (Exception) {
                   MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",

@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace Ocorrências_CPD
+{
+    class csAbrirJanelas
+    {
+        Thread t_abrir_janelas; //Criação de uma thread para abrir janelas separadamente
+
+        int id;
+        public csAbrirJanelas(){}
+        public csAbrirJanelas(int id) { this.id = id;}
+        public void abrirJanelaGerente() {
+            
+            t_abrir_janelas = new Thread(janelaGerente);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaGerente(object obj) {
+            Application.Run(new frmGerente());
+        }
+        public void abrirJanelaDiretor()
+        {
+
+            t_abrir_janelas = new Thread(janelaDiretor);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaDiretor(object obj)
+        {
+            Application.Run(new frmDiretor());
+        }
+        public void abrirJanelaFuncionario()
+        {
+
+            t_abrir_janelas = new Thread(janelaFuncionario);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaFuncionario(object obj)
+        {
+            Application.Run(new frmFuncionario(id));
+        }
+
+        public void abrirJanelaCadastrarFuncionario()
+        {
+
+            t_abrir_janelas = new Thread(janelaCadastrarFuncionario);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaCadastrarFuncionario(object obj)
+        {
+            Application.Run(new frmCadastrarFuncionario());
+        }
+        public void abrirJanelaCadastrarGerente()
+        {
+
+            t_abrir_janelas = new Thread(janelaCadastrarGerente);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaCadastrarGerente(object obj)
+        {
+            Application.Run(new frmCadastrarGerente());
+        }
+
+        public void abrirJanelaCadastrarDepartamento()
+        {
+
+            t_abrir_janelas = new Thread(janelaCadastrarDepartamento);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaCadastrarDepartamento(object obj)
+        {
+            Application.Run(new frmCadastrarDepartamento());
+        }
+
+        public void abrirJanelaCadastrarOcorrencias()
+        {
+
+            t_abrir_janelas = new Thread(janelaCadastrarOcorrencias);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaCadastrarOcorrencias(object obj)
+        {
+            Application.Run(new frmCadastrarOcorrencias());
+        }
+
+        public void abrirJanelaLogin()
+        {
+
+            t_abrir_janelas = new Thread(janelaLogin);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaLogin(object obj)
+        {
+            Application.Run(new ocorrenciasCPD());
+        }
+
+    }
+}

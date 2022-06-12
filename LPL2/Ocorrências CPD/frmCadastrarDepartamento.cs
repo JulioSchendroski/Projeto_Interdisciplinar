@@ -224,5 +224,11 @@ namespace Ocorrências_CPD
                 }
             
         }
+
+        private void frmCadastrarDepartamento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaDiretor();
+        }
     }
 }

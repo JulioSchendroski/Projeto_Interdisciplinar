@@ -12,14 +12,14 @@ namespace Ocorrências_CPD
 {
     public partial class frmCadastrarDepartamento : Form
     {
+        //CONSTRUTOR
         public frmCadastrarDepartamento()
         {
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
             gerenciaBotoesBarra(true);
-           
-
+          
         }
 
         //INSTANCIAMENTO DE CLASSES
@@ -28,7 +28,7 @@ namespace Ocorrências_CPD
 
         
         //FORMATAÇÃO DA TABELA
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados da tabela
             
         {
             grdDepartamento.DataSource = departamento.selectTodosDepartamentos();
@@ -125,7 +125,7 @@ namespace Ocorrências_CPD
             txtCodigo.Text = departamento.getIdDepartamento().ToString();
             txtDescricao.Text = departamento.getDescricaoDepartamento();
         }
-        private void limparControles()
+        private void limparControles() //limpa todos os dados das textbox e reseta o id do departamento
         {
             departamento.setIdDepartamento(0);
             txtNome.Text = "";
@@ -133,7 +133,7 @@ namespace Ocorrências_CPD
             txtCodigo.Text = "";
         }
 
-        private void habilitaControles(bool status)
+        private void habilitaControles(bool status) //habilita/desabilita as textbox
         {
             txtNome.Enabled = status;
             txtCodigo.Enabled = status;
@@ -141,7 +141,7 @@ namespace Ocorrências_CPD
             
         }
 
-        private void gerenciaBotoesBarra(bool status)
+        private void gerenciaBotoesBarra(bool status) //habilita/desabilita os botões do menustrip
         {
             btnNovo.Enabled = status;
             btnAlterar.Enabled = status;
@@ -152,7 +152,7 @@ namespace Ocorrências_CPD
         }
 
         //VALIDAÇÃO DOS DADOS
-        private bool validaDados()
+        private bool validaDados() //verifica se todos os dados foram preenchidos
         {
             if (txtNome.Text.Trim().Length <= 1)
             {
@@ -206,7 +206,6 @@ namespace Ocorrências_CPD
         
         //AÇÃO AO CLICAR NAS CELULAS DA TABELA DEPARTAMENTO
 
-       
         private void grdDepartamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -225,7 +224,8 @@ namespace Ocorrências_CPD
             
         }
 
-        private void frmCadastrarDepartamento_FormClosed(object sender, FormClosedEventArgs e)
+        //AÇÃO AO FECHAR FORMULÁRIO
+        private void frmCadastrarDepartamento_FormClosed(object sender, FormClosedEventArgs e) //abre janela diretor toda vez que o formulário é fechado
         {
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaDiretor();

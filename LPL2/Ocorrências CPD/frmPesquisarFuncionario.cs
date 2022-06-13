@@ -12,12 +12,17 @@ namespace Ocorrências_CPD
 {
     public partial class frmPesquisarFuncionario : Form
     {
+        //CONSTRUTORES
         public frmPesquisarFuncionario()
         {
             InitializeComponent();
             preecherGrid();
         }
+
+        //INSTANCIAMENTO DE CLASSES
         csFuncionario func = new csFuncionario();
+
+        //PREENCHIMENTO DAS GRIDS
         private void preecherGrid() {
             grdOcorrencias.DataSource = func.selectTodosFuncionarios();
         }

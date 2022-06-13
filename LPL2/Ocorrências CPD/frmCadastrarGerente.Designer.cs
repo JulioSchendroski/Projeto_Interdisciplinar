@@ -306,6 +306,7 @@
             this.Controls.Add(this.grdGerentes);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmCadastrarGerente";
             this.Text = "Ocorrências CPD - Cadastrar Gerente";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastrarGerente_FormClosed);

@@ -12,16 +12,18 @@ namespace Ocorrências_CPD
 {
     public partial class ocorrenciasCPD : Form
     {
+        //CONSTRUTORES
         public ocorrenciasCPD()
         {
             InitializeComponent();
         }
 
+        //DECLARAÇÃO DE VARIÁVEIS
         private Int32 idPessoa;
         private string cargo;
 
+        //INSTANCIAMENTO DE CLASSES
         csFuncionario func = new csFuncionario();
-        
 
         //CONFERE OS DADOS DO LOGIN
         private void btnEntrar_Click(object sender, EventArgs e)

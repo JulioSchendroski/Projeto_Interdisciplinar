@@ -12,6 +12,7 @@ namespace Ocorrências_CPD
 {
     public partial class frmCadastrarFuncionario : Form
     {
+        //CONTRUTOR
         public frmCadastrarFuncionario()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Ocorrências_CPD
         private int numeroDepartamento;
 
         //FORMATAÇÃO DA TABELA
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados das tabelas
         {
             grdFuncionarios.DataSource = func.selectTodosFuncionarios();
             checkarSelectFuncionario();
@@ -150,7 +151,7 @@ namespace Ocorrências_CPD
             cbxDepartamento.Text= func.getDepartamentoFuncionario();
             cbxStatus.Text = func.getStatusFuncionario();
         }
-        private void limparControles() {
+        private void limparControles() { //limpa os dados dos txtbox e cbx
             func.setIdFuncionario(0);
             txtMatricula.Text = "";
             txtNome.Text = "";
@@ -158,7 +159,7 @@ namespace Ocorrências_CPD
             cbxStatus.SelectedIndex = -1;
         }
 
-        private void habilitaControles(bool status)
+        private void habilitaControles(bool status) //habilita/desabilita txtbox e cbx
         {
             txtNome.Enabled = status;
             txtMatricula.Enabled = status;
@@ -166,7 +167,7 @@ namespace Ocorrências_CPD
             cbxStatus.Enabled = status;
         }
 
-        private void gerenciaBotoesBarra(bool status)
+        private void gerenciaBotoesBarra(bool status) //habilita/desabilita botões do menustrip
         {
             btnNovo.Enabled = status;
             btnAlterar.Enabled = status;
@@ -177,7 +178,7 @@ namespace Ocorrências_CPD
         }
 
         //VALIDAÇÃO DOS DADOS
-        private bool validaDados()
+        private bool validaDados() //verifica se todos os campos foram preenchidos
         {
             if (txtNome.Text.Trim().Length <= 1)
             {
@@ -291,7 +292,8 @@ namespace Ocorrências_CPD
             }
         }
 
-        private void frmCadastrarFuncionario_FormClosed(object sender, FormClosedEventArgs e)
+        //AÇÃO AO FECHAR FORMULÁRIO
+        private void frmCadastrarFuncionario_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaGerente();

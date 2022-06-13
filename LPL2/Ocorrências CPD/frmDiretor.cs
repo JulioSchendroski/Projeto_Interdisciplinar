@@ -12,6 +12,7 @@ namespace Ocorrências_CPD
 {
     public partial class frmDiretor : Form
     {
+        //CONSTRUTOS
         public frmDiretor()
         {
             InitializeComponent();
@@ -79,9 +80,9 @@ namespace Ocorrências_CPD
 
 
         }
+
         //PREENCHIMENTO DAS TABELAS
-       
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados das tabelas
         {
             grdDepartamento.DataSource = departamento.selectTodosDepartamentos();
             checkarSelectGerentes();
@@ -135,8 +136,6 @@ namespace Ocorrências_CPD
 
         
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
-        
-
         private void cbxStatus_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             atualizarTabelas();

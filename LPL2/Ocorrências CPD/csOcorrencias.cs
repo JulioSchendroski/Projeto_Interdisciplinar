@@ -13,9 +13,10 @@ namespace Ocorrências_CPD
 {
     internal class csOcorrencias
     {
+        //INSTANCIOAMENTO DE CLASSES
         private conexaoPostgres conexao = new conexaoPostgres();
 
-
+        //DECLARAÇÃO DE VARIÁVEIS
         private Int32 o_numero;
         private string status_temp;
         private string status_def;
@@ -26,7 +27,7 @@ namespace Ocorrências_CPD
         private string nomeFuncionario;
 
 
-        //GETS E SETS
+        //SETS
         public void setONumero(Int32 o_numero) { this.o_numero = o_numero;}
         public void setStatusTemp(string status_temp) { this.status_temp = status_temp; }
         public void setStatusDef(string status_def) { this.status_def = status_def; }
@@ -35,6 +36,7 @@ namespace Ocorrências_CPD
         public void setMatriculaFuncionario(Int32 matriculaFuncionario) { this.matriculaFuncionario = matriculaFuncionario; }
         public void setDeptoCod(Int32 depto_cod) { this.depto_cod = depto_cod; }
 
+        //GETS
         public Int32 getONumero() { return o_numero; }
         public string getNomeFuncionario(){return nomeFuncionario;}
         public string getStatusTemp() { return status_temp; }
@@ -44,7 +46,6 @@ namespace Ocorrências_CPD
         public Int32 getMatriculaFuncionario() { return matriculaFuncionario; }
         public Int32 getDeptoCod() { return depto_cod; }
         
-
 
         //INSERTS
         public void inserir()
@@ -63,7 +64,6 @@ namespace Ocorrências_CPD
         }
 
         //UPDATES
-
         public void updateFinalizarStatusTemp() //Funcionário altera o status temporário da ocorrência
         {
             string sql = "UPDATE tb.ocorrencia SET o_status_temp = 'encerrada' WHERE o_numero=" + o_numero + ";";
@@ -75,12 +75,11 @@ namespace Ocorrências_CPD
             conexao.executarSql(sql);
         }
 
-        public void update() 
+        public void update() //Atualiza todos os dados da ocorrência
         {
             string sql = "UPDATE tb.ocorrencia SET o_data = to_date('" + data + "','DD/MM/YYYY'), o_matricula_func = "+matriculaFuncionario+", o_depto_cod = "+depto_cod+", o_descricao = '"+descricao+"' WHERE o_numero=" + o_numero + ";";
             conexao.executarSql(sql);
         }
-
 
         //DROPS
         public void delete()
@@ -89,8 +88,9 @@ namespace Ocorrências_CPD
             string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =;";
             conexao.executarSql(sql);
         }
+
         //SELECTS 
-        public DataTable selectOcorrencias(int funcionario)
+        public DataTable selectOcorrencias(int funcionario) //seleciona todas as ocorrências de um único funcionário
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -99,7 +99,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectOcorrenciasSituacao(int funcionario, string situacao)
+        public DataTable selectOcorrenciasSituacao(int funcionario, string situacao) //seleciona as ocorrências de um único funcionário por situação
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -108,7 +108,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectTodasOcorrenciasSituacao(string situacao)
+        public DataTable selectTodasOcorrenciasSituacao(string situacao) //seleciona todas as ocorrências po situação
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -117,7 +117,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectTodasOcorrenciasStatusDepartamentos(string situacao, Int32 dep)
+        public DataTable selectTodasOcorrenciasStatusDepartamentos(string situacao, Int32 dep) //seleciona todas as ocorrências de um departamento por situação
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -126,7 +126,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectTodasOcorrenciasDepartamento(Int32 departamento)
+        public DataTable selectTodasOcorrenciasDepartamento(Int32 departamento) //seleciona todas as ocorrências por departamento
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -135,7 +135,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectTodasOcorrencias()
+        public DataTable selectTodasOcorrencias() //seleciona todas as ocorrências
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -144,7 +144,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
-            public void selectOcorrenciaSingular()
+            public void selectOcorrenciaSingular() //seleciona todos os dados de uma única ocorrência
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -162,7 +162,7 @@ namespace Ocorrências_CPD
             matriculaFuncionario = Convert.ToInt32(dataset.Tables[0].Rows[0][5]);
             depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][6]);
         }
-        public void selectNomeFuncionario() {
+        public void selectNomeFuncionario() { //seleciona o nome do funcionário de uma determinada matricula 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
             string sql = "select p_nome from tb.pessoa  where p_matricula = "+matriculaFuncionario+";";

@@ -124,7 +124,6 @@
     <Compile Include="conexaoPostgres.cs" />
     <Compile Include="csAbrirJanelas.cs" />
     <Compile Include="csDepartamento.cs" />
-    <Compile Include="csDiretor.cs" />
     <Compile Include="csFuncionario.cs" />
     <Compile Include="csGerente.cs" />
     <Compile Include="csOcorrencias.cs" />

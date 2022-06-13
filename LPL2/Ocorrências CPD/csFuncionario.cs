@@ -16,7 +16,6 @@ namespace Ocorrências_CPD
     {
 
 
-
         //INSTANCIAMENTO DE CLASSES
 
         private conexaoPostgres conexao = new conexaoPostgres();
@@ -25,8 +24,6 @@ namespace Ocorrências_CPD
             
         }
 
-        
-       
         //DECLARAÇÃO DE VARIAVEIS
         private Int32 idFunc;
         private string nomeFunc;
@@ -36,13 +33,14 @@ namespace Ocorrências_CPD
         private Int32 depto_cod;
         
 
-        //GETS E SETS
+        //SETS
         public void setIdFuncionario(Int32 id){idFunc = id;}
         public void setNomeFuncionario(string nomeFunc) { this.nomeFunc = nomeFunc;}
         public void setStatusFuncionario(string status) { this.status = status;}
         public void setCargoFuncionario(string cargo) { this.cargo = cargo;}
         public void setDepartamentoFuncionario(Int32 depto_cod) { this.depto_cod = depto_cod + 1; }
         
+        //GETS
         public Int32 getIdFuncionario() {return idFunc;}
         public string getNomeFuncionario() { return nomeFunc;}
         public string getStatusFuncionario() { return status; }
@@ -52,7 +50,6 @@ namespace Ocorrências_CPD
         //INSERTS
         public void inserir()
         {
-            //INSERT INTO clientes(nomeCliente, cpfCliente, cidadeCliente, estadoCliente) VALUES("'" + nomeCliente + "'," + cpfCliente + ",'" + "'" + cidadeCliente + "','" + estadoCliente)
             try
             {
                 string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + idFunc + ",'" + nomeFunc + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
@@ -84,7 +81,7 @@ namespace Ocorrências_CPD
             }
         }
 
-        //DROPS
+        //DROPS (UPDATE)
         public void delete() //Nenhum funcionário é excluido do banco quando se torna inativo
         {
             try
@@ -102,7 +99,7 @@ namespace Ocorrências_CPD
         }
 
         //SELECTS
-         public DataTable selectTodosFuncionarios()
+         public DataTable selectTodosFuncionarios() //seleciona todos os funcionários
         {
             
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -113,7 +110,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectFuncionariosDepartamento(int dp)
+        public DataTable selectFuncionariosDepartamento(int dp) //seleciona funcionarios por departamento
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -125,7 +122,7 @@ namespace Ocorrências_CPD
             return tabela;
         } 
 
-        public DataTable selectFuncionariosStatusDepartamentos(string status,int departamento)
+        public DataTable selectFuncionariosStatusDepartamentos(string status,int departamento) //seleciona funcionarios por departamento e status
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -136,7 +133,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectFuncionariosStatus(string status)
+        public DataTable selectFuncionariosStatus(string status) //seleciona funcionários por status
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -146,7 +143,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public void selectFunc()
+        public void selectFunc() //seleciona todos os dados de um determinado funcionario
         {
             
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -176,7 +173,7 @@ namespace Ocorrências_CPD
             this.cargo = dataset.Tables[0].Rows[0][0].ToString();
             this.status = dataset.Tables[0].Rows[0][2].ToString();
             idFunc = id;
-            if (this.cargo == cargo && this.status == "ativo")
+            if (this.cargo == cargo && this.status == "ativo") //Se o ID do funcionario e o cargo são compativeis e se o funcionario esta ativo
             {
 
                 if (this.cargo == "diretor")

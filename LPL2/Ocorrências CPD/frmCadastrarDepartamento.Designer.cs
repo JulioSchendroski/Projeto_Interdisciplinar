@@ -193,6 +193,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCodigo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmCadastrarDepartamento";
             this.Text = "Ocorrências CPD - Cadastrar Departamento";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastrarDepartamento_FormClosed);

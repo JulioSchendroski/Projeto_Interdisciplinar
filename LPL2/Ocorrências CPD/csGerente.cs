@@ -13,9 +13,11 @@ namespace Ocorrências_CPD
 {
     internal class csGerente
     {
+
+        //INSTANCIAMENTO DE CLASSES
         private conexaoPostgres conexao = new conexaoPostgres();
 
-
+        //DECLARAÇÃO DE VARIÁVEIS
         private Int32 idGeren;
         private string nomeGeren;
         private string status;
@@ -23,14 +25,14 @@ namespace Ocorrências_CPD
         private string departamento;
         private Int32 depto_cod;
 
-
-        //GETS E SETS
+        //SETS
         public void setIdGerente(Int32 id) { idGeren = id; }
         public void setNomeGerente(string nomeFunc) { this.nomeGeren = nomeFunc; }
         public void setStatusGerente(string status) { this.status = status; }
         public void setCargoGerente(string cargo) { this.cargo = cargo; }
         public void setDepartamentoGerente(Int32 depto_cod) { this.depto_cod = depto_cod + 1; }
 
+        //GETS
         public Int32 getIdGerente() { return idGeren; }
         public string getNomeGerente() { return nomeGeren; }
         public string getStatusGerente() { return status; }
@@ -92,7 +94,7 @@ namespace Ocorrências_CPD
         }
 
         //SELECTS
-        public DataTable selectTodosGerentes()
+        public DataTable selectTodosGerentes() //Seleciona todos os gerentes
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -103,7 +105,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectGerentesDepartamento(int dp)
+        public DataTable selectGerentesDepartamento(int dp) //seleciona os gerentes por departamento
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -115,7 +117,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectGerentesStatusDepartamentos(string status, int departamento)
+        public DataTable selectGerentesStatusDepartamentos(string status, int departamento) //seleciona os gerentes por status e departamento
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -126,7 +128,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectGerentesStatus(string status)
+        public DataTable selectGerentesStatus(string status) //seleciona os gerentes por status
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
@@ -136,7 +138,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public void selectGeren()
+        public void selectGeren() //seleciona todos os dados de um único gerente
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();

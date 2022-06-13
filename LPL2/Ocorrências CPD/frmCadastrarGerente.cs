@@ -12,6 +12,7 @@ namespace Ocorrências_CPD
 {
     public partial class frmCadastrarGerente : Form
     {
+        //CONTRUTORES
         public frmCadastrarGerente()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Ocorrências_CPD
         private int numeroDepartamento;
 
         //FORMATAÇÃO DA TABELA
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza dados das tabelas
         {
             grdGerentes.DataSource = geren.selectTodosGerentes();
             checkarSelectGerente();
@@ -150,7 +151,7 @@ namespace Ocorrências_CPD
             cbxDepartamento.Text = geren.getDepartamentoGerente();
             cbxStatus.Text = geren.getStatusGerente();
         }
-        private void limparControles()
+        private void limparControles() //limpa dos campos dos txtbox e cbx
         {
             geren.setIdGerente(0);
             txtMatricula.Text = "";
@@ -159,7 +160,7 @@ namespace Ocorrências_CPD
             cbxStatus.SelectedIndex = -1;
         }
 
-        private void habilitaControles(bool status)
+        private void habilitaControles(bool status) //habilita/desabilita os txtbox e cbx
         {
             txtNome.Enabled = status;
             txtMatricula.Enabled = status;
@@ -167,7 +168,7 @@ namespace Ocorrências_CPD
             cbxStatus.Enabled = status;
         }
 
-        private void gerenciaBotoesBarra(bool status)
+        private void gerenciaBotoesBarra(bool status) //habilita/desabilita os botões do menustrip
         {
             btnNovo.Enabled = status;
             btnAlterar.Enabled = status;
@@ -178,7 +179,7 @@ namespace Ocorrências_CPD
         }
 
         //VALIDAÇÃO DOS DADOS
-        private bool validaDados()
+        private bool validaDados() //verifica se todos os campos foram preenchidos
         {
             if (txtNome.Text.Trim().Length <= 1)
             {
@@ -276,7 +277,6 @@ namespace Ocorrências_CPD
         }
 
         //AÇÃO AO CLICAR NAS CELULAS DA TABELA GERENTE
-
         private void grdGerentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -293,7 +293,8 @@ namespace Ocorrências_CPD
             }
         }
 
-        private void frmCadastrarGerente_FormClosed(object sender, FormClosedEventArgs e)
+        //AÇÃO AO FECHAR FORMULÁRIO
+        private void frmCadastrarGerente_FormClosed(object sender, FormClosedEventArgs e) //abre a janela diretor quando a janela é fechada
         {
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaDiretor();

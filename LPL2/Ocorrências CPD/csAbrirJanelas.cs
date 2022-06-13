@@ -12,9 +12,14 @@ namespace Ocorrências_CPD
     {
         Thread t_abrir_janelas; //Criação de uma thread para abrir janelas separadamente
 
+        //DECLARAÇÃO DE VARIAVEIS
         int id;
+
+        //CONTRUTORES
         public csAbrirJanelas(){}
         public csAbrirJanelas(int id) { this.id = id;}
+
+        //ABRIR JANELA GERENTE
         public void abrirJanelaGerente() {
             
             t_abrir_janelas = new Thread(janelaGerente);
@@ -24,6 +29,8 @@ namespace Ocorrências_CPD
         private void janelaGerente(object obj) {
             Application.Run(new frmGerente());
         }
+
+        //ABRIR JANELA DIRETOR
         public void abrirJanelaDiretor()
         {
 
@@ -35,6 +42,8 @@ namespace Ocorrências_CPD
         {
             Application.Run(new frmDiretor());
         }
+
+        //ABRIR JANELA FUNCIONÁRIO
         public void abrirJanelaFuncionario()
         {
 
@@ -47,6 +56,7 @@ namespace Ocorrências_CPD
             Application.Run(new frmFuncionario(id));
         }
 
+        //ABRIR JANELA CADASTRAR FUNCIONÁRIOS
         public void abrirJanelaCadastrarFuncionario()
         {
 
@@ -58,6 +68,8 @@ namespace Ocorrências_CPD
         {
             Application.Run(new frmCadastrarFuncionario());
         }
+
+        //ABRIR JANELA CADASTRAR GERENTE
         public void abrirJanelaCadastrarGerente()
         {
 
@@ -70,6 +82,7 @@ namespace Ocorrências_CPD
             Application.Run(new frmCadastrarGerente());
         }
 
+        //ABRIR JANELA CADASTRAR DEPARTAMENTO
         public void abrirJanelaCadastrarDepartamento()
         {
 
@@ -82,6 +95,7 @@ namespace Ocorrências_CPD
             Application.Run(new frmCadastrarDepartamento());
         }
 
+        //ABRIR JANELA CADASTRAR OCORRENCIAS
         public void abrirJanelaCadastrarOcorrencias()
         {
 
@@ -94,6 +108,7 @@ namespace Ocorrências_CPD
             Application.Run(new frmCadastrarOcorrencias());
         }
 
+        //ABRIR JANELA LOGIN (Janela inicial)
         public void abrirJanelaLogin()
         {
 

@@ -13,19 +13,21 @@ namespace Ocorrências_CPD
 {
     internal class csDepartamento
     {
+        //INSTANCIAMENTO DE CLASSES
         private conexaoPostgres conexao = new conexaoPostgres();
 
-
+       //DECLARAÇÃO DE VARIÁVEIS
         private Int32 d_codigo;
         private string d_nome;
         private string d_descricao;
 
 
-        //GETS E SETS
+        //SETS
         public void setIdDepartamento(Int32 id) { d_codigo = id; }
         public void setNomeDepartamento(string d_nome) { this.d_nome = d_nome; }
         public void setDescricaoDepartamento(string d_descricao) { this.d_descricao = d_descricao;}
      
+        //GETS
         public Int32 getIdDepartamento() { return d_codigo; }
         public string getNomeDepartamento() { return d_nome; }
         public string getDescricaoDepartamento() { return d_descricao;}
@@ -83,7 +85,7 @@ namespace Ocorrências_CPD
         }
         */
         //SELECTS
-        public DataTable selectTodosDepartamentos()
+        public DataTable selectTodosDepartamentos() //seleciona todos os departamentos
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -94,8 +96,7 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
- 
-        public void selectDepartamento()
+        public void selectDepartamento() //seleciona os dados de um único departamento
         {
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();

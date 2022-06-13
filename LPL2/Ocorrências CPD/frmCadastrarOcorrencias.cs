@@ -12,6 +12,7 @@ namespace Ocorrências_CPD
 {
     public partial class frmCadastrarOcorrencias : Form
     {
+        //CONTRUTOR
         public frmCadastrarOcorrencias()
         {
             InitializeComponent();
@@ -19,16 +20,14 @@ namespace Ocorrências_CPD
             habilitaControles(false);
             gerenciaBotoesBarra(true);
             popularComboX();
-
-
         }
+
         //DECLARAÇÃO DE VARIÁVEIS
         private Int64 numOcorrencia;
         private string situacaoOcorrencia;
         private Int32 numeroDepartamento;
 
         //INSTANCIAMENTO DE CLASSES
-
         csOcorrencias ocorrencias = new csOcorrencias();
         csDepartamento departamento = new csDepartamento();
         csFuncionario func = new csFuncionario();
@@ -54,7 +53,7 @@ namespace Ocorrências_CPD
         }
 
         //FORMATAÇÃO DA TABELA
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados das tabelas
 
         {
             checkarSelectOcorrencias();
@@ -180,7 +179,7 @@ namespace Ocorrências_CPD
 
 
         }
-        private void limparControles()
+        private void limparControles() //limpa os campos dos txtbox e cbx
         {
             ocorrencias.setONumero(0);
             txtData.Text = "";
@@ -191,7 +190,7 @@ namespace Ocorrências_CPD
             
         }
 
-        private void habilitaControles(bool status)
+        private void habilitaControles(bool status) //habilita/desabilita os txtbox e cbx
         {
             txtData.Enabled = status;
             txtDescricao.Enabled = status;
@@ -200,7 +199,7 @@ namespace Ocorrências_CPD
 
         }
 
-        private void gerenciaBotoesBarra(bool status)
+        private void gerenciaBotoesBarra(bool status) //habilita/desabilita os botões do menustrip
         {
             btnNovo.Enabled = status;
             btnAlterar.Enabled = status;
@@ -233,7 +232,7 @@ namespace Ocorrências_CPD
             }
         }
        
-        private bool validaDados()
+        private bool validaDados() //Verifica se todos os campos foram preenchidos
         {
             if (txtData.Text.Trim().Length <= 1)
             {
@@ -297,8 +296,6 @@ namespace Ocorrências_CPD
 
 
         //AÇÃO AO CLICAR NAS CELULAS DA TABELA OCORRÊNCIA
-
-
         private void grdOcorrencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             {
@@ -319,8 +316,8 @@ namespace Ocorrências_CPD
             }
         }
 
-       
-        private void txtID_TextChanged(object sender, EventArgs e)
+       //ACÃO AO ALTERAR O TEXTO 
+        private void txtID_TextChanged(object sender, EventArgs e) //procura pelo funcionário responsável pelo id colocado
         {
             try
             {
@@ -334,14 +331,15 @@ namespace Ocorrências_CPD
             
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        private void btnPesquisar_Click(object sender, EventArgs e) //abre o formulário para pesquisar por funcionário
         {
             frmPesquisarFuncionario pesquisar = new frmPesquisarFuncionario();
             pesquisar.Show();
             
         }
 
-        private void frmCadastrarOcorrencias_FormClosed(object sender, FormClosedEventArgs e)
+        //AÇÃO AO FECHAR FORMULÁRIO
+        private void frmCadastrarOcorrencias_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaGerente();

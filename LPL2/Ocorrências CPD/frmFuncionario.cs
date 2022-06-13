@@ -13,7 +13,7 @@ namespace Ocorrências_CPD
     public partial class frmFuncionario : Form
     {
         
-        private Int32 id;
+        private Int32 id; //declaração da variavel id
         
         //CONSTRUTORES
         public frmFuncionario(Int32 id)
@@ -48,10 +48,8 @@ namespace Ocorrências_CPD
             txtCargo.Text = func.getCargoFuncionario();
             txtDepartamento.Text = func.getDepartamentoFuncionario();
         }
-        //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
 
-        
-      
+        //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
         private void formataGridOcorrencias() //formata as colunas da tabela Ocorrências
         {
             grdOcorrencias.Columns[0].HeaderText = "ID"; //id
@@ -74,6 +72,7 @@ namespace Ocorrências_CPD
             
 
         }
+
         //PREENCHIMENTO DAS TABELAS
         private void preencheDadosControles() //Preenche grid ocorrencias 
         {
@@ -83,7 +82,7 @@ namespace Ocorrências_CPD
             checkarSelectOcorrencias();
         }
 
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados das tabelas
         {
             
             grdOcorrencias.DataSource = ocorr.selectOcorrencias(-1);
@@ -106,7 +105,6 @@ namespace Ocorrências_CPD
         }
        
         //AÇÃO AO CLICAR NA CELULA DO GBD
-       
         private void grdOcorrencias_CellClick(object sender, DataGridViewCellEventArgs e) //Quando clica em uma celula
         {
             try
@@ -122,10 +120,7 @@ namespace Ocorrências_CPD
 
         }
 
-
         //AÇÃO AO CLICAR NOS BOTÕES
-       
-
         private void btnFinalizar_Click_1(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Tem certeza que deseja finalizar a ocorrência?", "Finalizar ocorrência",
@@ -150,7 +145,6 @@ namespace Ocorrências_CPD
 
 
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
-
         private void cbxSituacao_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             preencheDadosControles();

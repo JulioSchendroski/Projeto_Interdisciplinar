@@ -13,6 +13,8 @@ namespace Ocorrências_CPD
 {
     public partial class frmGerente : Form
     {
+
+        //CONSTRUTOR
         public frmGerente()
         {
             InitializeComponent();
@@ -21,7 +23,6 @@ namespace Ocorrências_CPD
         }
 
         //INSTANCIAMENTO DE CLASSES
-
         private conexaoPostgres conexao = new conexaoPostgres();
         private csFuncionario func = new csFuncionario();
         private csOcorrencias ocorr = new csOcorrencias();
@@ -29,7 +30,6 @@ namespace Ocorrências_CPD
         private csGerente gerente = new csGerente();
        
         //DECLARAÇÃO DE VARIÁVEIS
-
         private string statusFunc;
         private int numeroDepartamento;
         private Int64 numOcorrencia;
@@ -37,7 +37,6 @@ namespace Ocorrências_CPD
 
 
         //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
-
         private void popularComboX() {
 
             //populando combobox do departamento
@@ -65,7 +64,6 @@ namespace Ocorrências_CPD
             grdFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-
         private void formataGridOcorrencias() //formata as colunas da tabela Ocorrências
         {
             grdOcorrencias.Columns[0].HeaderText = "ID"; //id
@@ -85,9 +83,8 @@ namespace Ocorrências_CPD
             grdOcorrencias.Columns[6].Width = 150; //departamento
 
             grdOcorrencias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-
         }
+
         //PREENCHIMENTO DAS TABELAS
         private void preencheDadosControles() //Preenche grid ocorrencias 
         {
@@ -96,14 +93,14 @@ namespace Ocorrências_CPD
             checkarSelectOcorrencias();
         }
 
-        private void atualizarTabelas()
+        private void atualizarTabelas() //atualiza os dados das tabelas
         {
             grdOcorrencias.DataSource = ocorr.selectOcorrencias(-1);
             checkarSelectFuncionario();
             formataGridFuncionarios();
             formataGridOcorrencias();
         }
-        private void checkarSelectOcorrencias()//Checka qual filtro deve ser aplicado para mostrar as ocorrências
+        private void checkarSelectOcorrencias() //Checka qual filtro deve ser aplicado para mostrar as ocorrências
         {
             if (cbxSituacao.Text == "Todas")
             {
@@ -136,6 +133,7 @@ namespace Ocorrências_CPD
                 grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, numeroDepartamento);
             }
         }
+
         //AÇÃO AO CLICAR NA CELULA DO GBD
         private void grdFuncionarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {

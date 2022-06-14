@@ -13,13 +13,14 @@ namespace Ocorrências_CPD
 {
     public partial class frmGerente : Form
     {
-
+        Int32 depto;
         //CONSTRUTOR
-        public frmGerente()
+        public frmGerente(Int32 depto)
         {
+            this.depto = depto;
             InitializeComponent();
+            func.setIdFuncionario(-1);
             atualizarTabelas();
-            popularComboX();
         }
 
         //INSTANCIAMENTO DE CLASSES
@@ -37,16 +38,7 @@ namespace Ocorrências_CPD
 
 
         //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
-        private void popularComboX() {
-
-            //populando combobox do departamento
-            cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
-            cbxDepartamento.ValueMember = "codigo";
-            cbxDepartamento.DisplayMember = "nome";
-            
-            cbxDepartamento.SelectedIndex = -1;
-
-        }
+        
         private void formataGridFuncionarios() //formata as colunas da tabela Funcionario
         {
             grdFuncionarios.Columns[0].HeaderText = "ID"; //matricula
@@ -95,7 +87,7 @@ namespace Ocorrências_CPD
 
         private void atualizarTabelas() //atualiza os dados das tabelas
         {
-            grdOcorrencias.DataSource = ocorr.selectOcorrencias(-1);
+            grdOcorrencias.DataSource = ocorr.selectTodasOcorrenciasDepartamento(depto);
             checkarSelectFuncionario();
             formataGridFuncionarios();
             formataGridOcorrencias();
@@ -114,24 +106,15 @@ namespace Ocorrências_CPD
             }
         }
         private void checkarSelectFuncionario() { //Checka qual filtro deve ser aplicado para mostrar os funcionários
-            if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
-            { grdFuncionarios.DataSource = func.selectTodosFuncionarios(); }
-            else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text == "")
+            if (cbxStatus.Text == "Todos")
+            { grdFuncionarios.DataSource = func.selectTodosFuncionarios(depto); }
+            else if (cbxStatus.Text != "Todos")
             {
                 statusFunc = cbxStatus.Text;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc);
+                grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc, depto);
             }
-            else if (cbxStatus.Text == "Todos" && cbxDepartamento.Text != "")
-            {
-                numeroDepartamento = cbxDepartamento.SelectedIndex;
-                grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(numeroDepartamento);
-            }
-            else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text != "")
-            {
-                statusFunc = cbxStatus.Text;
-                numeroDepartamento = cbxDepartamento.SelectedIndex;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, numeroDepartamento);
-            }
+            
+            
         }
 
         //AÇÃO AO CLICAR NA CELULA DO GBD
@@ -153,6 +136,9 @@ namespace Ocorrências_CPD
             try
             {
                 ocorr.setONumero(Convert.ToInt32(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
+                ocorr.selectOcorrenciaSingular();
+                if (ocorr.getStatusDef() == "aberta") {btnFinalizar.Enabled = true;}
+                else { btnFinalizar.Enabled = false;}
                 
             }
             catch (Exception)
@@ -187,7 +173,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO CLICAR NOS BOTÕES
         private void btnResetar_Click_1(object sender, EventArgs e) //Reseta o combobox do departamento
         {
-            cbxDepartamento.SelectedIndex = -1;
+            func.setIdFuncionario(-1);
             atualizarTabelas();
             
         }
@@ -202,7 +188,8 @@ namespace Ocorrências_CPD
             if (result == DialogResult.Yes)
             {
                 ocorr.updateFinalizarStatusDef();
-                preencheDadosControles();
+                atualizarTabelas();
+                btnFinalizar.Enabled = false;
 
             }
             
@@ -211,7 +198,22 @@ namespace Ocorrências_CPD
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            preencheDadosControles();
+            if (func.getIdFuncionario() == -1) {
+                if (cbxSituacao.Text == "Todas")
+                {
+                    grdOcorrencias.DataSource = ocorr.selectTodasOcorrenciasDepartamento(depto);
+                }
+                else
+                {
+                    situacaoOcorrencia = cbxSituacao.Text;
+                    grdOcorrencias.DataSource = ocorr.selectTodasOcorrenciasStatusDepartamentos(situacaoOcorrencia, depto);
+
+                }
+            }
+            else
+            {
+                preencheDadosControles();
+            }
         }
 
         private void cbxStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,6 +231,9 @@ namespace Ocorrências_CPD
 
         }
 
-        
+        private void grdOcorrencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

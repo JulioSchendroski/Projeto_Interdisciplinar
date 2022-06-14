@@ -12,9 +12,11 @@ namespace Ocorrências_CPD
 {
     public partial class frmCadastrarFuncionario : Form
     {
+        Int32 depto;
         //CONTRUTOR
-        public frmCadastrarFuncionario()
+        public frmCadastrarFuncionario(int depto)
         {
+            this.depto = depto;
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
@@ -34,7 +36,7 @@ namespace Ocorrências_CPD
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas() //atualiza os dados das tabelas
         {
-            grdFuncionarios.DataSource = func.selectTodosFuncionarios();
+            grdFuncionarios.DataSource = func.selectTodosFuncionarios(depto);
             checkarSelectFuncionario();
             formataGridFuncionarios();
 
@@ -240,11 +242,11 @@ namespace Ocorrências_CPD
         private void checkarSelectFuncionario()
         { //Checka qual filtro deve ser aplicado para mostrar os funcionários
             if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
-            { grdFuncionarios.DataSource = func.selectTodosFuncionarios(); }
+            { grdFuncionarios.DataSource = func.selectTodosFuncionarios(depto); }
             else if (cbxFiltroStatus.Text != "Todos" && cbxFiltroDepartamento.Text == "")
             {
                 statusFunc = cbxFiltroStatus.Text;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc);
+                grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc, depto);
             }
             else if (cbxFiltroStatus.Text == "Todos" && cbxFiltroDepartamento.Text != "")
             {

@@ -71,7 +71,7 @@ namespace Ocorrências_CPD
         }
         public void updateFinalizarStatusDef() //Gerente altera o status definitivo da ocorrência
         {
-            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada' WHERE o_numero="+ o_numero + ";";
+            string sql = "UPDATE tb.ocorrencia SET o_status_def = 'encerrada', o_status_temp = 'encerrada' WHERE o_numero="+ o_numero + ";";
             conexao.executarSql(sql);
         }
 
@@ -135,6 +135,7 @@ namespace Ocorrências_CPD
             adapter.Fill(tabela);
             return tabela;
         }
+
         public DataTable selectTodasOcorrencias() //seleciona todas as ocorrências
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
@@ -165,7 +166,7 @@ namespace Ocorrências_CPD
         public void selectNomeFuncionario() { //seleciona o nome do funcionário de uma determinada matricula 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_nome from tb.pessoa  where p_matricula = "+matriculaFuncionario+";";
+            string sql = "select p_nome from tb.pessoa  where p_matricula = "+matriculaFuncionario+" and p_cargo = 'funcionário' and p_depto_cod = 4;";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();

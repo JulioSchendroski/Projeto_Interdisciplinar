@@ -24,7 +24,7 @@ namespace Ocorrências_CPD
 
         //PREENCHIMENTO DAS GRIDS
         private void preecherGrid() {
-            grdOcorrencias.DataSource = func.selectTodosFuncionarios();
+            grdOcorrencias.DataSource = func.selectTodosFuncionarios(4);
         }
     }
 }

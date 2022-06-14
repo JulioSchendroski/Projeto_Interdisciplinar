@@ -410,11 +410,41 @@ order by o_status_def DESC, o_status_temp DESC, o_data ASC;
 -- Selecione uma dentre essas consultas (a mais importante delas) e apresente aquilo que se pede abaixo.
 
 -- [6.1] EXPLAIN 
--- comente com '--' as linhas do plano abaixo e apague esta linha
+
+ /*Sort  (cost=25.37..25.38 rows=1 width=356)
+   Sort Key: ocorrencia.o_data, departamento.d_nome
+   ->  Nested Loop  (cost=16.56..25.36 rows=1 width=356)
+         ->  Hash Join  (cost=16.41..18.48 rows=1 width=146)
+               Hash Cond: (pessoa.p_matricula = ocorrencia.o_matricula_func)
+               ->  Seq Scan on pessoa  (cost=0.00..1.77 rows=77 width=30)
+               ->  Hash  (cost=16.38..16.38 rows=3 width=132)
+                     ->  Seq Scan on ocorrencia  (cost=0.00..16.38 rows=3 width=132)
+                           Filter: ((o_status_def)::text = 'aberta'::text)
+         ->  Index Scan using departamento_pk on departamento  (cost=0.15..6.83 rows=1 width=226)
+               Index Cond: (d_codigo = ocorrencia.o_depto_cod)*/
+
 
 
 -- [6.2] EXPLAIN ANALYZE
--- comente com '--' as linhas do relatorio abaixo e apague esta linha
+
+ /*Sort  (cost=25.37..25.38 rows=1 width=356) (actual time=0.073..0.074 rows=5 loops=1)
+   Sort Key: ocorrencia.o_data, departamento.d_nome
+   Sort Method: quicksort  Memory: 26kB
+   ->  Nested Loop  (cost=16.56..25.36 rows=1 width=356) (actual time=0.034..0.043 rows=5 loops=1)
+         ->  Hash Join  (cost=16.41..18.48 rows=1 width=146) (actual time=0.028..0.034 rows=5 loops=1)
+               Hash Cond: (pessoa.p_matricula = ocorrencia.o_matricula_func)
+               ->  Seq Scan on pessoa  (cost=0.00..1.77 rows=77 width=30) (actual time=0.004..0.007 rows=77 loops=1)
+               ->  Hash  (cost=16.38..16.38 rows=3 width=132) (actual time=0.016..0.017 rows=5 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                     ->  Seq Scan on ocorrencia  (cost=0.00..16.38 rows=3 width=132) (actual time=0.011..0.012 rows=5 loops=1)
+                           Filter: ((o_status_def)::text = 'aberta'::text)
+                           Rows Removed by Filter: 39
+         ->  Index Scan using departamento_pk on departamento  (cost=0.15..6.83 rows=1 width=226) (actual time=0.001..0.001 rows=1 l
+oops=5)
+               Index Cond: (d_codigo = ocorrencia.o_depto_cod)
+ Planning Time: 0.103 ms
+ Execution Time: 0.092 ms*/
+
 
 
 -- [6.3] Comentarios e justificativas para o indice 

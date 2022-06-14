@@ -27,7 +27,7 @@ namespace Ocorrências_CPD
             t_abrir_janelas.Start();
         }
         private void janelaGerente(object obj) {
-            Application.Run(new frmGerente());
+            Application.Run(new frmGerente(id));
         }
 
         //ABRIR JANELA DIRETOR
@@ -66,7 +66,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarFuncionario(object obj)
         {
-            Application.Run(new frmCadastrarFuncionario());
+            Application.Run(new frmCadastrarFuncionario(id));
         }
 
         //ABRIR JANELA CADASTRAR GERENTE

@@ -630,44 +630,47 @@ GRANT SELECT, UPDATE ON TABLE tb.ocorrencia TO funcionario;
 
 -- [11.4.1]
 -- Revogar o acesso em 11.3.1 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
--- Apague esta linha e redija o comando aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: adm
+REVOKE CREATE ON DATABASE ocorrenciascpd FROM adm;
 
 -- [11.4.2]
 -- Revogar o acesso em 11.3.2 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
--- Apague esta linha e redija o comando aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: adm
+REVOKE USAGE ON SCHEMA tb FROM adm;
 
 -- [11.4.3]
 -- Revogar o acesso em 11.3.3 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
--- Apague esta linha e redija o comando aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: diretor
+REVOKE SELECT, INSERT, UPDATE ON TABLE tb.departamento FROM diretor;
 
 -- [11.4.4]
 -- Revogar o acesso em 11.3.4 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
--- Apague esta linha e redija o comando aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: funcionario
+REVOKE SELECT, UPDATE ON TABLE tb.ocorrencia FROM funcionario;
 
 -- [11.4.5]
 -- Revogar o acesso em 11.3.5 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: adm
 -- Apague esta linha e redija o comando aqui
 
 -- [11.4.6]
 -- Revogar o acesso em 11.3.6 de pelo menos 1 papel
--- Usuario(s) podem revogar esse acesso alem do superusuario: citar aqui
+-- Usuario(s) podem revogar esse acesso alem do superusuario: adm
 -- Apague esta linha e redija o comando aqui
 
 
 -- Se for necessario para executar os comandos seguintes, assegure novamente os privilegios de acesso revogados acima
--- Apague esta linha e redija os comandos a partir daqui
-
+GRANT CREATE ON DATABASE ocorrenciascpd TO adm;
+GRANT USAGE ON SCHEMA tb TO adm;
+GRANT SELECT, INSERT, UPDATE ON TABLE tb.departamento TO diretor;
+GRANT SELECT, UPDATE ON TABLE tb.ocorrencia TO funcionario;
 
 
 -- ---------------------------------------------
 -- [12] TRANSACOES
 -- Nao incluir aqui
 -- Usar/entregar o modelo proprio para esse topico
+
 
 
 

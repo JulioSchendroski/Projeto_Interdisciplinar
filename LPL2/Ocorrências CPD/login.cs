@@ -49,7 +49,7 @@ namespace Ocorrências_CPD
                 
             }
             else {
-                MessageBox.Show("Dados incorretos! Tente novamente:", "Erro!",
+                MessageBox.Show("Tente novamente:", "Erro!",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Error);
             }

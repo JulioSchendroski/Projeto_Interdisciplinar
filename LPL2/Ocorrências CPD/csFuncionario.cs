@@ -99,12 +99,12 @@ namespace Ocorrências_CPD
         }
 
         //SELECTS
-         public DataTable selectTodosFuncionarios() //seleciona todos os funcionários
+         public DataTable selectTodosFuncionarios(Int32 depto) //seleciona todos os funcionários
         {
             
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" ORDER BY p_status DESC, d_nome ASC;";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -133,11 +133,11 @@ namespace Ocorrências_CPD
             return tabela;
         }
 
-        public DataTable selectFuncionariosStatus(string status) //seleciona funcionários por status
+        public DataTable selectFuncionariosStatus(string status, Int32 depto) //seleciona funcionários por status
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status + "' and p_cargo = 'funcionário' ORDER BY p_cargo DESC;";
+            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" and p_status = '"+status+"' ORDER BY p_status DESC, d_nome ASC; ";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -165,13 +165,15 @@ namespace Ocorrências_CPD
         public Boolean selectEntrar(Int32 id, string cargo) {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet(); 
-            string sql = "select p_cargo, p_matricula, p_status from tb.pessoa where p_matricula = '"+id+"';";
+            string sql = "select p_cargo, p_matricula, p_status, p_depto_cod from tb.pessoa where p_matricula = '"+id+"';";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();
  
             this.cargo = dataset.Tables[0].Rows[0][0].ToString();
+            if (cargo != "diretor") {this.depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][3]); }
             this.status = dataset.Tables[0].Rows[0][2].ToString();
+            
             idFunc = id;
             if (this.cargo == cargo && this.status == "ativo") //Se o ID do funcionario e o cargo são compativeis e se o funcionario esta ativo
             {
@@ -183,13 +185,20 @@ namespace Ocorrências_CPD
                 }
                 else if (this.cargo == "gerente")
                 {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto_cod);
                     abrirJanelas.abrirJanelaGerente();
                 }
-                else if (this.cargo == "funcionário")
+                else if (this.cargo == "funcionário" && this.depto_cod == 4)
                 {
                     csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
                     abrirJanelas.abrirJanelaFuncionario();
+                }
+                else 
+                {
+                    MessageBox.Show("Esse funcionário não é do departamento de informática", "Erro!",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                    return false;
                 }
                 return true;
             }
@@ -207,6 +216,7 @@ namespace Ocorrências_CPD
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Error);
                 }
+                
                 return false;
             }   
         }

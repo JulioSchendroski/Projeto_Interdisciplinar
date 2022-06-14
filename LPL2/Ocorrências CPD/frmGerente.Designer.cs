@@ -38,8 +38,6 @@
             this.painelGerente = new System.Windows.Forms.Panel();
             this.btnResetar = new System.Windows.Forms.Button();
             this.grdFuncionarios = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +68,7 @@
             this.grdOcorrencias.Size = new System.Drawing.Size(398, 225);
             this.grdOcorrencias.TabIndex = 7;
             this.grdOcorrencias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOcorrencias_CellClick);
+            this.grdOcorrencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOcorrencias_CellContentClick);
             // 
             // label1
             // 
@@ -98,7 +97,7 @@
             "Todos",
             "ativo",
             "inativo"});
-            this.cbxStatus.Location = new System.Drawing.Point(192, 119);
+            this.cbxStatus.Location = new System.Drawing.Point(3, 119);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(121, 21);
             this.cbxStatus.TabIndex = 22;
@@ -121,6 +120,7 @@
             // 
             // btnFinalizar
             // 
+            this.btnFinalizar.Enabled = false;
             this.btnFinalizar.Location = new System.Drawing.Point(691, 403);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(143, 32);
@@ -133,8 +133,6 @@
             // 
             this.painelGerente.Controls.Add(this.btnResetar);
             this.painelGerente.Controls.Add(this.grdFuncionarios);
-            this.painelGerente.Controls.Add(this.label3);
-            this.painelGerente.Controls.Add(this.cbxDepartamento);
             this.painelGerente.Controls.Add(this.btnFinalizar);
             this.painelGerente.Controls.Add(this.cbxSituacao);
             this.painelGerente.Controls.Add(this.cbxStatus);
@@ -149,7 +147,7 @@
             // btnResetar
             // 
             this.btnResetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetar.Location = new System.Drawing.Point(94, 92);
+            this.btnResetar.Location = new System.Drawing.Point(439, 119);
             this.btnResetar.Name = "btnResetar";
             this.btnResetar.Size = new System.Drawing.Size(50, 24);
             this.btnResetar.TabIndex = 30;
@@ -172,31 +170,6 @@
             this.grdFuncionarios.Size = new System.Drawing.Size(399, 284);
             this.grdFuncionarios.TabIndex = 29;
             this.grdFuncionarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdFuncionarios_CellClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 15);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Departamentos";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // cbxDepartamento
-            // 
-            this.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDepartamento.FormattingEnabled = true;
-            this.cbxDepartamento.Items.AddRange(new object[] {
-            "Status",
-            "ativo",
-            "inativo"});
-            this.cbxDepartamento.Location = new System.Drawing.Point(4, 119);
-            this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(159, 21);
-            this.cbxDepartamento.TabIndex = 27;
-            this.cbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxDepartamento_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -275,8 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbxDepartamento;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView grdFuncionarios;
         private System.Windows.Forms.Button btnResetar;
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;

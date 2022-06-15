@@ -297,7 +297,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarFuncionario_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
             abrirJanelas.abrirJanelaGerente();
         }
     }

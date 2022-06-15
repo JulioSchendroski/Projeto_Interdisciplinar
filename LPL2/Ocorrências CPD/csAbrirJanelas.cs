@@ -79,7 +79,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarGerente(object obj)
         {
-            Application.Run(new frmCadastrarGerente());
+            Application.Run(new frmCadastrarGerente(id));
         }
 
         //ABRIR JANELA CADASTRAR DEPARTAMENTO
@@ -92,7 +92,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarDepartamento(object obj)
         {
-            Application.Run(new frmCadastrarDepartamento());
+            Application.Run(new frmCadastrarDepartamento(id));
         }
 
         //ABRIR JANELA CADASTRAR OCORRENCIAS
@@ -105,7 +105,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarOcorrencias(object obj)
         {
-            Application.Run(new frmCadastrarOcorrencias());
+            Application.Run(new frmCadastrarOcorrencias(id));
         }
 
         //ABRIR JANELA LOGIN (Janela inicial)
@@ -119,6 +119,19 @@ namespace Ocorrências_CPD
         private void janelaLogin(object obj)
         {
             Application.Run(new ocorrenciasCPD());
+        }
+
+        //ABRIR JANELA CADASTRAR DIRETOR
+        public void abrirJanelaCadastrarDiretor()
+        {
+
+            t_abrir_janelas = new Thread(janelaCadastrarDiretor);
+            t_abrir_janelas.SetApartmentState(ApartmentState.STA);
+            t_abrir_janelas.Start();
+        }
+        private void janelaCadastrarDiretor(object obj)
+        {
+            Application.Run(new frmCadastrarDiretor(id));
         }
 
     }

@@ -124,6 +124,7 @@
     <Compile Include="conexaoPostgres.cs" />
     <Compile Include="csAbrirJanelas.cs" />
     <Compile Include="csDepartamento.cs" />
+    <Compile Include="csDiretor.cs" />
     <Compile Include="csFuncionario.cs" />
     <Compile Include="csGerente.cs" />
     <Compile Include="csOcorrencias.cs" />
@@ -132,6 +133,12 @@
     </Compile>
     <Compile Include="frmCadastrarDepartamento.Designer.cs">
       <DependentUpon>frmCadastrarDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastrarDiretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarDiretor.Designer.cs">
+      <DependentUpon>frmCadastrarDiretor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCadastrarFuncionario.cs">
       <SubType>Form</SubType>
@@ -185,6 +192,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCadastrarDepartamento.resx">
       <DependentUpon>frmCadastrarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastrarDiretor.resx">
+      <DependentUpon>frmCadastrarDiretor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastrarFuncionario.resx">
       <DependentUpon>frmCadastrarFuncionario.cs</DependentUpon>

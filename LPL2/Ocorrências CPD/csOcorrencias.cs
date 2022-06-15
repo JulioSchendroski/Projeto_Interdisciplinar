@@ -85,7 +85,7 @@ namespace Ocorrências_CPD
         public void delete()
         {
 
-            string sql = "DELETE FROM funcionarios WHERE funcionarios.idFunc =;";
+            string sql = "DELETE FROM tb.ocorrencia WHERE o_numero=" + o_numero + ";";
             conexao.executarSql(sql);
         }
 

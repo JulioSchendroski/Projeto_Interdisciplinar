@@ -13,8 +13,10 @@ namespace Ocorrências_CPD
     public partial class frmCadastrarOcorrencias : Form
     {
         //CONTRUTOR
-        public frmCadastrarOcorrencias()
+        Int32 id;
+        public frmCadastrarOcorrencias(Int32 id)
         {
+            this.id = id;
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
@@ -341,10 +343,27 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarOcorrencias_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
             abrirJanelas.abrirJanelaGerente();
         }
 
-        
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (ocorrencias.getONumero() != 0)
+            {
+                if (MessageBox.Show("Deseja Excluir a ocorrência?", "Alteração",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ocorrencias.delete();
+                    limparControles();
+                    atualizarTabelas();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione a ocorrência para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

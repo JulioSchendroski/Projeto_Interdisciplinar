@@ -13,14 +13,15 @@ namespace Ocorrências_CPD
     public partial class frmCadastrarGerente : Form
     {
         //CONTRUTORES
-        public frmCadastrarGerente()
+        Int32 id;
+        public frmCadastrarGerente(int id)
         {
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
             gerenciaBotoesBarra(true);
             popularComboX();
-
+            this.id = id;
         }
 
         //INSTANCIAMENTO DE CLASSES
@@ -296,7 +297,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarGerente_FormClosed(object sender, FormClosedEventArgs e) //abre a janela diretor quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
             abrirJanelas.abrirJanelaDiretor();
         }
     }

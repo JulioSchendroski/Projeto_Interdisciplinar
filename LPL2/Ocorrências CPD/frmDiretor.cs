@@ -133,8 +133,14 @@ namespace Ocorrências_CPD
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaCadastrarDepartamento();
         }
+        private void diretorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            abrirJanelas.abrirJanelaCadastrarDiretor();
+        }
 
-        
+
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         private void cbxStatus_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -152,6 +158,6 @@ namespace Ocorrências_CPD
             atualizarTabelas();
         }
 
-        
+       
     }
 }

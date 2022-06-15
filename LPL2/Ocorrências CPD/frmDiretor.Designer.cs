@@ -33,6 +33,7 @@
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelGerente = new System.Windows.Forms.Panel();
             this.btnResetar = new System.Windows.Forms.Button();
             this.grdGerentes = new System.Windows.Forms.DataGridView();
@@ -42,7 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdDepartamento = new System.Windows.Forms.DataGridView();
-            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diretorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.painelGerente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdGerentes)).BeginInit();
@@ -65,7 +66,8 @@
             // 
             this.cadastrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gerenteToolStripMenuItem,
-            this.departamentoToolStripMenuItem});
+            this.departamentoToolStripMenuItem,
+            this.diretorToolStripMenuItem});
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(89, 25);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
@@ -83,6 +85,13 @@
             this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.departamentoToolStripMenuItem.Text = "Departamento";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
+            // 
+            // desconectarToolStripMenuItem
+            // 
+            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(107, 25);
+            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
             // 
             // painelGerente
             // 
@@ -202,12 +211,12 @@
             this.grdDepartamento.Size = new System.Drawing.Size(398, 284);
             this.grdDepartamento.TabIndex = 7;
             // 
-            // desconectarToolStripMenuItem
+            // diretorToolStripMenuItem
             // 
-            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(107, 25);
-            this.desconectarToolStripMenuItem.Text = "Desconectar";
-            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
+            this.diretorToolStripMenuItem.Name = "diretorToolStripMenuItem";
+            this.diretorToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.diretorToolStripMenuItem.Text = "Diretor";
+            this.diretorToolStripMenuItem.Click += new System.EventHandler(this.diretorToolStripMenuItem_Click);
             // 
             // frmDiretor
             // 
@@ -247,5 +256,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdDepartamento;
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diretorToolStripMenuItem;
     }
 }

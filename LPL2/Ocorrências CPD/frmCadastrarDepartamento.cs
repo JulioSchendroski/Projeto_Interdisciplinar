@@ -13,17 +13,18 @@ namespace Ocorrências_CPD
     public partial class frmCadastrarDepartamento : Form
     {
         //CONSTRUTOR
-        public frmCadastrarDepartamento()
+        Int32 id;
+        public frmCadastrarDepartamento(int id)
         {
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
             gerenciaBotoesBarra(true);
-          
+            this.id = id;
         }
 
         //INSTANCIAMENTO DE CLASSES
-        
+
         csDepartamento departamento = new csDepartamento();
 
         
@@ -227,7 +228,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarDepartamento_FormClosed(object sender, FormClosedEventArgs e) //abre janela diretor toda vez que o formulário é fechado
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
             abrirJanelas.abrirJanelaDiretor();
         }
     }

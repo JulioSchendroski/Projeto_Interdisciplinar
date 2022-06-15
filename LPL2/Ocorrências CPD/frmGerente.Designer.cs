@@ -195,14 +195,14 @@
             // gerenteToolStripMenuItem
             // 
             this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
-            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.gerenteToolStripMenuItem.Text = "Funcionário";
             this.gerenteToolStripMenuItem.Click += new System.EventHandler(this.gerenteToolStripMenuItem_Click);
             // 
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.departamentoToolStripMenuItem.Text = "Ocorrência";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 

@@ -159,14 +159,14 @@ namespace Ocorrências_CPD
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
             abrirJanelas.abrirJanelaCadastrarFuncionario();
         }
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas();
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
             abrirJanelas.abrirJanelaCadastrarOcorrencias();
         }
 

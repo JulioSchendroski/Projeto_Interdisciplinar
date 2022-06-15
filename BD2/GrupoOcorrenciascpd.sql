@@ -464,20 +464,22 @@ oops=5)
 -- Usar funcoes internas nas operacoes em tabelas do banco de dados
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
--- Redigir abaixo o SELECT (apagar esta linha)
+    -- Seleciona o id, status e a descrição de ocorrências da data atual 
+    SELECT o_numero, o_status_temp, o_descricao FROM tb.ocorrencia WHERE CURRENT_TIMESTAMP()
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
--- Redigir abaixo o INSERT (apagar esta linha)
+    --Insere em ocorrência uma nova ocorrência utilizando letra maiuscula no status definitivo
+    INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod)
+    VALUES ('encerrada', UPPER('encerrada') ,to_date('15/05/2017','DD/MM/YYYY'),'Backup setor de informática',69,4);
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
--- Redigir abaixo o UPDATE (apagar esta linha)
+    --Atualiza o nome do funcionário com id igual 1 em letra maiuscula
+    UPDATE tb.pessoa SET p_nome = UPPER('Sienna Grande Corte-Real') WHERE p_matricula = 1
+
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
--- Redigir abaixo o DELETE (apagar esta linha)
-
-
-
-
+    --Deleta o funcionário que possui a matricula que seja 2 elevado a 4 (16)
+    DELETE FROM tb.pessoa WHERE p_matricula = POWER(2,4)
 
 -- ---------------------------------------------
 -- [8] USER-DEFINED FUNCTION (UDF)

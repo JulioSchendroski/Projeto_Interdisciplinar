@@ -128,6 +128,7 @@
     <Compile Include="csFuncionario.cs" />
     <Compile Include="csGerente.cs" />
     <Compile Include="csOcorrencias.cs" />
+    <Compile Include="csPessoa.cs" />
     <Compile Include="frmCadastrarDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>

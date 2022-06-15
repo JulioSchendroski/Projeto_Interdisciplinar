@@ -14,11 +14,13 @@ namespace Ocorrências_CPD
     {
         
         private Int32 id; //declaração da variavel id
+        private Int32 depto;
         
         //CONSTRUTORES
-        public frmFuncionario(Int32 id)
+        public frmFuncionario(Int32 id, int depto)
 
         {
+            this.depto = depto;
             this.id = id;
             InitializeComponent();
             atualizarTabelas();
@@ -42,11 +44,11 @@ namespace Ocorrências_CPD
         //PREENCHIMENTO DOS DADOS DO FUNCIONARIO
         private void preencheDadosFuncionario() {
             func.selectFunc();
-            txtNome.Text = func.getNomeFuncionario();
-            txtStatus.Text = func.getStatusFuncionario();
-            txtMatricula.Text =  Convert.ToString(func.getIdFuncionario());
-            txtCargo.Text = func.getCargoFuncionario();
-            txtDepartamento.Text = func.getDepartamentoFuncionario();
+            txtNome.Text = func.getNomePessoa();
+            txtStatus.Text = func.getStatusPessoa();
+            txtMatricula.Text =  Convert.ToString(func.getIdPessoa());
+            txtCargo.Text = func.getCargoPessoa();
+            txtDepartamento.Text = func.getDepartamentoPessoa();
         }
 
         //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
@@ -76,8 +78,8 @@ namespace Ocorrências_CPD
         //PREENCHIMENTO DAS TABELAS
         private void preencheDadosControles() //Preenche grid ocorrencias 
         {
-            func.setIdFuncionario(id);
-            numOcorrencia = func.getIdFuncionario();
+            func.setIdPessoa(id);
+            numOcorrencia = func.getIdPessoa();
 
             checkarSelectOcorrencias();
         }
@@ -85,7 +87,7 @@ namespace Ocorrências_CPD
         private void atualizarTabelas() //atualiza os dados das tabelas
         {
             
-            grdOcorrencias.DataSource = ocorr.selectOcorrencias(-1);
+            grdOcorrencias.DataSource = ocorr.selectOcorrencias(-1, depto);
             formataGridOcorrencias();
             preencheDadosControles();
             
@@ -94,12 +96,12 @@ namespace Ocorrências_CPD
         {
             if (cbxSituacao.Text == "Todas")
             {
-                grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia));
+                grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia), depto);
             }
             else
             {
                 situacaoOcorrencia = cbxSituacao.Text;
-                grdOcorrencias.DataSource = ocorr.selectOcorrenciasSituacao(Convert.ToInt32(numOcorrencia), situacaoOcorrencia);
+                grdOcorrencias.DataSource = ocorr.selectOcorrenciasSituacao(Convert.ToInt32(numOcorrencia), situacaoOcorrencia, depto);
 
             }
         }
@@ -110,7 +112,10 @@ namespace Ocorrências_CPD
             try
             {
                 ocorr.setONumero(Convert.ToInt32(grdOcorrencias.Rows[grdOcorrencias.CurrentRow.Index].Cells[0].Value.ToString()));
-                
+                ocorr.selectOcorrenciaSingular();
+                if (ocorr.getStatusDef() == "aberta") { btnFinalizar.Enabled = true; }
+                else { btnFinalizar.Enabled = false; }
+
             }
             catch (Exception)
             {

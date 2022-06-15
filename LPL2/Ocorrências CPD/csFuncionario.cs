@@ -12,7 +12,7 @@ using System.Data;
 
 namespace Ocorrências_CPD
 {
-    public class csFuncionario
+    public class csFuncionario : csPessoa
     {
 
 
@@ -24,35 +24,15 @@ namespace Ocorrências_CPD
             
         }
 
-        //DECLARAÇÃO DE VARIAVEIS
-        private Int32 idFunc;
-        private string nomeFunc;
-        private string status;
-        private string cargo; 
-        private string departamento;
-        private Int32 depto_cod;
         
-
-        //SETS
-        public void setIdFuncionario(Int32 id){idFunc = id;}
-        public void setNomeFuncionario(string nomeFunc) { this.nomeFunc = nomeFunc;}
-        public void setStatusFuncionario(string status) { this.status = status;}
-        public void setCargoFuncionario(string cargo) { this.cargo = cargo;}
-        public void setDepartamentoFuncionario(Int32 depto_cod) { this.depto_cod = depto_cod + 1; }
         
-        //GETS
-        public Int32 getIdFuncionario() {return idFunc;}
-        public string getNomeFuncionario() { return nomeFunc;}
-        public string getStatusFuncionario() { return status; }
-        public string getCargoFuncionario() { return cargo; }
-        public string getDepartamentoFuncionario() { return departamento; }
 
         //INSERTS
         public void inserir()
         {
             try
             {
-                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + idFunc + ",'" + nomeFunc + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
+                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + id + ",'" + nome + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
 
                 conexao.executarSql(sql);
             }
@@ -67,10 +47,10 @@ namespace Ocorrências_CPD
             try
             {
                 string sql = "UPDATE tb.pessoa SET ";
-                sql += "p_nome ='" + nomeFunc + "', ";
+                sql += "p_nome ='" + nome + "', ";
                 sql += "p_depto_cod = " + depto_cod + ",";
                 sql += "p_status  ='" + status + "' ";
-                sql += " WHERE p_matricula =" + idFunc + ";";
+                sql += " WHERE p_matricula =" + id + ";";
                 
 
                 conexao.executarSql(sql);
@@ -86,7 +66,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = "+idFunc+";";
+                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = "+id+";";
 
 
                 conexao.executarSql(sql);
@@ -104,7 +84,7 @@ namespace Ocorrências_CPD
             
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" ORDER BY p_status DESC, d_nome ASC;";
+            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" and p_cargo = 'funcionário' ORDER BY p_status DESC, d_nome ASC;";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
@@ -148,13 +128,13 @@ namespace Ocorrências_CPD
             
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and p_matricula = "+idFunc+";";
+            string sql = "select p_matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and p_matricula = "+id+";";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();
 
-            idFunc = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
-            nomeFunc = dataset.Tables[0].Rows[0][1].ToString();
+            id = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            nome = dataset.Tables[0].Rows[0][1].ToString();
             status = dataset.Tables[0].Rows[0][2].ToString();
             cargo = dataset.Tables[0].Rows[0][3].ToString();
             departamento = dataset.Tables[0].Rows[0][4].ToString();
@@ -174,7 +154,7 @@ namespace Ocorrências_CPD
             if (cargo != "diretor") {this.depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][3]); }
             this.status = dataset.Tables[0].Rows[0][2].ToString();
             
-            idFunc = id;
+            this.id = id;
             if (this.cargo == cargo && this.status == "ativo") //Se o ID do funcionario e o cargo são compativeis e se o funcionario esta ativo
             {
 
@@ -185,12 +165,12 @@ namespace Ocorrências_CPD
                 }
                 else if (this.cargo == "gerente")
                 {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto_cod);
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto_cod);
                     abrirJanelas.abrirJanelaGerente();
                 }
                 else if (this.cargo == "funcionário" && this.depto_cod == 4)
                 {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
+                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto_cod);
                     abrirJanelas.abrirJanelaFuncionario();
                 }
                 else 

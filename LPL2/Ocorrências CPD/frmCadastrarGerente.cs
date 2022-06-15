@@ -14,7 +14,8 @@ namespace Ocorrências_CPD
     {
         //CONTRUTORES
         Int32 id;
-        public frmCadastrarGerente(int id)
+        Int32 depto_cod;
+        public frmCadastrarGerente(int id, int depto_cod)
         {
             InitializeComponent();
             atualizarTabelas();
@@ -22,6 +23,7 @@ namespace Ocorrências_CPD
             gerenciaBotoesBarra(true);
             popularComboX();
             this.id = id;
+            this.depto_cod = depto_cod;
         }
 
         //INSTANCIAMENTO DE CLASSES
@@ -88,7 +90,7 @@ namespace Ocorrências_CPD
         }
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (geren.getIdGerente() != 0)
+            if (geren.getIdPessoa() != 0)
             {
                 habilitaControles(true);
                 gerenciaBotoesBarra(false);
@@ -104,7 +106,7 @@ namespace Ocorrências_CPD
 
         private void btnExcluir_Click(object sender, EventArgs e) //Torna o gerente inativo
         {
-            if (geren.getIdGerente() != 0)
+            if (geren.getIdPessoa() != 0)
             {
                 if (MessageBox.Show("Deseja tornar o Gerente selecionado inativo?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -146,15 +148,15 @@ namespace Ocorrências_CPD
         {
             geren.selectGeren();
 
-            txtNome.Text = geren.getNomeGerente();
-            txtMatricula.Text = geren.getIdGerente().ToString();
+            txtNome.Text = geren.getNomePessoa();
+            txtMatricula.Text = geren.getIdPessoa().ToString();
             txtCargo.Text = "Gerente";
-            cbxDepartamento.Text = geren.getDepartamentoGerente();
-            cbxStatus.Text = geren.getStatusGerente();
+            cbxDepartamento.Text = geren.getDepartamentoPessoa();
+            cbxStatus.Text = geren.getStatusPessoa();
         }
         private void limparControles() //limpa dos campos dos txtbox e cbx
         {
-            geren.setIdGerente(0);
+            geren.setIdPessoa(0);
             txtMatricula.Text = "";
             txtNome.Text = "";
             cbxDepartamento.SelectedIndex = -1;
@@ -216,16 +218,16 @@ namespace Ocorrências_CPD
         private void salvarGerente()
         {
             //Sets do gerentes
-            geren.setCargoGerente(txtCargo.Text.ToLower());
-            geren.setDepartamentoGerente(cbxDepartamento.SelectedIndex);
-            geren.setNomeGerente(txtNome.Text);
-            geren.setStatusGerente(cbxStatus.Text);
+            geren.setCargoPessoa(txtCargo.Text.ToLower());
+            geren.setDepartamentoPessoa(cbxDepartamento.SelectedIndex);
+            geren.setNomePessoa(txtNome.Text);
+            geren.setStatusPessoa(cbxStatus.Text);
 
 
-            if (geren.getIdGerente() == 0)
+            if (geren.getIdPessoa() == 0)
             {
                 //Novo gerentes
-                geren.setIdGerente(Convert.ToInt32(txtMatricula.Text));
+                geren.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
                 geren.inserir();
 
 
@@ -282,7 +284,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                geren.setIdGerente(Convert.ToInt32(grdGerentes.Rows[grdGerentes.CurrentRow.Index].Cells[0].Value.ToString()));
+                geren.setIdPessoa(Convert.ToInt32(grdGerentes.Rows[grdGerentes.CurrentRow.Index].Cells[0].Value.ToString()));
 
                 preencheDadosControles();
             }
@@ -297,7 +299,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarGerente_FormClosed(object sender, FormClosedEventArgs e) //abre a janela diretor quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto_cod);
             abrirJanelas.abrirJanelaDiretor();
         }
     }

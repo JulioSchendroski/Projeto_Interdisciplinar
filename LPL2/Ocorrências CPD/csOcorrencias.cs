@@ -90,20 +90,20 @@ namespace Ocorrências_CPD
         }
 
         //SELECTS 
-        public DataTable selectOcorrencias(int funcionario) //seleciona todas as ocorrências de um único funcionário
+        public DataTable selectOcorrencias(int funcionario, int depto) //seleciona todas as ocorrências de um único funcionário
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = "+funcionario+" order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = "+funcionario+" and o_depto_cod = "+depto+" order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;
         }
-        public DataTable selectOcorrenciasSituacao(int funcionario, string situacao) //seleciona as ocorrências de um único funcionário por situação
+        public DataTable selectOcorrenciasSituacao(int funcionario, string situacao, int depto) //seleciona as ocorrências de um único funcionário por situação
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where p_matricula = " + funcionario + " and o_status_def = '" + situacao+"' order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
+            string sql = "select o_numero as ID, o_data as data, o_status_temp as status_temporário, o_status_def as status_definitivo, o_descricao as descrição,p_nome as funcionário,d_nome as departamento from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func where o_depto_cod = "+depto+" and p_matricula = " + funcionario + " and o_status_def = '" + situacao+"' order by o_status_def DESC, o_status_temp DESC, o_data ASC; ";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(tabela);
             return tabela;

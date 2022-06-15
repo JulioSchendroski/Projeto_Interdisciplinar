@@ -38,7 +38,6 @@
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCargo = new System.Windows.Forms.TextBox();
-            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,10 +46,8 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnResetar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbxFiltroDepartamento = new System.Windows.Forms.ComboBox();
             this.cbxFiltroStatus = new System.Windows.Forms.ComboBox();
+            this.cbxDepartamento = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdFuncionarios)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,19 +151,6 @@
             this.txtCargo.TabIndex = 18;
             this.txtCargo.Text = "Funcionário";
             // 
-            // cbxDepartamento
-            // 
-            this.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDepartamento.FormattingEnabled = true;
-            this.cbxDepartamento.Items.AddRange(new object[] {
-            "Ativo",
-            "Inativo"});
-            this.cbxDepartamento.Location = new System.Drawing.Point(229, 230);
-            this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(213, 28);
-            this.cbxDepartamento.TabIndex = 20;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -235,41 +219,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // btnResetar
-            // 
-            this.btnResetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetar.Location = new System.Drawing.Point(549, 5);
-            this.btnResetar.Name = "btnResetar";
-            this.btnResetar.Size = new System.Drawing.Size(50, 24);
-            this.btnResetar.TabIndex = 34;
-            this.btnResetar.Text = "Resetar";
-            this.btnResetar.UseVisualStyleBackColor = true;
-            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(458, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 15);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Departamentos";
-            // 
-            // cbxFiltroDepartamento
-            // 
-            this.cbxFiltroDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFiltroDepartamento.FormattingEnabled = true;
-            this.cbxFiltroDepartamento.Items.AddRange(new object[] {
-            "Status",
-            "ativo",
-            "inativo"});
-            this.cbxFiltroDepartamento.Location = new System.Drawing.Point(459, 32);
-            this.cbxFiltroDepartamento.Name = "cbxFiltroDepartamento";
-            this.cbxFiltroDepartamento.Size = new System.Drawing.Size(159, 21);
-            this.cbxFiltroDepartamento.TabIndex = 32;
-            this.cbxFiltroDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroDepartamento_SelectedIndexChanged);
-            // 
             // cbxFiltroStatus
             // 
             this.cbxFiltroStatus.FormattingEnabled = true;
@@ -284,16 +233,22 @@
             this.cbxFiltroStatus.Text = "Todos";
             this.cbxFiltroStatus.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroStatus_SelectedIndexChanged);
             // 
+            // cbxDepartamento
+            // 
+            this.cbxDepartamento.Enabled = false;
+            this.cbxDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDepartamento.Location = new System.Drawing.Point(229, 230);
+            this.cbxDepartamento.Name = "cbxDepartamento";
+            this.cbxDepartamento.Size = new System.Drawing.Size(188, 26);
+            this.cbxDepartamento.TabIndex = 35;
+            // 
             // frmCadastrarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 489);
-            this.Controls.Add(this.btnResetar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbxFiltroDepartamento);
-            this.Controls.Add(this.cbxFiltroStatus);
             this.Controls.Add(this.cbxDepartamento);
+            this.Controls.Add(this.cbxFiltroStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCargo);
             this.Controls.Add(this.label4);
@@ -331,7 +286,6 @@
         private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCargo;
-        private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnNovo;
@@ -340,9 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnExcluir;
         private System.Windows.Forms.ToolStripMenuItem btnCancelar;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.Button btnResetar;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxFiltroDepartamento;
         private System.Windows.Forms.ComboBox cbxFiltroStatus;
+        private System.Windows.Forms.TextBox cbxDepartamento;
     }
 }

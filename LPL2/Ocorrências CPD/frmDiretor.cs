@@ -22,7 +22,7 @@ namespace Ocorrências_CPD
 
         //INSTANCIAMENTO DE CLASSES
 
-        private conexaoPostgres conexao = new conexaoPostgres();   
+         
         private csDepartamento departamento = new csDepartamento();
         private csGerente gerente = new csGerente();
 

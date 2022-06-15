@@ -13,9 +13,11 @@ namespace Ocorrências_CPD
     public partial class frmCadastrarFuncionario : Form
     {
         Int32 depto;
+        Int32 id;
         //CONTRUTOR
-        public frmCadastrarFuncionario(int depto)
+        public frmCadastrarFuncionario(int id, int depto)
         {
+            this.id = id;
             this.depto = depto;
             InitializeComponent();
             atualizarTabelas();
@@ -36,7 +38,7 @@ namespace Ocorrências_CPD
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas() //atualiza os dados das tabelas
         {
-            grdFuncionarios.DataSource = func.selectTodosFuncionarios(depto);
+            grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto-1);
             checkarSelectFuncionario();
             formataGridFuncionarios();
 
@@ -62,17 +64,10 @@ namespace Ocorrências_CPD
         {
 
             //populando combobox do departamento
-            cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
-            cbxDepartamento.ValueMember = "codigo";
-            cbxDepartamento.DisplayMember = "nome";
-
-            cbxDepartamento.SelectedIndex = -1;
-
-            cbxFiltroDepartamento.DataSource = departamento.selectTodosDepartamentos();
-            cbxFiltroDepartamento.ValueMember = "codigo";
-            cbxFiltroDepartamento.DisplayMember = "nome";
-
-            cbxFiltroDepartamento.SelectedIndex = -1;
+            departamento.setIdDepartamento(depto);
+            departamento.selectDepartamento();
+            cbxDepartamento.Text = departamento.getNomeDepartamento();
+          
 
         }
 
@@ -89,7 +84,7 @@ namespace Ocorrências_CPD
         }
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (func.getIdFuncionario() != 0)
+            if (func.getIdPessoa() != 0)
             {
                 habilitaControles(true);
                 gerenciaBotoesBarra(false);
@@ -105,7 +100,7 @@ namespace Ocorrências_CPD
 
         private void btnExcluir_Click(object sender, EventArgs e) //Torna o funcionário inativo
         {
-            if (func.getIdFuncionario() != 0)
+            if (func.getIdPessoa() != 0)
             {
                 if (MessageBox.Show("Deseja tornar o Funcionário selecionado inativo?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -147,17 +142,17 @@ namespace Ocorrências_CPD
         {
             func.selectFunc();
 
-            txtNome.Text = func.getNomeFuncionario();
-            txtMatricula.Text = func.getIdFuncionario().ToString();
+            txtNome.Text = func.getNomePessoa();
+            txtMatricula.Text = func.getIdPessoa().ToString();
             txtCargo.Text = "Funcionário";
-            cbxDepartamento.Text= func.getDepartamentoFuncionario();
-            cbxStatus.Text = func.getStatusFuncionario();
+            cbxDepartamento.Text= func.getDepartamentoPessoa();
+            cbxStatus.Text = func.getStatusPessoa();
         }
         private void limparControles() { //limpa os dados dos txtbox e cbx
-            func.setIdFuncionario(0);
+            func.setIdPessoa(0);
             txtMatricula.Text = "";
             txtNome.Text = "";
-            cbxDepartamento.SelectedIndex = -1;
+            cbxDepartamento.Text = "";
             cbxStatus.SelectedIndex = -1;
         }
 
@@ -216,16 +211,16 @@ namespace Ocorrências_CPD
         private void salvarFuncionario()
         {
             //Sets do funcionários
-            func.setCargoFuncionario(txtCargo.Text.ToLower());
-            func.setDepartamentoFuncionario(cbxDepartamento.SelectedIndex);
-            func.setNomeFuncionario(txtNome.Text);
-            func.setStatusFuncionario(cbxStatus.Text);
+            func.setCargoPessoa(txtCargo.Text.ToLower());
+            func.setDepartamentoPessoa(depto);
+            func.setNomePessoa(txtNome.Text);
+            func.setStatusPessoa(cbxStatus.Text);
             
 
-            if (func.getIdFuncionario() == 0)
+            if (func.getIdPessoa() == 0)
             {
                 //Novo Funcionário
-                func.setIdFuncionario(Convert.ToInt32(txtMatricula.Text));
+                func.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
                 func.inserir();
 
 
@@ -241,24 +236,14 @@ namespace Ocorrências_CPD
         //PREENCHIMENTO DA TABELA FUNCIONARIO
         private void checkarSelectFuncionario()
         { //Checka qual filtro deve ser aplicado para mostrar os funcionários
-            if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
-            { grdFuncionarios.DataSource = func.selectTodosFuncionarios(depto); }
-            else if (cbxFiltroStatus.Text != "Todos" && cbxFiltroDepartamento.Text == "")
+            if (cbxStatus.Text == "Todos")
+            { grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto - 1); }
+            else if (cbxFiltroStatus.Text != "Todos")
             {
                 statusFunc = cbxFiltroStatus.Text;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatus(statusFunc, depto);
+                grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, depto - 1);
             }
-            else if (cbxFiltroStatus.Text == "Todos" && cbxFiltroDepartamento.Text != "")
-            {
-                numeroDepartamento = cbxFiltroDepartamento.SelectedIndex;
-                grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(numeroDepartamento);
-            }
-            else if (cbxFiltroStatus.Text != "Todos" && cbxFiltroDepartamento.Text != "")
-            {
-                statusFunc = cbxFiltroStatus.Text;
-                numeroDepartamento = cbxFiltroDepartamento.SelectedIndex;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, numeroDepartamento);
-            }
+          
         }
         //AÇÃO AO CLICAR NOS FILTROS 
         private void cbxFiltroDepartamento_SelectedIndexChanged(object sender, EventArgs e)
@@ -273,7 +258,7 @@ namespace Ocorrências_CPD
 
         private void btnResetar_Click(object sender, EventArgs e)
         {
-            cbxFiltroDepartamento.SelectedIndex = -1;
+            
             atualizarTabelas();
         }
 
@@ -282,7 +267,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                func.setIdFuncionario(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
+                func.setIdPessoa(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
 
                 preencheDadosControles();
             }
@@ -297,7 +282,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarFuncionario_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaGerente();
         }
     }

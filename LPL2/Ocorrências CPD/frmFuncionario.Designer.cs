@@ -114,6 +114,7 @@
             // 
             // btnFinalizar
             // 
+            this.btnFinalizar.Enabled = false;
             this.btnFinalizar.Location = new System.Drawing.Point(679, 381);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(143, 32);

@@ -158,6 +158,14 @@ namespace Ocorrências_CPD
             atualizarTabelas();
         }
 
-       
+        private void btnResetar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

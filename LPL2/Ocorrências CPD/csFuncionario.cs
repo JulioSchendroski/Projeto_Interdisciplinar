@@ -24,9 +24,6 @@ namespace Ocorrências_CPD
             
         }
 
-        
-        
-
         //INSERTS
         public void inserir()
         {

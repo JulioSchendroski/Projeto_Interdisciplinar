@@ -239,7 +239,7 @@
             this.cbxDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDepartamento.Location = new System.Drawing.Point(229, 230);
             this.cbxDepartamento.Name = "cbxDepartamento";
-            this.cbxDepartamento.Size = new System.Drawing.Size(188, 26);
+            this.cbxDepartamento.Size = new System.Drawing.Size(213, 26);
             this.cbxDepartamento.TabIndex = 35;
             // 
             // frmCadastrarFuncionario

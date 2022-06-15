@@ -233,5 +233,23 @@ namespace Ocorrências_CPD
             csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaDiretor();
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (departamento.getIdDepartamento() != 0)
+            {
+                if (MessageBox.Show("Deseja Excluir o departamento?", "Alteração",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    departamento.delete();
+                    limparControles();
+                    atualizarTabelas();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione o departamento para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

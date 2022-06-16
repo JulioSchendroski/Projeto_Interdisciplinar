@@ -152,7 +152,6 @@ namespace Ocorrências_CPD
             func.setIdPessoa(0);
             txtMatricula.Text = "";
             txtNome.Text = "";
-            cbxDepartamento.Text = "";
             cbxStatus.SelectedIndex = -1;
         }
 
@@ -160,7 +159,6 @@ namespace Ocorrências_CPD
         {
             txtNome.Enabled = status;
             txtMatricula.Enabled = status;
-            cbxDepartamento.Enabled = status;
             cbxStatus.Enabled = status;
         }
 

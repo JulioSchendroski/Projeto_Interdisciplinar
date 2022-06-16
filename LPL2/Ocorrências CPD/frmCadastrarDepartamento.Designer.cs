@@ -50,20 +50,24 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 209);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 20);
+            this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 28;
             this.label4.Text = "Descrição";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 25;
             this.label2.Text = "Nome";
             // 
@@ -78,10 +82,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 23;
             this.label1.Text = "Código";
             // 
@@ -114,17 +120,19 @@
             this.grdDepartamento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grdDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDepartamento.GridColor = System.Drawing.Color.DarkGray;
-            this.grdDepartamento.Location = new System.Drawing.Point(459, 71);
+            this.grdDepartamento.Location = new System.Drawing.Point(459, 55);
             this.grdDepartamento.Margin = new System.Windows.Forms.Padding(4);
             this.grdDepartamento.Name = "grdDepartamento";
             this.grdDepartamento.ReadOnly = true;
-            this.grdDepartamento.Size = new System.Drawing.Size(398, 417);
+            this.grdDepartamento.RowHeadersVisible = false;
+            this.grdDepartamento.Size = new System.Drawing.Size(398, 433);
             this.grdDepartamento.TabIndex = 47;
             this.grdDepartamento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDepartamento_CellContentClick);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNovo,
             this.btnAlterar,
@@ -134,49 +142,55 @@
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(874, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(874, 33);
             this.menuStrip1.TabIndex = 48;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // btnNovo
             // 
+            this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(60, 25);
+            this.btnNovo.Size = new System.Drawing.Size(73, 29);
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.ForeColor = System.Drawing.Color.White;
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(69, 25);
+            this.btnAlterar.Size = new System.Drawing.Size(85, 29);
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(65, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(78, 29);
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(67, 25);
+            this.btnExcluir.Size = new System.Drawing.Size(84, 29);
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(82, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 29);
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // sairToolStripMenuItem
             // 
+            this.sairToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(49, 25);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -184,6 +198,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.bagkground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(874, 493);
             this.Controls.Add(this.grdDepartamento);
             this.Controls.Add(this.menuStrip1);

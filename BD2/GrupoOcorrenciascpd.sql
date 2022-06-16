@@ -570,7 +570,7 @@ CALL insercao_ocorrencia('encerrada','aberta' ,to_date('07/06/2022','DD/MM/YYYY'
 
 
 
--- ---------------------------------------------
+- ---------------------------------------------
 -- [11] SEGURANCA
 -- Nao sera incluida aqui
 -- Usar/entregar o modelo especifico
@@ -622,16 +622,14 @@ GRANT SELECT, INSERT, UPDATE ON TABLE tb.departamento TO diretor;
 -- [11.3.4]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) executar as consultas das Secoes 4 e 5
 -- Usuario(s) podem conceder esse acesso alem do superusuario:funcionario
--- Apagar essa linha e adicionar os comandos necessarios
-
 
 GRANT SELECT, UPDATE ON TABLE tb.ocorrencia TO funcionario;
 
 
 -- [11.3.5]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) executar os comandos da Secao 7
--- Usuario(s) podem conceder esse acesso alem do superusuario: citar aqui
--- Apagar essa linha e adicionar os comandos necessarios
+-- Usuario(s) podem conceder esse acesso alem do superusuario: gerente
+GRANT INSERT ON TABLE tb.ocorrencia TO gerente;
 
 
 -- [11.3.6]
@@ -668,12 +666,26 @@ REVOKE SELECT, UPDATE ON TABLE tb.ocorrencia FROM funcionario;
 -- [11.4.5]
 -- Revogar o acesso em 11.3.5 de pelo menos 1 papel
 -- Usuario(s) podem revogar esse acesso alem do superusuario: adm
--- Apague esta linha e redija o comando aqui
+REVOKE INSERT ON TABLE tb.ocorrencia FROM gerente;
 
 -- [11.4.6]
 -- Revogar o acesso em 11.3.6 de pelo menos 1 papel
 -- Usuario(s) podem revogar esse acesso alem do superusuario: adm
 -- Apague esta linha e redija o comando aqui
+
+
+-- Se for necessario para executar os comandos seguintes, assegure novamente os privilegios de acesso revogados acima
+GRANT CREATE ON DATABASE ocorrenciascpd TO adm;
+GRANT USAGE ON SCHEMA tb TO adm;
+GRANT SELECT, INSERT, UPDATE ON TABLE tb.departamento TO diretor;
+GRANT SELECT, UPDATE ON TABLE tb.ocorrencia TO funcionario;
+GRANT INSERT ON TABLE tb.ocorrencia TO gerente;
+
+
+-- ---------------------------------------------
+-- [12] TRANSACOES
+-- Nao incluir aqui
+-- Usar/entregar o modelo proprio para esse topico
 
 
 -- Se for necessario para executar os comandos seguintes, assegure novamente os privilegios de acesso revogados acima

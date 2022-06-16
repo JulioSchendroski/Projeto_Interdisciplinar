@@ -449,12 +449,14 @@ oops=5)
 
 -- [6.3] Comentarios e justificativas para o indice 
 -- Considerar custo e tempo das operacoes, por exemplo
--- comente e justifique nesta linha
+-- Ao analizar a o custo de indexar utilizando a primary key de departamento no exemplo anterior, podemos ver que
+-- Houve um custo considerável, apesar do banco de dados se de uma escala menor, foi custoso para utilizar o SELECT
+-- Através de um indice padrão que o próprio SGBD definiu.
 
 
 -- [6.4] CREATE INDEX e PARAMETROS (Set)
 -- Crie o indice, verifique se o indice ja esta sendo usado no processamento da consulta e, caso nao esteja, ajuste os parametros
--- apague esta linha e redija os comandos
+CREATE INDEX index_hash_pessoa ON tb.pessoa USING HASH (p_matricula);
 
 
 
@@ -465,21 +467,21 @@ oops=5)
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
     -- Seleciona o id, status e a descrição de ocorrências da data atual 
-    SELECT o_numero, o_status_temp, o_descricao FROM tb.ocorrencia WHERE CURRENT_TIMESTAMP()
+    SELECT o_numero, o_status_temp, o_descricao FROM tb.ocorrencia WHERE CURRENT_TIMESTAMP();
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
     --Insere em ocorrência uma nova ocorrência utilizando letra maiuscula no status definitivo
     INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod)
-    VALUES ('encerrada', UPPER('encerrada') ,to_date('15/05/2017','DD/MM/YYYY'),'Backup setor de informática',69,4);
+    VALUES ('encerrada', LOWER('ENCERRADA') ,to_date('15/05/2017','DD/MM/YYYY'),'Backup setor de informática',987,4);
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
     --Atualiza o nome do funcionário com id igual 1 em letra maiuscula
-    UPDATE tb.pessoa SET p_nome = UPPER('Sienna Grande Corte-Real') WHERE p_matricula = 1
+    UPDATE tb.pessoa SET p_nome = UPPER('Sienna Grande Corte-Real') WHERE p_matricula = 1;
 
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
     --Deleta o funcionário que possui a matricula que seja 2 elevado a 4 (16)
-    DELETE FROM tb.pessoa WHERE p_matricula = POWER(2,4)
+    DELETE FROM tb.pessoa WHERE p_matricula = POWER(2,4);
 
 -- ---------------------------------------------
 -- [8] USER-DEFINED FUNCTION (UDF)
@@ -490,13 +492,20 @@ oops=5)
 -- A funcao devera' ter parametro(s).
 
 
--- Comentar aqui a utilidade da funcao na aplicacao 
--- CREATE OR REPLACE FUNCTION abaixo (apagar esta linha)
+-- Comentar aqui a utilidade da funcao na aplicacao
+--A função faz com que a data de uma ocorrência seja alterada conforme um input por parâmetro.
+      CREATE OR REPLACE FUNCTION altera_data (id_ocorrencia BIGINT, nova_data DATE) RETURNS DATE AS $$
+      DECLARE 
+      numero_ocorrencia tb.ocorrencia.o_matricula_func%TYPE;
+      BEGIN
+      SELECT o_matricula_func INTO numero_ocorrencia FROM tb.ocorrencia o WHERE o.o_matricula_func = id_ocorrencia;
+      UPDATE tb.ocorrencia SET o_data = nova_data WHERE o_matricula_func = numero_ocorrencia;
+      END;
+      $$ LANGUAGE 'plpgsql';
 
 -- Explicar aqui o que a chamada abaixo faz
--- SELECT ou INSERT ou UPDATE ou DELETE abaixo para chamar a funcao (apagar esta linha)
-
-
+-- Mostra a ocorrẽncia na qual a data foi alterada, conforme o id
+      SELECT altera_data (9, '29-07-2022')
 
 -- ---------------------------------------------
 -- [9] STORED PROCEDURE
@@ -507,11 +516,17 @@ oops=5)
 -- O procedimento devera' ter parametro(s).
 
 -- Comentar a utilidade do procedimento na aplicacao aqui
--- CREATE OR REPLACE PROCEDURE abaixo (apagar esta linha)
+      CREATE OR REPLACE PROCEDURE insercao_ocorrencia(status_temp VARCHAR(20), status_def VARCHAR(20), data DATE, descricao VARCHAR(50), matricula INT, depto VARCHAR (20)) AS $$
+      BEGIN
+            INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod) VALUES (status_temp, status_def, data, descricao, matricula, depto);
+            RAISE NOTICE 'A nova ocorrência do departamento % foi inserida', o_dpto_cod);
+      END;
+      &&LANGUAGE 'plpgsql';
 
 
 -- Explicar aqui o que a chamada abaixo faz
--- chamar aqui o procedimento (apagar essa linha)
+-- Através de uma PROCEDURE, insere uma nova ocorrência em determinado departamento
+CALL insercao_ocorrencia('encerrada','aberta' ,to_date('07/06/2022','DD/MM/YYYY'),'Configurar sub-rede do departamento financairo',9,4);
 
 
 

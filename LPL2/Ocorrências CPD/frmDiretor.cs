@@ -22,7 +22,7 @@ namespace Ocorrências_CPD
 
         //INSTANCIAMENTO DE CLASSES
 
-        private conexaoPostgres conexao = new conexaoPostgres();   
+         
         private csDepartamento departamento = new csDepartamento();
         private csGerente gerente = new csGerente();
 
@@ -158,6 +158,14 @@ namespace Ocorrências_CPD
             atualizarTabelas();
         }
 
-       
+        private void btnResetar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

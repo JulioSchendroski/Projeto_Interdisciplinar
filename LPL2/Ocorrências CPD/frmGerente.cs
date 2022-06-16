@@ -13,13 +13,15 @@ namespace Ocorrências_CPD
 {
     public partial class frmGerente : Form
     {
+        Int32 id;
         Int32 depto;
         //CONSTRUTOR
-        public frmGerente(Int32 depto)
+        public frmGerente(Int32 id, Int32 depto)
         {
+            this.id = id;
             this.depto = depto;
             InitializeComponent();
-            func.setIdFuncionario(-1);
+            func.setIdPessoa(-1);
             atualizarTabelas();
         }
 
@@ -54,6 +56,7 @@ namespace Ocorrências_CPD
             grdFuncionarios.Columns[4].Width = 150; //departamento
 
             grdFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
         }
 
         private void formataGridOcorrencias() //formata as colunas da tabela Ocorrências
@@ -80,7 +83,7 @@ namespace Ocorrências_CPD
         //PREENCHIMENTO DAS TABELAS
         private void preencheDadosControles() //Preenche grid ocorrencias 
         {
-            numOcorrencia = func.getIdFuncionario();
+            numOcorrencia = func.getIdPessoa();
 
             checkarSelectOcorrencias();
         }
@@ -96,12 +99,12 @@ namespace Ocorrências_CPD
         {
             if (cbxSituacao.Text == "Todas")
             {
-                grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia));
+                grdOcorrencias.DataSource = ocorr.selectOcorrencias(Convert.ToInt32(numOcorrencia), depto);
             }
             else 
             {
                 situacaoOcorrencia = cbxSituacao.Text;
-                grdOcorrencias.DataSource = ocorr.selectOcorrenciasSituacao(Convert.ToInt32(numOcorrencia), situacaoOcorrencia);
+                grdOcorrencias.DataSource = ocorr.selectOcorrenciasSituacao(Convert.ToInt32(numOcorrencia), situacaoOcorrencia, depto);
 
             }
         }
@@ -122,7 +125,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                func.setIdFuncionario(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
+                func.setIdPessoa(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
                 preencheDadosControles();
             }
             catch (Exception)
@@ -159,21 +162,21 @@ namespace Ocorrências_CPD
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaCadastrarFuncionario();
         }
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(depto);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaCadastrarOcorrencias();
         }
 
         //AÇÃO AO CLICAR NOS BOTÕES
         private void btnResetar_Click_1(object sender, EventArgs e) //Reseta o combobox do departamento
         {
-            func.setIdFuncionario(-1);
+            func.setIdPessoa(-1);
             atualizarTabelas();
             
         }
@@ -198,7 +201,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (func.getIdFuncionario() == -1) {
+            if (func.getIdPessoa() == -1) {
                 if (cbxSituacao.Text == "Todas")
                 {
                     grdOcorrencias.DataSource = ocorr.selectTodasOcorrenciasDepartamento(depto);

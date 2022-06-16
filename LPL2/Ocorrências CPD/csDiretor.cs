@@ -11,41 +11,20 @@ using System.Data;
 
 namespace Ocorrências_CPD
 {
-    internal class csDiretor
+    internal class csDiretor : csPessoa
     {
 
         //INSTANCIAMENTO DE CLASSES
         private conexaoPostgres conexao = new conexaoPostgres();
 
-        //DECLARAÇÃO DE VARIÁVEIS
-        private Int32 idDiretor;
-        private string nomeDiretor;
-        private string status;
-        private string cargo;
-      
-
-        //SETS
-        public void setIdDiretor(Int32 id) { idDiretor = id; }
-        public void setNomeDiretor(string nomeFunc) { this.nomeDiretor = nomeFunc; }
-        public void setStatusDiretor(string status) { this.status = status; }
-        public void setCargoDiretor(string cargo) { this.cargo = cargo; }
-        
-
-        //GETS
-        public Int32 getIdDiretor() { return idDiretor; }
-        public string getNomeDiretor() { return nomeDiretor; }
-        public string getStatusDiretor() { return status; }
-        public string getCargoDiretor() { return cargo; }
-       
-
-
+  
         //INSERTS
         public void inserir()
         {
 
             try
             {
-                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (" + idDiretor + ",'" + nomeDiretor + "', '" + status + "','" + cargo + "');";
+                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (" + id + ",'" + nome + "', '" + status + "','" + cargo + "');";
 
                 conexao.executarSql(sql);
             }
@@ -61,9 +40,9 @@ namespace Ocorrências_CPD
             try
             {
                 string sql = "UPDATE tb.pessoa SET ";
-                sql += "p_nome ='" + nomeDiretor + "', ";
+                sql += "p_nome ='" + nome + "', ";
                 sql += "p_status  ='" + status + "' ";
-                sql += " WHERE p_matricula =" + idDiretor + ";";
+                sql += " WHERE p_matricula =" + id + ";";
 
 
                 conexao.executarSql(sql);
@@ -79,7 +58,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + idDiretor + ";";
+                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + id + ";";
 
 
                 conexao.executarSql(sql);
@@ -119,13 +98,13 @@ namespace Ocorrências_CPD
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo from tb.pessoa  where p_cargo = 'diretor' and p_matricula = " + idDiretor + ";";
+            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo from tb.pessoa  where p_cargo = 'diretor' and p_matricula = " + id + ";";
             adapter = conexao.executaRetornaDados(sql);
             adapter.Fill(dataset);
             Console.WriteLine();
 
-            idDiretor = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
-            nomeDiretor = dataset.Tables[0].Rows[0][1].ToString();
+            id = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            nome = dataset.Tables[0].Rows[0][1].ToString();
             status = dataset.Tables[0].Rows[0][2].ToString();
             cargo = dataset.Tables[0].Rows[0][3].ToString();
           

@@ -68,22 +68,13 @@ namespace Ocorrências_CPD
         }
 
         //DROPS
-        /*public void delete() //Nenhum gerente é excluido do banco quando se torna inativo
+        public void delete() //Nenhum gerente é excluido do banco quando se torna inativo
         {
-            try
-            {
-                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + idGeren + ";";
-
-
-                conexao.executarSql(sql);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possível alterar o gerente. ", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
+            string sql = "DELETE FROM tb.departamento WHERE d_codigo =" + d_codigo + ";";
+            conexao.executarSql(sql);
 
         }
-        */
+        
         //SELECTS
         public DataTable selectTodosDepartamentos() //seleciona todos os departamentos
         {

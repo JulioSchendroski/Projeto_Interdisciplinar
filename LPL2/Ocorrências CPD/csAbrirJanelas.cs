@@ -13,11 +13,12 @@ namespace Ocorrências_CPD
         Thread t_abrir_janelas; //Criação de uma thread para abrir janelas separadamente
 
         //DECLARAÇÃO DE VARIAVEIS
-        int id;
+        private Int32 id;
+        private Int32 depto_cod;
 
         //CONTRUTORES
         public csAbrirJanelas(){}
-        public csAbrirJanelas(int id) { this.id = id;}
+        public csAbrirJanelas(Int32 id, Int32 depto_cod) { this.id = id; this.depto_cod = depto_cod;}
 
         //ABRIR JANELA GERENTE
         public void abrirJanelaGerente() {
@@ -27,7 +28,7 @@ namespace Ocorrências_CPD
             t_abrir_janelas.Start();
         }
         private void janelaGerente(object obj) {
-            Application.Run(new frmGerente(id));
+            Application.Run(new frmGerente(id, depto_cod));
         }
 
         //ABRIR JANELA DIRETOR
@@ -53,7 +54,7 @@ namespace Ocorrências_CPD
         }
         private void janelaFuncionario(object obj)
         {
-            Application.Run(new frmFuncionario(id));
+            Application.Run(new frmFuncionario(id, depto_cod));
         }
 
         //ABRIR JANELA CADASTRAR FUNCIONÁRIOS
@@ -66,7 +67,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarFuncionario(object obj)
         {
-            Application.Run(new frmCadastrarFuncionario(id));
+            Application.Run(new frmCadastrarFuncionario(id, depto_cod));
         }
 
         //ABRIR JANELA CADASTRAR GERENTE
@@ -79,7 +80,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarGerente(object obj)
         {
-            Application.Run(new frmCadastrarGerente(id));
+            Application.Run(new frmCadastrarGerente(id,depto_cod));
         }
 
         //ABRIR JANELA CADASTRAR DEPARTAMENTO
@@ -92,7 +93,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarDepartamento(object obj)
         {
-            Application.Run(new frmCadastrarDepartamento(id));
+            Application.Run(new frmCadastrarDepartamento(id, depto_cod));
         }
 
         //ABRIR JANELA CADASTRAR OCORRENCIAS
@@ -105,7 +106,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarOcorrencias(object obj)
         {
-            Application.Run(new frmCadastrarOcorrencias(id));
+            Application.Run(new frmCadastrarOcorrencias(id, depto_cod));
         }
 
         //ABRIR JANELA LOGIN (Janela inicial)
@@ -131,7 +132,7 @@ namespace Ocorrências_CPD
         }
         private void janelaCadastrarDiretor(object obj)
         {
-            Application.Run(new frmCadastrarDiretor(id));
+            Application.Run(new frmCadastrarDiretor(id, depto_cod));
         }
 
     }

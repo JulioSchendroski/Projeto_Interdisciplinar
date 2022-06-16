@@ -35,25 +35,24 @@
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grdOcorrencias = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.painelFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // painelFuncionario
             // 
+            this.painelFuncionario.BackColor = System.Drawing.Color.Transparent;
+            this.painelFuncionario.Controls.Add(this.btnFinalizar);
             this.painelFuncionario.Controls.Add(this.txtStatus);
             this.painelFuncionario.Controls.Add(this.txtCargo);
             this.painelFuncionario.Controls.Add(this.txtMatricula);
             this.painelFuncionario.Controls.Add(this.txtDepartamento);
             this.painelFuncionario.Controls.Add(this.txtNome);
-            this.painelFuncionario.Controls.Add(this.btnFinalizar);
             this.painelFuncionario.Controls.Add(this.cbxSituacao);
             this.painelFuncionario.Controls.Add(this.label2);
             this.painelFuncionario.Controls.Add(this.grdOcorrencias);
@@ -112,26 +111,17 @@
             this.txtNome.TabIndex = 26;
             this.txtNome.Text = "Nome";
             // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.Location = new System.Drawing.Point(679, 381);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(143, 32);
-            this.btnFinalizar.TabIndex = 25;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click_1);
-            // 
             // cbxSituacao
             // 
+            this.cbxSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
             "Todas",
             "aberta",
             "encerrada"});
-            this.cbxSituacao.Location = new System.Drawing.Point(701, 184);
+            this.cbxSituacao.Location = new System.Drawing.Point(701, 177);
             this.cbxSituacao.Name = "cbxSituacao";
-            this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cbxSituacao.Size = new System.Drawing.Size(121, 24);
             this.cbxSituacao.TabIndex = 23;
             this.cbxSituacao.Text = "Todas";
             this.cbxSituacao.SelectedIndexChanged += new System.EventHandler(this.cbxSituacao_SelectedIndexChanged_1);
@@ -139,10 +129,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 184);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(382, 179);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.Size = new System.Drawing.Size(124, 24);
             this.label2.TabIndex = 19;
             this.label2.Text = "Ocorrências";
             // 
@@ -162,34 +153,46 @@
             this.grdOcorrencias.Margin = new System.Windows.Forms.Padding(4);
             this.grdOcorrencias.Name = "grdOcorrencias";
             this.grdOcorrencias.ReadOnly = true;
+            this.grdOcorrencias.RowHeadersVisible = false;
             this.grdOcorrencias.Size = new System.Drawing.Size(802, 166);
             this.grdOcorrencias.TabIndex = 7;
             this.grdOcorrencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOcorrencias_CellClick);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.desconectarToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(862, 29);
-            this.menuStrip1.TabIndex = 11;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // desconectarToolStripMenuItem
             // 
+            this.desconectarToolStripMenuItem.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.desconectar;
+            this.desconectarToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.desconectarToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desconectarToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.desconectarToolStripMenuItem.Location = new System.Drawing.Point(826, 9);
             this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(107, 25);
-            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(25, 25);
+            this.desconectarToolStripMenuItem.TabIndex = 33;
+            this.desconectarToolStripMenuItem.UseVisualStyleBackColor = true;
             this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnFinalizar.Enabled = false;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Location = new System.Drawing.Point(679, 391);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(143, 42);
+            this.btnFinalizar.TabIndex = 31;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click_1);
             // 
             // frmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.bagkground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(862, 481);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.desconectarToolStripMenuItem);
             this.Controls.Add(this.painelFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -199,17 +202,13 @@
             this.painelFuncionario.ResumeLayout(false);
             this.painelFuncionario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel painelFuncionario;
-        private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.ComboBox cbxSituacao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView grdOcorrencias;
@@ -218,7 +217,7 @@
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
+        private System.Windows.Forms.Button desconectarToolStripMenuItem;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }

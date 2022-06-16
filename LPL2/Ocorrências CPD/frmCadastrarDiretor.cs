@@ -14,18 +14,20 @@ namespace Ocorrências_CPD
     {
         //CONTRUTORES
         Int32 id;
-        public frmCadastrarDiretor(int id)
+        Int32 depto;
+        public frmCadastrarDiretor(int id, int depto)
         {
             InitializeComponent();
             atualizarTabelas();
             habilitaControles(false);
             gerenciaBotoesBarra(true);
             this.id = id;
+            this.depto = depto;
         }
 
         //INSTANCIAMENTO DE CLASSES
         csDiretor diretor = new csDiretor();
-        csDepartamento departamento = new csDepartamento();
+        
 
         //CRIAÇÃO DE VARIAVEIS
         private string statusDiretor;
@@ -69,7 +71,7 @@ namespace Ocorrências_CPD
         }
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (diretor.getIdDiretor() != 0)
+            if (diretor.getIdPessoa() != 0)
             {
                 habilitaControles(true);
                 gerenciaBotoesBarra(false);
@@ -85,7 +87,7 @@ namespace Ocorrências_CPD
 
         private void btnExcluir_Click(object sender, EventArgs e) //Torna o diretor inativo
         {
-            if (diretor.getIdDiretor() != 0)
+            if (diretor.getIdPessoa() != 0)
             {
                 if (MessageBox.Show("Deseja tornar o Diretor selecionado inativo?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -127,14 +129,14 @@ namespace Ocorrências_CPD
         {
             diretor.selectDiretor();
 
-            txtNome.Text = diretor.getNomeDiretor();
-            txtMatricula.Text = diretor.getIdDiretor().ToString();
+            txtNome.Text = diretor.getNomePessoa();
+            txtMatricula.Text = diretor.getIdPessoa().ToString();
             txtCargo.Text = "Diretor";
-            cbxStatus.Text = diretor.getStatusDiretor();
+            cbxStatus.Text = diretor.getStatusPessoa();
         }
         private void limparControles() //limpa dos campos dos txtbox e cbx
         {
-            diretor.setIdDiretor(0);
+            diretor.setIdPessoa(0);
             txtMatricula.Text = "";
             txtNome.Text = "";
             cbxStatus.SelectedIndex = -1;
@@ -188,15 +190,15 @@ namespace Ocorrências_CPD
         private void salvarDiretor()
         {
             //Sets do diretores
-            diretor.setCargoDiretor(txtCargo.Text.ToLower());
-            diretor.setNomeDiretor(txtNome.Text);
-            diretor.setStatusDiretor(cbxStatus.Text);
+            diretor.setCargoPessoa(txtCargo.Text.ToLower());
+            diretor.setNomePessoa(txtNome.Text);
+            diretor.setStatusPessoa(cbxStatus.Text);
 
 
-            if (diretor.getIdDiretor() == 0)
+            if (diretor.getIdPessoa() == 0)
             {
                 //Novo diretor
-                diretor.setIdDiretor(Convert.ToInt32(txtMatricula.Text));
+                diretor.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
                 diretor.inserir();
 
 
@@ -243,7 +245,7 @@ namespace Ocorrências_CPD
         {
             try
             {
-                diretor.setIdDiretor(Convert.ToInt32(grdDiretor.Rows[grdDiretor.CurrentRow.Index].Cells[0].Value.ToString()));
+                diretor.setIdPessoa(Convert.ToInt32(grdDiretor.Rows[grdDiretor.CurrentRow.Index].Cells[0].Value.ToString()));
 
                 preencheDadosControles();
             }
@@ -258,7 +260,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarDiretor_FormClosed(object sender, FormClosedEventArgs e) //abre a janela diretor quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaDiretor();
         }
     }

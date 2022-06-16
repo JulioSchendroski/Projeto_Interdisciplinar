@@ -14,7 +14,8 @@ namespace Ocorrências_CPD
     {
         //CONTRUTOR
         Int32 id;
-        public frmCadastrarOcorrencias(Int32 id)
+        Int32 depto;
+        public frmCadastrarOcorrencias(Int32 id, int depto)
         {
             this.id = id;
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace Ocorrências_CPD
             habilitaControles(false);
             gerenciaBotoesBarra(true);
             popularComboX();
+            this.depto = depto;
         }
 
         //DECLARAÇÃO DE VARIÁVEIS
@@ -343,7 +345,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO FECHAR FORMULÁRIO
         private void frmCadastrarOcorrencias_FormClosed(object sender, FormClosedEventArgs e) //abre a janela gerente quando a janela é fechada
         {
-            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id);
+            csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaGerente();
         }
 

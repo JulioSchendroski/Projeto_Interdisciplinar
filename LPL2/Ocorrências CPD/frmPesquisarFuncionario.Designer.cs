@@ -29,6 +29,7 @@ namespace Ocorrências_CPD
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisarFuncionario));
             this.grdOcorrencias = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdOcorrencias)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +61,7 @@ namespace Ocorrências_CPD
             this.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.bagkground;
             this.ClientSize = new System.Drawing.Size(373, 450);
             this.Controls.Add(this.grdOcorrencias);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmPesquisarFuncionario";
             this.Text = "Pesquisar Funcionários";

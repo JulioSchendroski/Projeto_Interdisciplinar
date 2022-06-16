@@ -256,6 +256,7 @@
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.grdDiretor);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastrarDiretor";
             this.Text = "frmCadastrarDiretor";

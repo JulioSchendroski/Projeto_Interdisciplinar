@@ -45,17 +45,19 @@ namespace Ocorrências_CPD
             this.grdOcorrencias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grdOcorrencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOcorrencias.GridColor = System.Drawing.Color.DarkGray;
-            this.grdOcorrencias.Location = new System.Drawing.Point(13, 93);
+            this.grdOcorrencias.Location = new System.Drawing.Point(13, 13);
             this.grdOcorrencias.Margin = new System.Windows.Forms.Padding(4);
             this.grdOcorrencias.Name = "grdOcorrencias";
             this.grdOcorrencias.ReadOnly = true;
-            this.grdOcorrencias.Size = new System.Drawing.Size(347, 344);
+            this.grdOcorrencias.RowHeadersVisible = false;
+            this.grdOcorrencias.Size = new System.Drawing.Size(347, 424);
             this.grdOcorrencias.TabIndex = 50;
             // 
             // frmPesquisarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.bagkground;
             this.ClientSize = new System.Drawing.Size(373, 450);
             this.Controls.Add(this.grdOcorrencias);
             this.MaximizeBox = false;

@@ -113,23 +113,7 @@ namespace Ocorrências_CPD
 
         }
 
-        /* private void btnExcluir_Click(object sender, EventArgs e) //Torna o departamento inativo
-         {
-             if (departamento.getIdDepartamento() != 0)
-             {
-                 if (MessageBox.Show("Deseja tornar o Gerente selecionado inativo?", "Alteração",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                 {
-                     departamento.delete();
-                     limparControles();
-                     atualizarTabelas();
-                 }
-             }
-             else
-             {
-                 MessageBox.Show("Selecione o Gerente para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-         }*/
+       
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -138,11 +122,18 @@ namespace Ocorrências_CPD
         {
             if (validaDados() == true)
             {
-                salvarOcorrencia();
-                habilitaControles(false);
-                limparControles();
-                gerenciaBotoesBarra(true);
-                atualizarTabelas();
+                if (txtNome.Text == "") {
+                    MessageBox.Show("Funcionário não pertence ao departamento de informática", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    salvarOcorrencia();
+                    habilitaControles(false);
+                    limparControles();
+                    gerenciaBotoesBarra(true);
+                    atualizarTabelas();
+                }
             }
         }
         private void btnNovo_Click(object sender, EventArgs e)

@@ -210,7 +210,7 @@ namespace Ocorrências_CPD
         {
             //Sets do funcionários
             func.setCargoPessoa(txtCargo.Text.ToLower());
-            func.setDepartamentoPessoa(depto);
+            func.setDepartamentoPessoa(depto-1);
             func.setNomePessoa(txtNome.Text);
             func.setStatusPessoa(cbxStatus.Text);
             

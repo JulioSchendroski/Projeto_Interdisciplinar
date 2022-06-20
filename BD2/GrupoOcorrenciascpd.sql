@@ -851,6 +851,12 @@ delete from tb.departamento where d_codigo = 5;
 -- [11.1] ACESSO REMOTO (pg_hba.conf)
 -- Cole nas linhas abaixo o conteudo do arquivo pg_hba.conf que o servidor deve conter, iniciando cada linha com comentario '--' (para nao impedir a execucao desse script); apague esta linha
 
+--# IPv4 local connections:
+--host    all             postgres        10.128.70.214/32        scram-sha-256
+--host   	ocorrenciascpd  dbadm          	10.128.70.74/32         scram-sha-256
+--host    ocorrenciascpd  u1             	10.128.70.213/32        scram-sha-256
+--host    ocorrenciascpd  u2             	10.128.70.219/32        scram-sha-256	
+
 
 -- [11.2] PAPEIS (Roles)
 -- Criar papeis de usuarios e de grupos

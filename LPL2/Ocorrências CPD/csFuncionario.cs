@@ -12,34 +12,40 @@ using System.Data;
 
 namespace Ocorrências_CPD
 {
-    public class csFuncionario : csPessoa
+    internal class csFuncionario : csPessoa
     {
-
-
         //INSTANCIAMENTO DE CLASSES
-
-        private conexaoPostgres conexao = new conexaoPostgres();
+        private iConexaoBD conexao = new conexaoPostgres();
         public csFuncionario()
         {
-            
+
+        }
+
+        public void altereOcorrenciaStatusTemp(csOcorrencias o)
+        {
+            o.updateFinalizarStatusTemp();
         }
 
         //INSERTS
-        public void inserir()
+        public override void inserir()
         {
             try
             {
-                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + id + ",'" + nome + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
+                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) " +
+                    "VALUES (" + id + ",'" + nome + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
 
+                conexao.conectaGerente();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("Não foi possível adicionar o funcionário.", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
 
         //UPDATES
-        public void update()
+        public override void update()
         {
             try
             {
@@ -48,64 +54,77 @@ namespace Ocorrências_CPD
                 sql += "p_depto_cod = " + depto_cod + ",";
                 sql += "p_status  ='" + status + "' ";
                 sql += " WHERE p_matricula =" + id + ";";
-                
 
+
+                conexao.conectaGerente();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
-                MessageBox.Show("Não foi possível alterar o funcionário. Verifique a matrícula" , "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Não foi possível alterar o funcionário. Verifique a matrícula", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
 
-        //DROPS (UPDATE)
-        public void delete() //Nenhum funcionário é excluido do banco quando se torna inativo
+        //DELETE (UPDATE)
+        public override void delete() //Nenhum funcionário é excluido do banco quando se torna inativo
         {
             try
             {
-                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = "+id+";";
+                string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + id + ";";
 
-
+                conexao.conectaGerente();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
                 MessageBox.Show("Não foi possível alterar o funcionário. ", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-            
         }
 
         //SELECTS
-         public DataTable selectTodosFuncionarios(Int32 depto) //seleciona todos os funcionários
+        public DataTable selectTodosFuncionarios(Int32 depto) //seleciona todos os funcionários
         {
-            
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" and p_cargo = 'funcionário' ORDER BY p_status DESC, d_nome ASC;";
+            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento " +
+                "from tb.pessoa  inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = " +
+                "p_matricula where o_depto_cod = " + depto + " and p_cargo = 'funcionário' ORDER BY p_status DESC, d_nome ASC;";
+
+            conexao.conectaGerente();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
 
         public DataTable selectFuncionariosDepartamento(int dp) //seleciona funcionarios por departamento
         {
-
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            dp += 1;
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and d_codigo = " +dp+ "ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_funcionario where codigo_depto = " + dp + "; ";
+
+            conexao.conectaGerente();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
-        } 
+        }
 
-        public DataTable selectFuncionariosStatusDepartamentos(string status,int departamento) //seleciona funcionarios por departamento e status
+        public DataTable selectFuncionariosStatusDepartamentos(string status, int departamento) //seleciona funcionarios por departamento e status
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            departamento += 1;
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status +"' and d_codigo = '" + departamento + "' and p_cargo = 'funcionário' ORDER BY p_cargo DESC, d_nome; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_funcionario where status = '" + status +
+                "' and codigo_depto = '" + departamento + "'; ";
+
+            conexao.conectaGerente();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -114,19 +133,31 @@ namespace Ocorrências_CPD
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as Matrícula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on p_depto_cod = d_codigo inner join tb.ocorrencia on o_matricula_func = p_matricula where o_depto_cod = "+depto+" and p_status = '"+status+"' ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_funcionario where codigo_depto = " + depto +
+                " and status = '" + status + "';";
+
+            conexao.conectaGerente();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
 
-        public void selectFunc() //seleciona todos os dados de um determinado funcionario
+        public void selectFunc(int u) //seleciona todos os dados de um determinado funcionario
         {
-            
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'funcionário' and p_matricula = "+id+";";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_funcionario where matricula = " + id + ";";
+
+            switch (u)
+            {
+                case 2: conexao.conectaGerente(); break;
+                case 3: conexao.conectaFuncionario(); break;
+            }
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(dataset);
             Console.WriteLine();
 
@@ -135,67 +166,6 @@ namespace Ocorrências_CPD
             status = dataset.Tables[0].Rows[0][2].ToString();
             cargo = dataset.Tables[0].Rows[0][3].ToString();
             departamento = dataset.Tables[0].Rows[0][4].ToString();
-        }
-
-        
-        //SELECT PARA CONFERIR SE OS DADOS DO LOGIN CONFEREM
-        public Boolean selectEntrar(Int32 id, string cargo) {
-            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
-            DataSet dataset = new DataSet(); 
-            string sql = "select p_cargo, p_matricula, p_status, p_depto_cod from tb.pessoa where p_matricula = '"+id+"';";
-            adapter = conexao.executaRetornaDados(sql);
-            adapter.Fill(dataset);
-            Console.WriteLine();
- 
-            this.cargo = dataset.Tables[0].Rows[0][0].ToString();
-            if (cargo != "diretor") {this.depto_cod = Convert.ToInt32(dataset.Tables[0].Rows[0][3]); }
-            this.status = dataset.Tables[0].Rows[0][2].ToString();
-            
-            this.id = id;
-            if (this.cargo == cargo && this.status == "ativo") //Se o ID do funcionario e o cargo são compativeis e se o funcionario esta ativo
-            {
-
-                if (this.cargo == "diretor")
-                {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas();
-                    abrirJanelas.abrirJanelaDiretor();
-                }
-                else if (this.cargo == "gerente")
-                {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto_cod);
-                    abrirJanelas.abrirJanelaGerente();
-                }
-                else if (this.cargo == "funcionário" && this.depto_cod == 4)
-                {
-                    csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto_cod);
-                    abrirJanelas.abrirJanelaFuncionario();
-                }
-                else 
-                {
-                    MessageBox.Show("Esse funcionário não é do departamento de informática", "Erro!",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
-                    return false;
-                }
-                return true;
-            }
-            else
-            {
-                if (this.cargo == cargo && this.status != "ativo")
-                {
-                    MessageBox.Show("Não é possível acessar uma conta de usuário inativo", "Erro!",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
-                }
-                else if (this.cargo != cargo)
-                {
-                    MessageBox.Show("A matricula não confere com o cargo", "Erro!",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
-                }
-                
-                return false;
-            }   
         }
     }
 }

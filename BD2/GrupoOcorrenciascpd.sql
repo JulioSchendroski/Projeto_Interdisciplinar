@@ -61,8 +61,7 @@ create table tb.pessoa(
  	constraint ocorrencia_pk primary KEY(o_numero),
  	constraint o_status_temp_ck check((o_status_temp = 'aberta') or (o_status_temp = 'encerrada')),
  	constraint o_status_def_ck check((o_status_def = 'aberta') or (o_status_def = 'encerrada')),
- 	constraint o_data_ck check(o_data <= current_date),
-	constraint o_data_limite_ck check(o_data_limite >= current_date)
+ 	constraint o_data_ck check(o_data <= current_date)
  );
 
 -- NOTA == ALTER TABLE esquema.nometabela1 ADD CONSTRAINT...
@@ -94,10 +93,10 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (21,'Max Vilanova B
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (22,'Rodolfo Bezerril Nascimento','funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (74,'Raul Figueiroa Sintra','inativo','funcionário');
 
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('11/07/2017','DD/MM/YYYY'),'Problemas na rede');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('11/09/2017','DD/MM/YYYY'),'Falha ao gerar folha de pagamento para todos os setores');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('10/10/2017','DD/MM/YYYY'),'Falha ao gerar relatório de finanças');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('29/03/2018','DD/MM/YYYY'),'Falha ao gerar relatório de finanças no ano');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('11/07/2017','DD/MM/YYYY'), to_date('11/07/2017','DD/MM/YYYY'),'Problemas na rede');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('11/09/2017','DD/MM/YYYY'), to_date('11/09/2017','DD/MM/YYYY'),'Falha ao gerar folha de pagamento para todos os setores');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('10/10/2017','DD/MM/YYYY'), to_date('10/10/2017','DD/MM/YYYY'),'Falha ao gerar relatório de finanças');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('29/03/2018','DD/MM/YYYY'), to_date('29/03/2018','DD/MM/YYYY'),'Falha ao gerar relatório de finanças no ano');
 
 -- 20 INSERTs - Filipe Gomes Cruvinel
 INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (2, 'Departamento Financeiro', 'O departamento financeiro é responsável por administrar todos os recursos de uma empresa. Sua função é exercer controle no fluxo de caixa, arantindo uma boa gestão sobre as despesas, receitas, repasse de recursos e demais movimentações financeiras.');
@@ -118,10 +117,10 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (32,'Dânia Cardoso
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (33,'Éder Bandeira Mesquita','funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (75,'Dominique Carreiro Canela','inativo','funcionário');
 
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('02/06/2018','DD/MM/YYYY'),'Necessidade de backup');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('29/07/2018','DD/MM/YYYY'),'Problemas na rede');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('29/04/2019','DD/MM/YYYY'),'Problemas na rede');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada' ,to_date('01/06/2019','DD/MM/YYYY'),'Falha ao gerar relatório de finanças no ano');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('02/06/2018','DD/MM/YYYY'), to_date('02/06/2018','DD/MM/YYYY'),'Necessidade de backup');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('29/07/2018','DD/MM/YYYY'), to_date('29/07/2018','DD/MM/YYYY'),'Problemas na rede');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('29/04/2019','DD/MM/YYYY'), to_date('29/04/2019','DD/MM/YYYY'),'Problemas na rede');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('01/06/2019','DD/MM/YYYY'), to_date('01/06/2019','DD/MM/YYYY'),'Falha ao gerar relatório de finanças no ano');
 
 -- 20 INSERTs - Júlio César Schendroski
 INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (3, 'Departamento Comercial', 'Rsponsável pelas atividades de venda da empresa, desde as estratégias de divulgação dos produtos ou serviços até a prospecção e fidelização de clientes.');
@@ -142,10 +141,10 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (43,'Rahyssa Taveir
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (44,'Jeremias Olaio Barroqueiro','funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_cargo) VALUES (76,'Santiago Castro Ventura','inativo','funcionário');
 
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('13/11/2019','DD/MM/YYYY'), 'Falha ao gerar relatório de lucro no semestre');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('03/05/2020','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('31/01/2021','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('13/04/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de lucro no semestre');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('13/11/2019','DD/MM/YYYY'), to_date('13/11/2019','DD/MM/YYYY'), 'Falha ao gerar relatório de lucro no semestre');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('03/05/2020','DD/MM/YYYY'), to_date('03/05/2020','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('31/01/2021','DD/MM/YYYY'), to_date('31/01/2021','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('13/04/2021','DD/MM/YYYY'), to_date('13/04/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de lucro no semestre');
 
 -- 20 INSERTs - Mateus Augusto Viotto
 INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (4, 'Departamento de Informatica','Responsável pela criação de redes e manutenção dos computadores.');
@@ -166,9 +165,9 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (55,'Martinha Damá
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (56,'Jóni Alcoforado Mourão','funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (57,'Amanda Tinoco Pereira','funcionário');
 
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('17/05/2021','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças no ano');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('20/06/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('12/08/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('17/05/2021','DD/MM/YYYY'), to_date('17/05/2021','DD/MM/YYYY'), 'Falha ao gerar relatório das finanças no ano');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('20/06/2021','DD/MM/YYYY'), to_date('20/06/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('12/08/2021','DD/MM/YYYY'), to_date('12/08/2021','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
 INSERT INTO tb.ocorrencia (o_data, o_data_limite, o_descricao) VALUES (to_date('08/03/2022','DD/MM/YYYY'), to_date('22/06/2022','DD/MM/YYYY'), 'Problemas na rede');
 
 -- 20 INSERTs - Pedro Barriviera
@@ -189,8 +188,8 @@ INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (71,'Lívia Martinh
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (72,'Amina Atilano Guerreiro','funcionário');
 INSERT INTO tb.pessoa  (p_matricula, p_nome, p_cargo) VALUES (73,'Evelina Barroso Alves','funcionário');
 
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('06/04/2022','DD/MM/YYYY'), 'Falha ao gerar relatório de salários pagos no semestre');
-INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao) VALUES ('encerrada','encerrada', to_date('18/04/2022','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('06/04/2022','DD/MM/YYYY'), to_date('06/04/2022','DD/MM/YYYY'), 'Falha ao gerar relatório de salários pagos no semestre');
+INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao) VALUES ('encerrada','encerrada', to_date('18/04/2022','DD/MM/YYYY'), to_date('18/04/2022','DD/MM/YYYY'), 'Falha ao gerar relatório de vendas');
 INSERT INTO tb.ocorrencia (o_data, o_data_limite, o_descricao) VALUES (to_date('05/06/2022','DD/MM/YYYY'), to_date('22/06/2022','DD/MM/YYYY'),'Necessidade de atualizar máquinas');
 INSERT INTO tb.ocorrencia (o_data, o_data_limite, o_descricao) VALUES (to_date('07/06/2022','DD/MM/YYYY'), to_date('22/06/2022','DD/MM/YYYY'),'Necessidade de configuração da sub-rede');
 
@@ -363,7 +362,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_depto_cod = 1
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências do departamento de código 2 ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente para permitir gerenciamento (tela inicial / cadastro de ocorrência)
@@ -372,7 +371,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_depto_cod = 2
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências do departamento de código 3 ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente para permitir gerenciamento (tela inicial / cadastro de ocorrência)
@@ -381,7 +380,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_depto_cod = 3
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências do departamento de código 4 ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente para permitir gerenciamento (tela inicial / cadastro de ocorrência)
@@ -390,7 +389,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_depto_cod = 4
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências ativas ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente e ao funcionário para permitir gerenciamento (tela inicial)
@@ -399,7 +398,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_status_temp = 'ativa' and o_status_def = 'ativa'
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências parcialmente encerradas ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente e ao funcionário para permitir gerenciamento (tela inicial)
@@ -408,7 +407,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_status_temp = 'encerrada' and o_status_def = 'ativa'
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- Enunciado: seleciona as ocorrências encerradas ordenandas pelo número
 -- Importancia na aplicacao: mostrar informações ao gerente e ao funcionário para permitir gerenciamento (tela inicial)
@@ -417,7 +416,7 @@ select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, 
 o_status_def as status_definitivo, o_descricao as descricao, p_nome as funcionario, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
 where o_status_temp = 'encerrada' and o_status_def = 'encerrada'
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 
 
@@ -476,7 +475,7 @@ create view vw.v_ocorrencia as
 select o_numero as ID, o_data as data_ocorrencia, o_data_limite as data_limite, o_status_temp as status_temporario, o_status_def as status_definitivo, 
 o_descricao as descricao, o_matricula_func as matricula_func, p_nome as funcionario, o_depto_cod as depto_cod, d_nome as departamento 
 from tb.ocorrencia inner join tb.departamento on o_depto_cod = d_codigo inner join tb.pessoa on p_matricula = o_matricula_func 
-order by o_numero;
+order by o_status_def desc, o_status_temp desc, o_data asc;
 
 -- [5.2] Consulta na visao
 -- Consultar a visao criada em 5.1 realizando filtro(s) (WHERE)
@@ -619,9 +618,8 @@ select * from vw.mv_departamento_qtd_pessoas where codigo = 4;
 -- [5.5] Atualizacao da visao materializada
 -- Comente brevemente sobre a necessidade de atualizacao e qual seria a frequencia/periodicidade
 
--- Considerou-se que ambas as tabelas - departamento, especialmente, e funcionário - não sofreriam atualizações com frequência. O programa vai fazer controle de erros na 
--- quantidade de funcionários por departamento; caso esse erro, em algum departamento, ultrapasse 10, realizar-se-á um refresh na view materializada. Ademais, após 
--- qualquer atualização na tabela departamento, realizar-se-á uma refresh na view materializada - função engatilhada.
+-- Considerou-se que ambas as tabelas - departamento, especialmente, e funcionário - não sofreriam atualizações com frequência. Após qualquer atualização na 
+-- tabela departamento, realizar-se-á uma refresh na view materializada - função engatilhada.
 
 -- Redija o comando REFRESH correspondente
 refresh materialized view vw.mv_departamento_qtd_pessoas;
@@ -694,8 +692,8 @@ oops=5)
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
 -- Insere nova ocorrência formatando entrada - dada em maiúsculo - no status definitivo
-    INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_descricao, o_matricula_func, o_depto_cod)
-    VALUES ('encerrada', LOWER('ENCERRADA'), to_date('08/06/2022','DD/MM/YYYY'), 'Backup setor de informática', 69, 4);
+    INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao, o_matricula_func, o_depto_cod)
+    VALUES ('encerrada', LOWER('ENCERRADA'), to_date('08/06/2022','DD/MM/YYYY'), to_date('08/06/2022','DD/MM/YYYY'), 'Backup setor de informática', 69, 4);
 
 -- Explicar aqui o que o comando abaixo faz e sua utilidade na aplicacao
 -- Atualiza o nome do funcionário com id 1 para o mesmo com letras maiusculas
@@ -751,11 +749,11 @@ oops=5)
 -- O procedimento devera' ter parametro(s).
 
 -- Comentar a utilidade do procedimento na aplicacao aqui
-    CREATE OR REPLACE PROCEDURE p_insercao_ocorrencia(status_temp VARCHAR, status_def VARCHAR, data_ocorrencia DATE, data_limite DATE, descricao VARCHAR, matricula INT, depto INT) 
+    CREATE OR REPLACE PROCEDURE p_insercao_ocorrencia(data_ocorrencia DATE, data_limite DATE, descricao VARCHAR, matricula INT, depto INT) 
 	AS $$
     BEGIN
-        INSERT INTO tb.ocorrencia (o_status_temp, o_status_def, o_data, o_data_limite, o_descricao, o_matricula_func, o_depto_cod) 
-		VALUES (status_temp, status_def, data_ocorrencia, data_limite, descricao, matricula, depto);
+        INSERT INTO tb.ocorrencia (o_data, o_data_limite, o_descricao, o_matricula_func, o_depto_cod) 
+		VALUES (data_ocorrencia, data_limite, descricao, matricula, depto);
             
 	    RAISE NOTICE 'A nova ocorrência do departamento % foi inserida', depto;
     END;
@@ -763,7 +761,7 @@ oops=5)
 
 -- Explicar aqui o que a chamada abaixo faz
 -- Através de uma PROCEDURE, insere uma nova ocorrência em determinado departamento
-	CALL p_insercao_ocorrencia('encerrada', 'aberta', to_date('09/06/2022','DD/MM/YYYY'), to_date('22/06/2022','DD/MM/YYYY'), 'Configurar sub-rede do departamento financairo', 73, 2);
+	CALL p_insercao_ocorrencia(to_date('09/06/2022','DD/MM/YYYY'), to_date('22/06/2022','DD/MM/YYYY'), 'Configurar sub-rede do departamento financairo', 73, 2);
 
 
 
@@ -829,7 +827,7 @@ $$ language 'plpgsql';
 
 -- Redigir o comando CREATE TRIGGER correspondente ao gatilho em nivel de sentenca usando PL/pgSQL
 create trigger tg_atualiza_mv_departamento_qtd_pessoas
-after insert or delete on tb.departamento
+after insert or update or delete on tb.departamento
 execute function f_atualiza_mv_departamento_qtd_pessoas();
 
 -- Redigir pelo menos 1 comando SQL que dispare o gatilho em nivel de sentenca
@@ -837,7 +835,7 @@ delete from tb.departamento where d_codigo = 5;
 
 -- Descrever o que acontece no banco de dados quando e' disparado
 
--- Ao disparar o gatilho - inserção ou deleção de departamento -, a view materializada mv_departamento_qtd_pessoas é atualizada; considerou-se o fato de que tais 
+-- Ao disparar o gatilho - inserção, alteração ou deleção de departamento -, a view materializada mv_departamento_qtd_pessoas é atualizada; considerou-se o fato de que tais 
 -- operações na tabela departamento ocorreriam com baixa freqência, fazendo com que a atualização seja pouco realizada.
 
 
@@ -849,13 +847,29 @@ delete from tb.departamento where d_codigo = 5;
 
 
 -- [11.1] ACESSO REMOTO (pg_hba.conf)
--- Cole nas linhas abaixo o conteudo do arquivo pg_hba.conf que o servidor deve conter, iniciando cada linha com comentario '--' (para nao impedir a execucao desse script); apague esta linha
 
---# IPv4 local connections:
---host    all             postgres        10.128.70.214/32        scram-sha-256
---host   	ocorrenciascpd  dbadm          	10.128.70.74/32         scram-sha-256
---host    ocorrenciascpd  u1             	10.128.70.213/32        scram-sha-256
---host    ocorrenciascpd  u2             	10.128.70.219/32        scram-sha-256	
+-- # TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+-- # "local" is for Unix domain socket connections only
+-- local   all             all                                     scram-sha-256
+-- # IPv4 local connections:
+-- host    all             postgres        10.128.70.0/24        scram-sha-256
+-- host    ocorrenciascpd  diretor         10.128.70.0/24         scram-sha-256
+-- host    ocorrenciascpd  gerente         10.128.70.0/24        scram-sha-256
+-- host    ocorrenciascpd  funcionario     10.128.70.0/24        scram-sha-256
+	
+-- host    ocorrenciascpd  adm             10.128.70.0/24         scram-sha-256
+-- host    ocorrenciascpd  adm             10.128.70.0/24        scram-sha-256
+-- host    ocorrenciascpd  adm             10.128.70.0/24        scram-sha-256	
+
+-- # IPv6 local connections:
+-- host    all             all             ::1/128                 scram-sha-256
+-- # Allow replication connections from localhost, by a user with the
+-- # replication privilege.
+-- local   replication     all                                     scram-sha-256
+-- host    replication     all             127.0.0.1/32            scram-sha-256
+-- host    replication     all             ::1/128                 scram-sha-256
+
 
 
 -- [11.2] PAPEIS (Roles)
@@ -898,12 +912,15 @@ GRANT USAGE ON SCHEMA tb TO adm WITH GRANT OPTION;
 GRANT UPDATE ON TABLE tb.ocorrencia TO funcionario;
 
 GRANT INSERT, UPDATE ON TABLE tb.pessoa, tb.ocorrencia TO gerente;
+GRANT DELETE ON TABLE tb.ocorrencia TO gerente;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA tb TO gerente;
 GRANT REFERENCES ON TABLE tb.pessoa, tb.departamento TO gerente;
 
 GRANT INSERT, UPDATE ON TABLE tb.pessoa, tb.departamento TO diretor;
 GRANT DELETE ON TABLE tb.departamento TO diretor;
 
 GRANT INSERT, UPDATE, DELETE ON TABLE tb.pessoa, tb.ocorrencia, tb.departamento TO adm WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA tb, vw TO adm WITH GRANT OPTION;
 
 -- [11.3.4]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) executar as consultas das Secoes 4 e 5
@@ -915,19 +932,22 @@ GRANT USAGE ON SCHEMA vw TO adm WITH GRANT OPTION;
 GRANT SELECT ON TABLE tb.ocorrencia, tb.pessoa, tb.departamento TO funcionario, gerente, diretor;
 GRANT SELECT ON TABLE tb.ocorrencia, tb.pessoa, tb.departamento TO adm WITH GRANT OPTION;
 
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA tb, vw TO funcionario, gerente, diretor;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA tb, vw TO adm WITH GRANT OPTION;
+
 GRANT SELECT ON TABLE vw.v_funcionario, vw.v_ocorrencia TO funcionario, gerente, diretor;
-GRANT SELECT ON TABLE vw.v_gerente TO gerente, diretor;
+GRANT SELECT ON TABLE vw.v_gerente TO diretor;
 GRANT SELECT ON TABLE vw.v_funcionario, vw.v_ocorrencia, vw.v_gerente TO adm WITH GRANT OPTION;
-GRANT SELECT ON TABLE vw.mv_departamento_qtd_pessoas TO diretor;
+
+GRANT SELECT ON TABLE vw.mv_departamento_qtd_pessoas TO gerente, diretor;
 GRANT SELECT ON TABLE vw.mv_departamento_qtd_pessoas TO adm WITH GRANT OPTION;
+ALTER MATERIALIZED VIEW vw.mv_departamento_qtd_pessoas OWNER TO diretor;
 
 -- [11.3.5]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) executar os comandos da Secao 7
 -- Usuario(s) podem conceder esse acesso alem do superusuario: gerente, adm
 
--- GRANT EXECUTE ON FUNCTION TO_DATE TO gerente;
-
--- GRANT EXECUTE ON FUNCTION TO_DATE, LOWER, UPPER, POWER TO adm WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO adm WITH GRANT OPTION;
 
 -- [11.3.6]
 -- Assegurar os privilegios necessarios para o(s) papel(is) poder(em) executar as subrotinas das Secoes 8, 9 e 10
@@ -973,7 +993,7 @@ REVOKE SELECT ON TABLE tb.ocorrencia FROM funcionario;
 -- Revogar o acesso em 11.3.5 de pelo menos 1 papel
 -- Usuario(s) podem revogar esse acesso alem do superusuario: adm
 
--- REVOKE EXECUTE ON FUNCTION TO_DATE FROM gerente;
+REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM gerente;
 
 -- [11.4.6]
 -- Revogar o acesso em 11.3.6 de pelo menos 1 papel
@@ -986,7 +1006,7 @@ REVOKE TRIGGER ON TABLE tb.departamento FROM diretor;
 
 GRANT UPDATE ON TABLE tb.ocorrencia TO funcionario;
 GRANT SELECT ON TABLE tb.ocorrencia TO funcionario;
--- GRANT EXECUTE ON FUNCTION TO_DATE TO gerente;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO gerente;
 GRANT TRIGGER ON TABLE tb.departamento TO diretor;
 
 

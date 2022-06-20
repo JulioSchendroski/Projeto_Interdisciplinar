@@ -14,7 +14,7 @@ namespace Ocorrências_CPD
     internal class csDepartamento
     {
         //INSTANCIAMENTO DE CLASSES
-        private conexaoPostgres conexao = new conexaoPostgres();
+        private iConexaoBD conexao = new conexaoPostgres();
 
        //DECLARAÇÃO DE VARIÁVEIS
         private Int32 d_codigo;
@@ -38,9 +38,12 @@ namespace Ocorrências_CPD
 
             try
             {
-                string sql = "INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) VALUES (" + d_codigo + ",'" + d_nome + "', '" + d_descricao + "');";
+                string sql = "INSERT INTO tb.departamento (d_codigo, d_nome, d_descricao) " +
+                    "VALUES (" + d_codigo + ",'" + d_nome + "', '" + d_descricao + "');";
 
+                conexao.conectaDiretor();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
@@ -59,7 +62,9 @@ namespace Ocorrências_CPD
                 sql += " WHERE d_codigo =" + d_codigo + ";";
 
 
+                conexao.conectaDiretor();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
@@ -71,7 +76,9 @@ namespace Ocorrências_CPD
         public void delete() //Nenhum gerente é excluido do banco quando se torna inativo
         {
             string sql = "DELETE FROM tb.departamento WHERE d_codigo =" + d_codigo + ";";
+            conexao.conectaDiretor();
             conexao.executarSql(sql);
+            conexao.desconectaBD();
 
         }
         
@@ -81,8 +88,12 @@ namespace Ocorrências_CPD
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento order by d_codigo ASC";
+            string sql = "select codigo, nome, descricao from vw.mv_departamento_qtd_pessoas;";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -92,12 +103,17 @@ namespace Ocorrências_CPD
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select d_codigo as codigo, d_nome as nome, d_descricao as descrição from tb.departamento where d_codigo = "+d_codigo+ ";";
+            string sql = "select codigo, nome, descricao from vw.mv_departamento_qtd_pessoas where codigo = " + 
+                d_codigo + ";";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(dataset);
             Console.WriteLine();
 
-            d_codigo = Convert.ToInt32(dataset.Tables[0].Rows[0][0]);
+            d_codigo = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
             d_nome = dataset.Tables[0].Rows[0][1].ToString();
             d_descricao = dataset.Tables[0].Rows[0][2].ToString();
             

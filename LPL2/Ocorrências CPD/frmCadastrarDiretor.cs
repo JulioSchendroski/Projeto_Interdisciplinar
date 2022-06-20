@@ -15,6 +15,7 @@ namespace Ocorrências_CPD
         //CONTRUTORES
         Int32 id;
         Int32 depto;
+
         public frmCadastrarDiretor(int id, int depto)
         {
             InitializeComponent();
@@ -27,37 +28,34 @@ namespace Ocorrências_CPD
 
         //INSTANCIAMENTO DE CLASSES
         csDiretor diretor = new csDiretor();
-        
 
         //CRIAÇÃO DE VARIAVEIS
         private string statusDiretor;
-       
 
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas() //atualiza dados das tabelas
         {
             grdDiretor.DataSource = diretor.selectTodosDiretor();
             formataGridDiretor();
-
         }
+
         private void formataGridDiretor() //formata as colunas da tabela diretor
         {
             grdDiretor.Columns[0].HeaderText = "ID"; //matricula
             grdDiretor.Columns[1].HeaderText = "Nome"; //nome
             grdDiretor.Columns[2].HeaderText = "Status"; //status
             grdDiretor.Columns[3].HeaderText = "Cargo"; //cargo
-            
 
             grdDiretor.Columns[0].Width = 30; //matricula
             grdDiretor.Columns[1].Width = 150; //nome
             grdDiretor.Columns[2].Width = 70; //status
             grdDiretor.Columns[3].Width = 70; //cargo
-           
 
             grdDiretor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         //POPULANDO COMBOBOX
-       
+
         //EVENTOS DOS BOTÕES
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -177,7 +175,7 @@ namespace Ocorrências_CPD
                 txtNome.Focus();
                 return false;
             }
-            
+
             if (cbxStatus.Text.Trim().Length < 1)
             {
                 cbxStatus.Text = "ativo";
@@ -200,15 +198,12 @@ namespace Ocorrências_CPD
                 //Novo diretor
                 diretor.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
                 diretor.inserir();
-
-
             }
             else
             {
                 //Atualizar diertor atual
                 diretor.update();
             }
-
         }
 
         //PREENCHIMENTO DA TABELA DIRETOR
@@ -221,8 +216,9 @@ namespace Ocorrências_CPD
                 statusDiretor = cbxFiltroStatus.Text;
                 grdDiretor.DataSource = diretor.selectDiretorStatus(statusDiretor);
             }
-          
+
         }
+
         //AÇÃO AO CLICAR NOS FILTROS 
         private void cbxFiltroDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,7 +232,7 @@ namespace Ocorrências_CPD
 
         private void btnResetar_Click(object sender, EventArgs e)
         {
-            
+
             atualizarTabelas();
         }
 
@@ -249,7 +245,6 @@ namespace Ocorrências_CPD
 
                 preencheDadosControles();
             }
-
             catch (Exception)
             {
                 MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);

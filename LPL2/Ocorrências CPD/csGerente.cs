@@ -13,20 +13,77 @@ namespace Ocorrências_CPD
 {
     internal class csGerente : csPessoa
     {
-
         //INSTANCIAMENTO DE CLASSES
-        private conexaoPostgres conexao = new conexaoPostgres();
+        private iConexaoBD conexao = new conexaoPostgres();
 
-       
-        //INSERTS
-        public void inserir()
+        public void criaFuncionario(csFuncionario f, Int32 id, string nome, string status, string cargo, Int32 depto_cod)
         {
-           
+            f.setIdPessoa(id);
+            f.setNomePessoa(nome);
+            f.setStatusPessoa(status);
+            f.setCargoPessoa(cargo);
+            f.setDepartamentoPessoa(depto_cod);
+
+            f.inserir();
+        }
+
+        public void alteraFuncionario(csFuncionario f, string nome, string status, Int32 depto_cod)
+        {
+            f.setNomePessoa(nome);
+            f.setStatusPessoa(status);
+            f.setDepartamentoPessoa(depto_cod);
+
+            f.update();
+        }
+
+        public void inativaFuncionario(csFuncionario f)
+        {
+            f.delete();
+        }
+
+        public void criaOcorrencia(csOcorrencias o, string data, string dataLimite, string descricao, Int32 matriculaFuncionario, Int32 depto_cod)
+        {
+            o.setData(data);
+            o.setDataLimite(dataLimite);
+            o.setDescricao(descricao);
+            o.setMatriculaFuncionario(matriculaFuncionario);
+            o.setDeptoCod(depto_cod);
+
+            o.inserir();
+        }
+
+        public void alteraOcorrenciaStatusDef(csOcorrencias o)
+        {
+            o.updateFinalizarStatusDef();
+        }
+
+        public void alteraOcorrencia(csOcorrencias o, string data, string dataLimite, string descricao, Int32 matriculaFuncionario, Int32 depto_cod)
+        {
+            o.setData(data);
+            o.setDataLimite(dataLimite);
+            o.setDescricao(descricao);
+            o.setMatriculaFuncionario(matriculaFuncionario);
+            o.setDeptoCod(depto_cod);
+
+            o.update();
+        }
+
+        public void deletaOcorrencia(csOcorrencias o)
+        {
+            o.delete();
+        }
+
+        //INSERTS
+        public override void inserir()
+        {
             try
             {
-                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) VALUES (" + id + ",'" + nome + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
+                string sql = "INSERT INTO tb.pessoa  (p_matricula, p_nome, p_status, p_depto_cod, p_cargo) " +
+                    "VALUES (" + id + ",'" + nome + "', '" + status + "'," + depto_cod + ",'" + cargo + "');";
 
+                conexao.conectaDiretor();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
@@ -35,7 +92,7 @@ namespace Ocorrências_CPD
         }
 
         //UPDATES
-        public void update()
+        public override void update()
         {
             try
             {
@@ -46,7 +103,9 @@ namespace Ocorrências_CPD
                 sql += " WHERE p_matricula =" + id + ";";
 
 
+                conexao.conectaDiretor();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
@@ -54,15 +113,16 @@ namespace Ocorrências_CPD
             }
         }
 
-        //DROPS
-        public void delete() //Nenhum gerente é excluido do banco quando se torna inativo
+        //DELETE (UPDATE)
+        public override void delete() //Nenhum gerente é excluido do banco quando se torna inativo
         {
             try
             {
                 string sql = "UPDATE tb.pessoa SET p_status = 'inativo' WHERE p_matricula = " + id + ";";
 
-
+                conexao.conectaDiretor();
                 conexao.executarSql(sql);
+                conexao.desconectaBD();
             }
             catch (Exception)
             {
@@ -77,8 +137,12 @@ namespace Ocorrências_CPD
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'gerente' ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_gerente;";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -89,8 +153,12 @@ namespace Ocorrências_CPD
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
             dp += 1;
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa  inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'gerente' and d_codigo = " + dp + "ORDER BY p_status DESC, d_nome ASC; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_gerente where codigo_depto = " + dp + ";";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -100,8 +168,13 @@ namespace Ocorrências_CPD
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
             departamento += 1;
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status + "' and d_codigo = '" + departamento + "' and p_cargo = 'gerente' ORDER BY p_cargo DESC, d_nome; ";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_gerente where status = '" + status +
+                "' and codigo_depto = '" + departamento + "'; ";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -110,8 +183,12 @@ namespace Ocorrências_CPD
         {
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable tabela = new DataTable();
-            string sql = "select p_matricula as matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_status = '" + status + "' and p_cargo = 'gerente' ORDER BY p_cargo DESC;";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_gerente where status = '" + status + "';";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(tabela);
             return tabela;
         }
@@ -121,8 +198,12 @@ namespace Ocorrências_CPD
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataSet dataset = new DataSet();
-            string sql = "select p_matricula, p_nome as Nome, p_status as Status, p_cargo as Cargo, d_nome as Departamento from tb.pessoa inner join tb.departamento on(p_depto_cod = d_codigo) where p_cargo = 'gerente' and p_matricula = " + id + ";";
+            string sql = "select matricula, nome, status, cargo, departamento from vw.v_gerente where matricula = " + id + ";";
+
+            conexao.conectaDiretor();
             adapter = conexao.executaRetornaDados(sql);
+            conexao.desconectaBD();
+
             adapter.Fill(dataset);
             Console.WriteLine();
 

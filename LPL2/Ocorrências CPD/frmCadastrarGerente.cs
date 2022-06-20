@@ -15,6 +15,7 @@ namespace Ocorrências_CPD
         //CONTRUTORES
         Int32 id;
         Int32 depto_cod;
+
         public frmCadastrarGerente(int id, int depto_cod)
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace Ocorrências_CPD
         }
 
         //INSTANCIAMENTO DE CLASSES
+        csDiretor diretor = new csDiretor();
         csGerente geren = new csGerente();
         csDepartamento departamento = new csDepartamento();
 
@@ -40,8 +42,8 @@ namespace Ocorrências_CPD
             grdGerentes.DataSource = geren.selectTodosGerentes();
             checkarSelectGerente();
             formataGridGerentes();
-
         }
+
         private void formataGridGerentes() //formata as colunas da tabela gerente
         {
             grdGerentes.Columns[0].HeaderText = "ID"; //matricula
@@ -58,10 +60,10 @@ namespace Ocorrências_CPD
 
             grdGerentes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         //POPULANDO COMBOBOX
         private void popularComboX()
         {
-
             //populando combobox do departamento
             cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
             cbxDepartamento.ValueMember = "codigo";
@@ -74,7 +76,6 @@ namespace Ocorrências_CPD
             cbxFiltroDepartamento.DisplayMember = "nome";
 
             cbxFiltroDepartamento.SelectedIndex = -1;
-
         }
 
         //EVENTOS DOS BOTÕES
@@ -88,6 +89,7 @@ namespace Ocorrências_CPD
                 gerenciaBotoesBarra(true);
             }
         }
+
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (geren.getIdPessoa() != 0)
@@ -101,7 +103,6 @@ namespace Ocorrências_CPD
             {
                 MessageBox.Show("Selecione o Gerente para a alteração", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e) //Torna o gerente inativo
@@ -111,7 +112,7 @@ namespace Ocorrências_CPD
                 if (MessageBox.Show("Deseja tornar o Gerente selecionado inativo?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    geren.delete();
+                    diretor.inativaGerente(geren);
                     limparControles();
                     atualizarTabelas();
                 }
@@ -121,10 +122,12 @@ namespace Ocorrências_CPD
                 MessageBox.Show("Selecione o Gerente para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (validaDados() == true)
@@ -136,6 +139,7 @@ namespace Ocorrências_CPD
                 atualizarTabelas();
             }
         }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitaControles(true);
@@ -199,6 +203,7 @@ namespace Ocorrências_CPD
                 txtNome.Focus();
                 return false;
             }
+
             if (cbxDepartamento.Text.Trim().Length < 1)
             {
                 MessageBox.Show("O departamento do gerente é obrigatório.",
@@ -206,6 +211,7 @@ namespace Ocorrências_CPD
                 txtNome.Focus();
                 return false;
             }
+
             if (cbxStatus.Text.Trim().Length < 1)
             {
                 cbxStatus.Text = "ativo";
@@ -217,34 +223,28 @@ namespace Ocorrências_CPD
         //SALVAR OS GERENTES NO BD
         private void salvarGerente()
         {
-            //Sets do gerentes
-            geren.setCargoPessoa(txtCargo.Text.ToLower());
-            geren.setDepartamentoPessoa(cbxDepartamento.SelectedIndex);
-            geren.setNomePessoa(txtNome.Text);
-            geren.setStatusPessoa(cbxStatus.Text);
-
-
             if (geren.getIdPessoa() == 0)
             {
                 //Novo gerentes
-                geren.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
-                geren.inserir();
-
-
+                diretor.criaGerente(geren, Convert.ToInt32(txtMatricula.Text), txtNome.Text, cbxStatus.Text, txtCargo.Text.ToLower(),
+                    cbxDepartamento.SelectedIndex);
             }
             else
             {
                 //Atualizar gerentes atual
-                geren.update();
+                diretor.alteraGerente(geren, txtNome.Text, cbxStatus.Text, cbxDepartamento.SelectedIndex);
             }
 
         }
 
         //PREENCHIMENTO DA TABELA GERENTE
         private void checkarSelectGerente()
-        { //Checka qual filtro deve ser aplicado para mostrar os gerentes
+        {
+            //Checka qual filtro deve ser aplicado para mostrar os gerentes
             if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
-            { grdGerentes.DataSource = geren.selectTodosGerentes(); }
+            {
+                grdGerentes.DataSource = geren.selectTodosGerentes();
+            }
             else if (cbxFiltroStatus.Text != "Todos" && cbxFiltroDepartamento.Text == "")
             {
                 statusGeren = cbxFiltroStatus.Text;
@@ -262,6 +262,7 @@ namespace Ocorrências_CPD
                 grdGerentes.DataSource = geren.selectGerentesStatusDepartamentos(statusGeren, numeroDepartamento);
             }
         }
+
         //AÇÃO AO CLICAR NOS FILTROS 
         private void cbxFiltroDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {

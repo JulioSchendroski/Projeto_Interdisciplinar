@@ -160,3 +160,127 @@ C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\o
 C:\Users\mateu\Documents\GitHub\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmPesquisarFuncionario.resources
 C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmPesquisarFuncionario.resources
 C:\Users\mateu\source\repos\Ocorrências CPD\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe.config
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Google.Protobuf.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\MySql.Data.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Npgsql.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Buffers.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Memory.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Text.Json.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Threading.Channels.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.ValueTuple.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\ZstdNet.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Google.Protobuf.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Google.Protobuf.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\MySql.Data.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Npgsql.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Buffers.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Memory.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Text.Json.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Threading.Channels.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\System.ValueTuple.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDepartamento.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarOcorrencias.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmPesquisarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.ocorrenciasCPD.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências_CPD.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CopyComplete
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Debug\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Debug\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDepartamento.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmCadastrarOcorrencias.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.frmPesquisarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.ocorrenciasCPD.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências_CPD.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe.config
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Google.Protobuf.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\MySql.Data.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Npgsql.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Buffers.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Memory.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Text.Json.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Threading.Channels.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.ValueTuple.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\ZstdNet.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Google.Protobuf.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Google.Protobuf.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\MySql.Data.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\Npgsql.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Buffers.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Memory.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Text.Json.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Threading.Channels.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\bin\Debug\System.ValueTuple.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2_alterado\Ocorrências CPD\obj\Debug\Ocorrências CPD.csproj.CopyComplete

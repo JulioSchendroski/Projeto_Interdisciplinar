@@ -21,31 +21,24 @@ namespace Ocorrências_CPD
         }
 
         //INSTANCIAMENTO DE CLASSES
-
-         
         private csDepartamento departamento = new csDepartamento();
         private csGerente gerente = new csGerente();
 
         //DECLARAÇÃO DE VARIÁVEIS
-
         private string statusGeren;
         private int numeroDepartamento;
-        
-
 
         //FORMATAÇÃO DAS TABELAS e POPULAR COMBOBOX
-
         private void popularComboX()
         {
-
             //populando combobox do departamento
             cbxDepartamento.DataSource = departamento.selectTodosDepartamentos();
             cbxDepartamento.ValueMember = "codigo";
             cbxDepartamento.DisplayMember = "nome";
 
             cbxDepartamento.SelectedIndex = -1;
-
         }
+
         private void formataGridGerentes() //formata as colunas da tabela Gerentes
         {
             grdGerentes.Columns[0].HeaderText = "ID"; //matricula
@@ -63,10 +56,8 @@ namespace Ocorrências_CPD
             grdGerentes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-
         private void formataGridDepartamento() //formata as colunas da tabela Departamento
         {
-
             grdDepartamento.Columns[0].HeaderText = "ID"; //id
             grdDepartamento.Columns[1].HeaderText = "Nome"; //nome
             grdDepartamento.Columns[2].HeaderText = "Descrição"; //descrição
@@ -75,10 +66,7 @@ namespace Ocorrências_CPD
             grdDepartamento.Columns[1].Width = 150; //nome
             grdDepartamento.Columns[2].Width = 500; //descrição
 
-
             grdDepartamento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-
         }
 
         //PREENCHIMENTO DAS TABELAS
@@ -89,11 +77,14 @@ namespace Ocorrências_CPD
             formataGridGerentes();
             formataGridDepartamento();
         }
-        
+
         private void checkarSelectGerentes()
-        { //Checka qual filtro deve ser aplicado para mostrar os gerentes
+        {
+            //Checka qual filtro deve ser aplicado para mostrar os gerentes
             if (cbxStatus.Text == "Todos" && cbxDepartamento.Text == "")
-            { grdGerentes.DataSource = gerente.selectTodosGerentes(); }
+            {
+                grdGerentes.DataSource = gerente.selectTodosGerentes();
+            }
             else if (cbxStatus.Text != "Todos" && cbxDepartamento.Text == "")
             {
                 statusGeren = cbxStatus.Text;
@@ -112,7 +103,6 @@ namespace Ocorrências_CPD
             }
         }
 
-
         //AÇÃO AO CLICAR NO MENUSTRIP
         private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -120,6 +110,7 @@ namespace Ocorrências_CPD
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaLogin();
         }
+
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -133,13 +124,13 @@ namespace Ocorrências_CPD
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaCadastrarDepartamento();
         }
+
         private void diretorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             csAbrirJanelas abrirJanelas = new csAbrirJanelas();
             abrirJanelas.abrirJanelaCadastrarDiretor();
         }
-
 
         //AÇÃO AO CLICAR NOS FILTROS DE COMBOBOX
         private void cbxStatus_SelectedIndexChanged_1(object sender, EventArgs e)

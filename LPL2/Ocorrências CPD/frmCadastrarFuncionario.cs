@@ -28,17 +28,18 @@ namespace Ocorrências_CPD
         }
 
         //INSTANCIAMENTO DE CLASSES
+        csGerente gerente = new csGerente();
         csFuncionario func = new csFuncionario();
         csDepartamento departamento = new csDepartamento();
 
         //CRIAÇÃO DE VARIAVEIS
         private string statusFunc;
-        private int numeroDepartamento;
+        //private int numeroDepartamento;
 
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas() //atualiza os dados das tabelas
         {
-            grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto-1);
+            grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto);
             checkarSelectFuncionario();
             formataGridFuncionarios();
 
@@ -105,7 +106,7 @@ namespace Ocorrências_CPD
                 if (MessageBox.Show("Deseja tornar o Funcionário selecionado inativo?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    func.delete();
+                    gerente.inativaFuncionario(func);
                     limparControles();
                     atualizarTabelas();
                 }
@@ -140,7 +141,7 @@ namespace Ocorrências_CPD
         //CONTROLE DA GRID
         private void preencheDadosControles() //Altera os txtBox e cbx ao selecionario um funcionario
         {
-            func.selectFunc();
+            func.selectFunc(2);
 
             txtNome.Text = func.getNomePessoa();
             txtMatricula.Text = func.getIdPessoa().ToString();
@@ -208,38 +209,29 @@ namespace Ocorrências_CPD
         //SALVAR OS FUNCIONÁRIOS NO BD
         private void salvarFuncionario()
         {
-            //Sets do funcionários
-            func.setCargoPessoa(txtCargo.Text.ToLower());
-            func.setDepartamentoPessoa(depto-1);
-            func.setNomePessoa(txtNome.Text);
-            func.setStatusPessoa(cbxStatus.Text);
-            
-
             if (func.getIdPessoa() == 0)
             {
                 //Novo Funcionário
-                func.setIdPessoa(Convert.ToInt32(txtMatricula.Text));
-                func.inserir();
-
-
+                gerente.criaFuncionario(func, Convert.ToInt32(txtMatricula.Text), txtNome.Text, cbxStatus.Text, txtCargo.Text.ToLower(),
+                    depto-1);
             }
             else
             {
                 //Atualizar funcionario atual
-                func.update();
+                gerente.alteraFuncionario(func, txtNome.Text, cbxStatus.Text, depto-1);
             }
-            
+
         }
 
         //PREENCHIMENTO DA TABELA FUNCIONARIO
         private void checkarSelectFuncionario()
         { //Checka qual filtro deve ser aplicado para mostrar os funcionários
             if (cbxStatus.Text == "Todos")
-            { grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto - 1); }
+            { grdFuncionarios.DataSource = func.selectFuncionariosDepartamento(depto); }
             else if (cbxFiltroStatus.Text != "Todos")
             {
                 statusFunc = cbxFiltroStatus.Text;
-                grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, depto - 1);
+                grdFuncionarios.DataSource = func.selectFuncionariosStatusDepartamentos(statusFunc, depto);
             }
           
         }
@@ -263,6 +255,7 @@ namespace Ocorrências_CPD
         //AÇÃO AO CLICAR NAS CELULAS DA TABELA FUNCIONARIO
         private void grdFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             try
             {
                 func.setIdPessoa(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
@@ -275,6 +268,7 @@ namespace Ocorrências_CPD
                 MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
             }
+            */
         }
 
         //AÇÃO AO FECHAR FORMULÁRIO
@@ -282,6 +276,22 @@ namespace Ocorrências_CPD
         {
             csAbrirJanelas abrirJanelas = new csAbrirJanelas(id, depto);
             abrirJanelas.abrirJanelaGerente();
+        }
+
+        private void grdFuncionarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                func.setIdPessoa(Convert.ToInt32(grdFuncionarios.Rows[grdFuncionarios.CurrentRow.Index].Cells[0].Value.ToString()));
+
+                preencheDadosControles();
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
         }
     }
 }

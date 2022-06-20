@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Ocorrências_CPD
 {
-    public class csPessoa
+    public abstract class csPessoa
     {
         protected Int32 id;
         protected string nome;
@@ -34,5 +34,9 @@ namespace Ocorrências_CPD
         public string getStatusPessoa() { return status; }
         public string getCargoPessoa() { return cargo; }
         public string getDepartamentoPessoa() { return departamento; }
+
+        public abstract void inserir();
+        public abstract void update();
+        public abstract void delete();
     }
 }

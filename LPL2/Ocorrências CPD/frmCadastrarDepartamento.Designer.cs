@@ -53,9 +53,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(15, 209);
+            this.label4.Location = new System.Drawing.Point(20, 257);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.Size = new System.Drawing.Size(108, 25);
             this.label4.TabIndex = 28;
             this.label4.Text = "Descrição";
             // 
@@ -65,18 +66,20 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(15, 149);
+            this.label2.Location = new System.Drawing.Point(20, 183);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(68, 25);
             this.label2.TabIndex = 25;
             this.label2.Text = "Nome";
             // 
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(19, 172);
+            this.txtNome.Location = new System.Drawing.Point(25, 212);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(426, 26);
+            this.txtNome.Size = new System.Drawing.Size(567, 30);
             this.txtNome.TabIndex = 24;
             // 
             // label1
@@ -85,26 +88,29 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 88);
+            this.label1.Location = new System.Drawing.Point(20, 108);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 23;
             this.label1.Text = "Código";
             // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(19, 111);
+            this.txtCodigo.Location = new System.Drawing.Point(25, 137);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(188, 26);
+            this.txtCodigo.Size = new System.Drawing.Size(249, 30);
             this.txtCodigo.TabIndex = 22;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(19, 232);
+            this.txtDescricao.Location = new System.Drawing.Point(25, 286);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(426, 108);
+            this.txtDescricao.Size = new System.Drawing.Size(567, 132);
             this.txtDescricao.TabIndex = 30;
             this.txtDescricao.Text = "";
             // 
@@ -120,19 +126,22 @@
             this.grdDepartamento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grdDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDepartamento.GridColor = System.Drawing.Color.DarkGray;
-            this.grdDepartamento.Location = new System.Drawing.Point(459, 55);
-            this.grdDepartamento.Margin = new System.Windows.Forms.Padding(4);
+            this.grdDepartamento.Location = new System.Drawing.Point(612, 68);
+            this.grdDepartamento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.grdDepartamento.Name = "grdDepartamento";
             this.grdDepartamento.ReadOnly = true;
             this.grdDepartamento.RowHeadersVisible = false;
-            this.grdDepartamento.Size = new System.Drawing.Size(398, 433);
+            this.grdDepartamento.RowHeadersWidth = 51;
+            this.grdDepartamento.Size = new System.Drawing.Size(531, 533);
             this.grdDepartamento.TabIndex = 47;
             this.grdDepartamento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDepartamento_CellContentClick);
+            this.grdDepartamento.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdDepartamento_CellMouseClick);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNovo,
             this.btnAlterar,
@@ -142,7 +151,7 @@
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(874, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1165, 40);
             this.menuStrip1.TabIndex = 48;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -150,7 +159,7 @@
             // 
             this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(73, 29);
+            this.btnNovo.Size = new System.Drawing.Size(91, 36);
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
@@ -158,7 +167,7 @@
             // 
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(85, 29);
+            this.btnAlterar.Size = new System.Drawing.Size(108, 36);
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
@@ -166,7 +175,7 @@
             // 
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(78, 29);
+            this.btnSalvar.Size = new System.Drawing.Size(98, 36);
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -174,7 +183,7 @@
             // 
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(84, 29);
+            this.btnExcluir.Size = new System.Drawing.Size(106, 36);
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -182,7 +191,7 @@
             // 
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 29);
+            this.btnCancelar.Size = new System.Drawing.Size(127, 36);
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -190,17 +199,17 @@
             // 
             this.sairToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // frmCadastrarDepartamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ocorrências_CPD.Properties.Resources.bagkground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(874, 493);
+            this.ClientSize = new System.Drawing.Size(1165, 607);
             this.Controls.Add(this.grdDepartamento);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.txtDescricao);
@@ -211,6 +220,7 @@
             this.Controls.Add(this.txtCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmCadastrarDepartamento";
             this.Text = "Ocorrências CPD - Cadastrar Departamento";

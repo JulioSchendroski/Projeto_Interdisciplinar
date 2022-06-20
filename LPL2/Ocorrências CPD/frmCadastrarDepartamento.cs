@@ -15,6 +15,7 @@ namespace Ocorrências_CPD
         //CONSTRUTOR
         Int32 id;
         Int32 depto;
+
         public frmCadastrarDepartamento(int id, int depto)
         {
             InitializeComponent();
@@ -26,18 +27,16 @@ namespace Ocorrências_CPD
         }
 
         //INSTANCIAMENTO DE CLASSES
-
+        csDiretor diretor = new csDiretor();
         csDepartamento departamento = new csDepartamento();
 
-        
         //FORMATAÇÃO DA TABELA
         private void atualizarTabelas() //atualiza os dados da tabela
-            
         {
             grdDepartamento.DataSource = departamento.selectTodosDepartamentos();
             formataGridDepartamentos();
-
         }
+
         private void formataGridDepartamentos() //formata as colunas da tabela departamento
         {
             grdDepartamento.Columns[0].HeaderText = "ID"; //id
@@ -48,10 +47,8 @@ namespace Ocorrências_CPD
             grdDepartamento.Columns[1].Width = 150; //nome
             grdDepartamento.Columns[2].Width = 500; //descrição
 
-
             grdDepartamento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
 
         //EVENTOS DOS BOTÕES
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -80,7 +77,8 @@ namespace Ocorrências_CPD
 
         }
 
-       /* private void btnExcluir_Click(object sender, EventArgs e) //Torna o departamento inativo
+        /* 
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (departamento.getIdDepartamento() != 0)
             {
@@ -96,11 +94,14 @@ namespace Ocorrências_CPD
             {
                 MessageBox.Show("Selecione o Gerente para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }*/
+        }
+       */
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (validaDados() == true)
@@ -112,6 +113,7 @@ namespace Ocorrências_CPD
                 atualizarTabelas();
             }
         }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitaControles(true);
@@ -141,7 +143,6 @@ namespace Ocorrências_CPD
             txtNome.Enabled = status;
             txtCodigo.Enabled = status;
             txtDescricao.Enabled = status;
-            
         }
 
         private void gerenciaBotoesBarra(bool status) //habilita/desabilita os botões do menustrip
@@ -172,6 +173,7 @@ namespace Ocorrências_CPD
                 txtNome.Focus();
                 return false;
             }
+
             if (txtDescricao.Text.Trim().Length < 1)
             {
                 MessageBox.Show("A descrição do departamento é obrigatória.",
@@ -179,52 +181,40 @@ namespace Ocorrências_CPD
                 txtNome.Focus();
                 return false;
             }
- 
+
             return true;
         }
 
         //SALVAR OS DEPARTAMENTOS NO BD
         private void salvarDepartamento()
         {
-            //Sets do departamento
-            departamento.setNomeDepartamento(txtNome.Text);
-            departamento.setDescricaoDepartamento(txtDescricao.Text);
-
             if (departamento.getIdDepartamento() == 0)
             {
                 //Novo departamento
-                departamento.setIdDepartamento(Convert.ToInt32(txtCodigo.Text));
-                departamento.inserir();
-
-
+                diretor.criaDepto(departamento, Convert.ToInt32(txtCodigo.Text), txtNome.Text, txtDescricao.Text);
             }
             else
             {
                 //Atualizar departamento atual
-                departamento.update();
+                diretor.alteraDepto(departamento, txtNome.Text, txtDescricao.Text);
             }
-
         }
 
-        
         //AÇÃO AO CLICAR NAS CELULAS DA TABELA DEPARTAMENTO
-
         private void grdDepartamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                try
-                {
-                    departamento.setIdDepartamento(Convert.ToInt32(grdDepartamento.Rows[grdDepartamento.CurrentRow.Index].Cells[0].Value.ToString()));
+            /*
+            try
+            {
+                departamento.setIdDepartamento(Convert.ToInt32(grdDepartamento.Rows[grdDepartamento.CurrentRow.Index].Cells[0].Value.ToString()));
 
-                    preencheDadosControles();
-                }
-
-                catch (Exception)
-                {
-                    MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
-                }
-            
+                preencheDadosControles();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            */
         }
 
         //AÇÃO AO FECHAR FORMULÁRIO
@@ -241,7 +231,7 @@ namespace Ocorrências_CPD
                 if (MessageBox.Show("Deseja Excluir o departamento?", "Alteração",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    departamento.delete();
+                    diretor.deletaDepto(departamento);
                     limparControles();
                     atualizarTabelas();
                 }
@@ -249,6 +239,20 @@ namespace Ocorrências_CPD
             else
             {
                 MessageBox.Show("Selecione o departamento para a exclusão", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void grdDepartamento_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                departamento.setIdDepartamento(Convert.ToInt32(grdDepartamento.Rows[grdDepartamento.CurrentRow.Index].Cells[0].Value.ToString()));
+
+                preencheDadosControles();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Campo selecionado é inválido", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
     }

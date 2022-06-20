@@ -1,0 +1,124 @@
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.exe.config
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.exe
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.pdb
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.Streams.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Hash.xxHash.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.HashCode.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\MySql.Data.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Npgsql.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Buffers.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Collections.Immutable.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Memory.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Text.Json.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Threading.Channels.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.ValueTuple.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\ZstdNet.dll
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.pdb
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.Streams.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\K4os.Hash.xxHash.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.HashCode.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\MySql.Data.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\Npgsql.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Buffers.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Collections.Immutable.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Memory.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Text.Json.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Threading.Channels.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\bin\Release\System.ValueTuple.xml
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.AssemblyReference.cache
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarDepartamento.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarDiretor.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarFuncionario.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarGerente.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarOcorrencias.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmDiretor.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmFuncionario.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmGerente.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmPesquisarFuncionario.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.ocorrenciasCPD.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.Properties.Resources.resources
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.GenerateResource.cache
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.CopyComplete
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.exe
+C:\Users\Usuario\Projeto_Interdisciplinar\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.exe.config
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Ocorrências CPD.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.Streams.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Hash.xxHash.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.HashCode.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\MySql.Data.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Npgsql.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Buffers.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Collections.Immutable.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Memory.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Text.Json.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Threading.Channels.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.ValueTuple.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Ubiety.Dns.Core.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\ZstdNet.dll
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.pdb
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Google.Protobuf.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Compression.LZ4.Streams.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\K4os.Hash.xxHash.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Microsoft.Bcl.HashCode.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\MySql.Data.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\Npgsql.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Buffers.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Collections.Immutable.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Memory.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Text.Json.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Threading.Channels.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\bin\Release\System.ValueTuple.xml
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarDepartamento.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmCadastrarOcorrencias.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmDiretor.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmGerente.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.frmPesquisarFuncionario.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.ocorrenciasCPD.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências_CPD.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.csproj.CopyComplete
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.exe
+C:\Users\Usuario\Desktop\Nova pasta (3)\LPL2\Ocorrências CPD\obj\Release\Ocorrências CPD.pdb

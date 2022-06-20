@@ -183,6 +183,7 @@
     <Compile Include="frmPesquisarFuncionario.Designer.cs">
       <DependentUpon>frmPesquisarFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="iConexaoBD.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>

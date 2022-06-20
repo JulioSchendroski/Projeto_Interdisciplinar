@@ -11,15 +11,14 @@ using System.IO;
 namespace Ocorrências_CPD
 {
 
-    class conexaoPostgres
+    class conexaoPostgres : iConexaoBD
     {
         private NpgsqlConnection conn;
 
-        private void conectaNpgsql()
+        private void conectaBD(string connString)
         {
             try
             {
-                string connString = "Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=postgres;Password=ifsp;sslmode=Prefer;";
                 conn = new NpgsqlConnection(connString);
                 conn.Open();
             }
@@ -29,24 +28,41 @@ namespace Ocorrências_CPD
             }
         }
 
-        public void desconectaMySql(NpgsqlConnection conn)
+        public void conectaAdm()
+        {
+            conectaBD("Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=adm;Password=ifspadm;sslmode=Prefer;");
+        }
+
+        public void conectaDiretor()
+        {
+            conectaBD("Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=diretor;Password=ifspdiretor;sslmode=Prefer;");
+        }
+
+        public void conectaGerente()
+        {
+            conectaBD("Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=gerente;Password=ifspgerente;sslmode=Prefer;");
+        }
+
+        public void conectaFuncionario()
+        {
+            conectaBD("Server=localhost;Port=5432;Database=ocorrenciascpd;UserId=funcionario;Password=ifspfuncionario;sslmode=Prefer;");
+        }
+
+        public void desconectaBD()
         {
             conn.Close();
         }
 
         public NpgsqlDataAdapter executaRetornaDados(string instrucaoSql)
         {
-            conectaNpgsql();
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(instrucaoSql, conn);
             return adapter;
         }
 
         public void executarSql(string instrucaoSQL)
         {
-            conectaNpgsql();
             NpgsqlCommand command = new NpgsqlCommand(instrucaoSQL, conn);
-            command.ExecuteNonQuery();
+            _ = command.ExecuteNonQuery();
         }
-
     }
 }
